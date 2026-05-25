@@ -153,6 +153,48 @@
             text-align: center;
             margin-bottom: 28px;
         }
+
+        /* ---- Hero Model Photo ---- */
+        .hero-model-wrap {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+        /* 【画像差し替え】ヒーローモデル / 推奨サイズ: 600x800px / 縦長ポートレート */
+        .hero-model {
+            width: 220px;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1.5px solid #2a2a2a;
+            background: linear-gradient(160deg, #1e1e1e 0%, #141414 50%, #1a1010 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+        }
+        .hero-model::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,45,45,.04), transparent 60%);
+        }
+        .hero-model-icon {
+            font-size: 52px;
+            opacity: .35;
+        }
+        .hero-model-label {
+            font-size: 11px;
+            color: #3a3a3a;
+            letter-spacing: .15em;
+            font-family: 'Bebas Neue', cursive;
+        }
+        @media (min-width: 768px) {
+            .hero-model { width: 260px; height: 340px; }
+        }
         .hero-badge {
             display: inline-block;
             background: rgba(255,45,45,.14);
@@ -334,6 +376,29 @@
         }
         .inst-name { font-size: 22px; font-weight: 900; margin-bottom: 14px; }
         .inst-bio { font-size: 13px; color: #aaa; line-height: 1.75; text-align: left; margin-bottom: 18px; }
+        .inst-bio-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 18px;
+            padding: 0;
+        }
+        .inst-bio-list li {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.7;
+            padding: 6px 0 6px 18px;
+            border-bottom: 1px solid #1e1e1e;
+            position: relative;
+        }
+        .inst-bio-list li:last-child { border-bottom: none; }
+        .inst-bio-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-size: 11px;
+            top: 8px;
+        }
         .inst-badge {
             display: inline-block;
             background: var(--grad);
@@ -654,6 +719,14 @@
         <div class="hero-logo">NEW GATE</div>
         <div class="hero-logo-sub">SNS SCHOOL</div>
 
+        <!-- 【画像差し替え】ヒーローモデル / 推奨サイズ: 600x800px / 縦長ポートレート -->
+        <div class="hero-model-wrap">
+            <div class="hero-model">
+                <span class="hero-model-icon">👩</span>
+                <span class="hero-model-label">MODEL PHOTO</span>
+            </div>
+        </div>
+
         <div class="hero-badge">🔥 8月末まで限定｜入会金10万円OFF</div>
 
         <h1 class="hero-h1">
@@ -794,7 +867,7 @@
             <!-- 【画像差し替え】講師：玉木 / 推奨サイズ: 400x400px / 丸形トリミング -->
             <div id="instructor-tamaki" class="inst-photo dummy-photo">玉木</div>
             <div class="inst-tag">元・あいのりメンバー</div>
-            <div class="inst-name">玉木 講師</div>
+            <div class="inst-name">玉木</div>
             <p class="inst-bio">
                 Instagram・TikTokを駆使して複数の収益化モデルを構築。インフルエンサーとしての発信力と、ビジネスとしてのSNS活用を両立するプロ。
             </p>
@@ -806,10 +879,12 @@
             <!-- 【画像差し替え】講師：鈴木 / 推奨サイズ: 400x400px / 丸形トリミング -->
             <div id="instructor-suzuki" class="inst-photo dummy-photo">鈴木</div>
             <div class="inst-tag">SNSマーケの戦略家</div>
-            <div class="inst-name">鈴木 講師</div>
-            <p class="inst-bio">
-                SNSマーケティングを駆使して某有名フェスの集客に貢献。オンラインサロンの立ち上げ・運営にも精通し、集客から収益化まで一気通貫で設計できる。
-            </p>
+            <div class="inst-name">鈴木</div>
+            <ul class="inst-bio inst-bio-list">
+                <li>SNSマーケで某有名フェスチケットを27分で12,000枚販売し、チケットぴあから表彰される</li>
+                <li>Instagram 3週間で70,000人フォロワー達成</li>
+                <li>Instagram運用で3投稿で50万の売り上げ</li>
+            </ul>
             <span class="inst-badge">有名フェス集客実績あり</span>
         </div>
 
@@ -818,7 +893,7 @@
             <!-- 【画像差し替え】講師：さよ / 推奨サイズ: 400x400px / 丸形トリミング -->
             <div id="instructor-sayo" class="inst-photo dummy-photo">さよ</div>
             <div class="inst-tag">TikTokショップの申し子</div>
-            <div class="inst-name">さよ 講師</div>
+            <div class="inst-name">さよ</div>
             <p class="inst-bio">
                 完全一人運営でTikTokショップの月商2,000万円を達成。仕入れ・動画制作・販売まで全工程を自力でこなすノウハウを、このスクールで惜しみなく公開。
             </p>
