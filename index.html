@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW GATE | TikTokショップで副業収入を実現するSNSスクール</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== Variables ===== */
+        :root {
+            --red: #FF2D2D;
+            --orange: #FF6B00;
+            --grad: linear-gradient(135deg, #FF2D2D, #FF6B00);
+            --grad-h: linear-gradient(90deg, #FF2D2D, #FF6B00);
+            --bg: #0a0a0a;
+            --bg2: #111111;
+            --card: #161616;
+            --card2: #1a1a1a;
+        }
+
+        /* ===== Utility ===== */
+        .grad-text {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .container { max-width: 480px; margin: 0 auto; }
+        section { padding: 64px 20px; }
+
+        .sec-label {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 13px;
+            letter-spacing: 0.25em;
+            color: var(--orange);
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        .sec-title {
+            font-weight: 900;
+            font-size: 26px;
+            line-height: 1.4;
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        /* ===== Fade In ===== */
+        .fi {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fi.on { opacity: 1; transform: translateY(0); }
+        .fi-d1 { transition-delay: 0.1s; }
+        .fi-d2 { transition-delay: 0.2s; }
+        .fi-d3 { transition-delay: 0.3s; }
+
+        /* ===== Pulse Button ===== */
+        @keyframes pulse {
+            0%   { transform: scale(1);    box-shadow: 0 0 0 0   rgba(255,107,0,.7); }
+            50%  { transform: scale(1.03); box-shadow: 0 0 0 14px rgba(255,107,0,0); }
+            100% { transform: scale(1);    box-shadow: 0 0 0 0   rgba(255,107,0,0); }
+        }
+        .btn-main {
+            display: block;
+            background: var(--grad);
+            color: #fff;
+            font-weight: 900;
+            font-size: 17px;
+            padding: 18px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.04em;
+            animation: pulse 2.2s infinite;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ================================================ */
+        /* S1  HERO                                         */
+        /* ================================================ */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 90px 24px 110px;
+            overflow: hidden;
+            background: var(--bg);
+        }
+        /* 斜めグラデーションライン装飾 */
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg,
+                    transparent 38%, rgba(255,45,45,.09) 38%, rgba(255,45,45,.09) 43%, transparent 43%,
+                    transparent 54%, rgba(255,107,0,.06) 54%, rgba(255,107,0,.06) 59%, transparent 59%,
+                    transparent 70%, rgba(255,45,45,.04) 70%, rgba(255,45,45,.04) 74%, transparent 74%
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--grad-h);
+        }
+        .hero-inner { position: relative; z-index: 1; width: 100%; max-width: 480px; }
+
+        .hero-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 86px;
+            line-height: 1;
+            letter-spacing: .18em;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 28px rgba(255,107,0,.55)) drop-shadow(0 2px 4px rgba(0,0,0,.8));
+            margin-bottom: 6px;
+            position: relative;
+        }
+        .hero-logo-sub {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 13px;
+            letter-spacing: .45em;
+            color: #555;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,45,45,.14);
+            border: 1px solid var(--red);
+            color: #ff7b7b;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 22px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+            letter-spacing: .04em;
+        }
+        .hero-h1 {
+            font-weight: 900;
+            font-size: 46px;
+            line-height: 1.18;
+            letter-spacing: -.02em;
+            margin-bottom: 22px;
+        }
+        .hero-sub {
+            font-size: 15px;
+            line-height: 1.85;
+            color: #cccccc;
+            margin-bottom: 38px;
+        }
+        .hero-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+        .hero-notes { font-size: 12px; color: #777; letter-spacing: .06em; }
+        .hero-notes span { color: #999; }
+
+        /* ================================================ */
+        /* S2  STATS                                        */
+        /* ================================================ */
+        #stats {
+            background: #0d0d0d;
+            border-top: 1px solid #1c1c1c;
+            border-bottom: 1px solid #1c1c1c;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        /* PC でも2カラム固定（2項目のみ） */
+        .stat-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 14px;
+            padding: 28px 14px 22px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--grad-h);
+        }
+        .stat-num {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 46px;
+            line-height: 1;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 12px rgba(255,107,0,.45));
+            margin-bottom: 8px;
+        }
+        .stat-lbl { font-size: 11px; color: #777; letter-spacing: .06em; margin-top: 2px; }
+
+        /* ================================================ */
+        /* S3  PAIN POINTS                                  */
+        /* ================================================ */
+        #pain { background: var(--bg2); }
+        .pain-list { list-style: none; max-width: 480px; margin: 0 auto; }
+        .pain-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 0;
+            border-bottom: 1px solid #1d1d1d;
+            font-size: 15px;
+            line-height: 1.65;
+            color: #cccccc;
+        }
+        .pain-list li:last-child { border-bottom: none; }
+        .pain-x {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            background: rgba(255,45,45,.13);
+            border: 1px solid var(--red);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--red);
+            font-size: 13px;
+            font-weight: 900;
+            margin-top: 2px;
+        }
+
+        /* ================================================ */
+        /* S4  CURRICULUM                                   */
+        /* ================================================ */
+        #curriculum { background: var(--bg); }
+        .cur-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        .cur-card {
+            background: var(--card);
+            border: 1px solid #222;
+            border-radius: 14px;
+            padding: 20px 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cur-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--grad-h);
+        }
+        .cur-no {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 34px;
+            color: #242424;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+        .cur-ico { font-size: 24px; display: block; margin-bottom: 8px; }
+        .cur-name { font-size: 13px; font-weight: 700; color: #f0f0f0; line-height: 1.4; margin-bottom: 5px; }
+        .cur-desc { font-size: 11px; color: #777; line-height: 1.5; }
+
+        /* ================================================ */
+        /* S5  INSTRUCTORS                                  */
+        /* ================================================ */
+        #instructors { background: var(--bg2); }
+        .inst-list { display: flex; flex-direction: column; gap: 24px; max-width: 480px; margin: 0 auto; }
+        .inst-card {
+            background: var(--card);
+            border: 1px solid #222;
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .inst-photo {
+            width: 104px; height: 104px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            overflow: hidden;
+        }
+        .dummy-photo {
+            background: linear-gradient(135deg, #282828, #181818);
+            border: 2px solid #2e2e2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .1em;
+        }
+        .inst-tag {
+            display: inline-block;
+            font-size: 11px;
+            color: var(--orange);
+            border: 1px solid var(--orange);
+            padding: 3px 14px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+            letter-spacing: .1em;
+        }
+        .inst-name { font-size: 22px; font-weight: 900; margin-bottom: 14px; }
+        .inst-bio { font-size: 13px; color: #aaa; line-height: 1.75; text-align: left; margin-bottom: 18px; }
+        .inst-badge {
+            display: inline-block;
+            background: var(--grad);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 7px 20px;
+            border-radius: 50px;
+        }
+
+        /* ================================================ */
+        /* S6  PRICING                                      */
+        /* ================================================ */
+        #pricing { background: var(--bg); }
+        .price-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            max-width: 480px;
+            margin: 0 auto 28px;
+        }
+        .price-card {
+            background: var(--card);
+            border: 1px solid #222;
+            border-radius: 18px;
+            padding: 26px 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-card.hot { border-color: var(--red); }
+        .price-card.hot::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--grad-h);
+        }
+        .price-lbl { font-size: 11px; font-weight: 700; color: #777; margin-bottom: 12px; letter-spacing: .1em; }
+        .price-orig { font-size: 13px; color: #555; text-decoration: line-through; margin-bottom: 4px; min-height: 20px; }
+        .price-num {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 38px;
+            line-height: 1;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+        .price-tax { font-size: 11px; color: #777; margin-bottom: 12px; }
+        .price-dl {
+            display: inline-block;
+            background: rgba(255,45,45,.13);
+            border: 1px solid var(--red);
+            color: #ff7575;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-bottom: 14px;
+        }
+        .price-feats { list-style: none; text-align: left; font-size: 11px; color: #999; line-height: 2.1; }
+        .price-feats li::before { content: '✓ '; color: var(--orange); }
+        .money-back {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(255,45,45,.05);
+            border: 1px solid rgba(255,45,45,.28);
+            border-radius: 14px;
+            padding: 22px 20px;
+            font-size: 13px;
+            color: #bbb;
+            line-height: 1.75;
+            text-align: center;
+        }
+        .money-back strong { color: var(--orange); display: block; font-size: 15px; margin-bottom: 8px; }
+
+        /* ================================================ */
+        /* S7  TESTIMONIALS                                 */
+        /* ================================================ */
+        #testimonials { background: var(--bg2); }
+        .testi-list { display: flex; flex-direction: column; gap: 20px; max-width: 480px; margin: 0 auto; }
+        .testi-card {
+            background: var(--card);
+            border: 1px solid #222;
+            border-radius: 18px;
+            padding: 26px 22px;
+            position: relative;
+        }
+        .testi-card::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 84px;
+            color: rgba(255,45,45,.12);
+            position: absolute;
+            top: 8px; left: 16px;
+            line-height: 1;
+        }
+        .testi-text { font-size: 14px; line-height: 1.85; color: #ccc; position: relative; z-index: 1; padding-top: 22px; margin-bottom: 18px; }
+        .testi-author { display: flex; align-items: center; gap: 12px; }
+        .testi-av {
+            /* 【画像差し替え】受講生アバター / 推奨サイズ: 60x60px / 丸形 */
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#282828,#181818);
+            border: 1px solid #2e2e2e;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .testi-nm { font-size: 13px; font-weight: 700; }
+        .testi-meta { font-size: 11px; color: #555; }
+
+        /* ================================================ */
+        /* S8  FAQ                                          */
+        /* ================================================ */
+        #faq { background: var(--bg); }
+        .faq-wrap { max-width: 480px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #1c1c1c; }
+        .faq-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 2px;
+            cursor: pointer;
+            gap: 12px;
+            user-select: none;
+        }
+        .faq-ql {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
+            color: var(--orange);
+            flex-shrink: 0;
+        }
+        .faq-qt { font-size: 14px; font-weight: 700; flex: 1; line-height: 1.5; color: #f0f0f0; }
+        .faq-ico {
+            flex-shrink: 0;
+            width: 26px; height: 26px;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px;
+            color: var(--orange);
+            transition: transform .3s;
+        }
+        .faq-item.open .faq-ico { transform: rotate(45deg); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+        .faq-ai {
+            padding: 0 2px 20px;
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.85;
+        }
+        .faq-al {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 18px;
+            color: var(--red);
+            margin-right: 8px;
+        }
+
+        /* ================================================ */
+        /* S9  SCREENING                                    */
+        /* ================================================ */
+        #screening {
+            background: #131313;
+            border-top: 1px solid #202020;
+            border-bottom: 1px solid #202020;
+        }
+        .scr-h {
+            font-size: 22px;
+            font-weight: 900;
+            line-height: 1.45;
+            text-align: center;
+            margin-bottom: 28px;
+            color: #fff;
+        }
+        .scr-body { max-width: 480px; margin: 0 auto 28px; font-size: 14px; color: #999; line-height: 1.9; }
+        .scr-body p { margin-bottom: 12px; }
+        .scr-box {
+            max-width: 480px;
+            margin: 0 auto;
+            border-radius: 14px;
+            padding: 26px 22px;
+            background: linear-gradient(#131313,#131313) padding-box,
+                        var(--grad-h) border-box;
+            border: 1.5px solid transparent;
+        }
+        .scr-box li {
+            list-style: none;
+            font-size: 14px;
+            font-weight: 700;
+            color: #f0f0f0;
+            padding: 11px 0;
+            border-bottom: 1px solid #1e1e1e;
+            line-height: 1.5;
+        }
+        .scr-box li:last-child { border-bottom: none; }
+        .scr-box li::before {
+            content: '✓ ';
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        /* ================================================ */
+        /* S10  FINAL CTA                                   */
+        /* ================================================ */
+        #final-cta { background: var(--bg); text-align: center; }
+        .cta-h { font-size: 34px; font-weight: 900; line-height: 1.3; margin-bottom: 20px; }
+        .cta-body { font-size: 14px; color: #999; line-height: 1.85; margin: 0 auto 36px; max-width: 480px; }
+
+        .cd-wrap { margin: 0 auto 36px; max-width: 480px; }
+        .cd-lbl { font-size: 12px; color: #777; letter-spacing: .15em; margin-bottom: 14px; }
+        .cd-timer { display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .cd-unit { text-align: center; min-width: 58px; }
+        .cd-num {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 46px;
+            line-height: 1;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+        .cd-ulbl { font-size: 10px; color: #555; letter-spacing: .1em; margin-top: 4px; }
+        .cd-sep { font-family: 'Bebas Neue', cursive; font-size: 36px; color: #2e2e2e; margin-top: -6px; }
+        .cta-notes { font-size: 12px; color: #555; margin-top: 16px; letter-spacing: .06em; }
+
+        /* ================================================ */
+        /* FOOTER                                           */
+        /* ================================================ */
+        footer {
+            background: #080808;
+            border-top: 1px solid #181818;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .foot-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 30px;
+            letter-spacing: .35em;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 18px;
+        }
+        .foot-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+        .foot-links a { font-size: 12px; color: #444; text-decoration: none; }
+        .foot-links a:hover { color: #888; }
+        .foot-copy { font-size: 11px; color: #333; }
+
+        /* ================================================ */
+        /* FIXED CTA BAR                                    */
+        /* ================================================ */
+        #fixed-cta {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(8,8,8,.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid #1e1e1e;
+            padding: 12px 20px 20px;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity .4s ease, transform .4s ease;
+        }
+        #fixed-cta.on { opacity: 1; transform: translateY(0); }
+        .fixed-btn {
+            display: block;
+            background: var(--grad);
+            color: #fff;
+            font-weight: 900;
+            font-size: 16px;
+            padding: 16px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: .04em;
+            animation: pulse 2.2s infinite;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        /* ================================================ */
+        /* RESPONSIVE  768px+                               */
+        /* ================================================ */
+        @media (min-width: 768px) {
+            section { padding: 88px 40px; }
+            .hero-h1 { font-size: 68px; }
+            .stats-grid { grid-template-columns: repeat(2,1fr); max-width: 560px; }
+            .pain-list { max-width: 680px; }
+            .cur-grid { grid-template-columns: repeat(3,1fr); max-width: 860px; }
+            .inst-list { flex-direction: row; max-width: 900px; }
+            .inst-card { flex: 1; }
+            .price-grid { max-width: 660px; }
+            .testi-list { flex-direction: row; max-width: 900px; flex-wrap: wrap; }
+            .testi-card { flex: 1; min-width: 240px; }
+            .faq-wrap { max-width: 680px; }
+            .scr-body, .scr-box { max-width: 680px; }
+            .cd-num { font-size: 58px; }
+            #fixed-cta { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ======================================== -->
+<!-- S1  HERO                                 -->
+<!-- ======================================== -->
+<section id="hero">
+    <div class="hero-inner fi">
+        <div class="hero-logo">NEW GATE</div>
+        <div class="hero-logo-sub">SNS SCHOOL</div>
+
+        <div class="hero-badge">🔥 8月末まで限定｜入会金10万円OFF</div>
+
+        <h1 class="hero-h1">
+            会社員のまま、<br>
+            <span class="grad-text">TikTokで稼ぐ。</span>
+        </h1>
+
+        <p class="hero-sub">
+            月商2,000万円達成者が直接教える、<br>
+            副業で本業を超える最短ルート。
+        </p>
+
+        <div class="hero-cta">
+            <a href="https://lin.ee/XXXXXXX" class="btn-main" target="_blank" rel="noopener">
+                今すぐ無料相談する（公式LINE）
+            </a>
+            <p class="hero-notes">
+                <span>✓ しつこい営業なし</span>　<span>✓ 相談無料</span>　<span>✓ 当日回答OK</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S2  STATS                                -->
+<!-- ======================================== -->
+<section id="stats">
+    <div class="sec-label">RESULTS</div>
+    <h2 class="sec-title">数字で見る実績</h2>
+
+    <div class="stats-grid">
+        <div class="stat-card fi fi-d1">
+            <div class="stat-num">
+                <span class="count-up" data-target="2000" data-suffix="万円">0</span>
+            </div>
+            <div class="stat-lbl">講師最高月商</div>
+        </div>
+        <div class="stat-card fi fi-d2">
+            <div class="stat-num">
+                <span class="count-up" data-target="2" data-suffix="ヶ月">0</span>
+            </div>
+            <div class="stat-lbl">平均収益化期間</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S3  PAIN POINTS                          -->
+<!-- ======================================== -->
+<section id="pain">
+    <div class="container">
+        <div class="sec-label">PAIN POINTS</div>
+        <h2 class="sec-title">こんな悩み、<br>ありませんか？</h2>
+
+        <ul class="pain-list fi">
+            <li>
+                <span class="pain-x">✗</span>
+                <span>毎日残業続きで、副業を始める時間もエネルギーもない</span>
+            </li>
+            <li>
+                <span class="pain-x">✗</span>
+                <span>SNSで発信してみたけど、フォロワーが増えても全然稼げない</span>
+            </li>
+            <li>
+                <span class="pain-x">✗</span>
+                <span>TikTokショップが気になるけど、何から始めればいいか全くわからない</span>
+            </li>
+            <li>
+                <span class="pain-x">✗</span>
+                <span>動画編集やAIツールを使いこなせるか自信がない</span>
+            </li>
+            <li>
+                <span class="pain-x">✗</span>
+                <span>スクールに入っても稼げず終わるのでは？という不安がある</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S4  CURRICULUM                           -->
+<!-- ======================================== -->
+<section id="curriculum">
+    <div class="sec-label">CURRICULUM</div>
+    <h2 class="sec-title">NEW GATEで<br>学べること</h2>
+
+    <div class="cur-grid">
+        <div class="cur-card fi fi-d1">
+            <div class="cur-no">01</div>
+            <span class="cur-ico">🎬</span>
+            <div class="cur-name">動画編集スキル</div>
+            <div class="cur-desc">スマホだけでプロ級動画を量産</div>
+        </div>
+        <div class="cur-card fi fi-d2">
+            <div class="cur-no">02</div>
+            <span class="cur-ico">🛒</span>
+            <div class="cur-name">TikTokショップ攻略</div>
+            <div class="cur-desc">商品が売れる仕組みを完全理解</div>
+        </div>
+        <div class="cur-card fi fi-d1">
+            <div class="cur-no">03</div>
+            <span class="cur-ico">📱</span>
+            <div class="cur-name">コンテンツ制作スキル</div>
+            <div class="cur-desc">バズる投稿の型を習得</div>
+        </div>
+        <div class="cur-card fi fi-d2">
+            <div class="cur-no">04</div>
+            <span class="cur-ico">💰</span>
+            <div class="cur-name">月商2,000万円の実証手法</div>
+            <div class="cur-desc">再現性のある売り方を伝授</div>
+        </div>
+        <div class="cur-card fi fi-d1">
+            <div class="cur-no">05</div>
+            <span class="cur-ico">📊</span>
+            <div class="cur-name">SNSマーケティング</div>
+            <div class="cur-desc">Instagram・TikTok両方で収益化</div>
+        </div>
+        <div class="cur-card fi fi-d2">
+            <div class="cur-no">06</div>
+            <span class="cur-ico">🤖</span>
+            <div class="cur-name">AI動画生成スキル</div>
+            <div class="cur-desc">最新AIで作業時間を10分の1に</div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S5  INSTRUCTORS                          -->
+<!-- ======================================== -->
+<section id="instructors">
+    <div class="sec-label">INSTRUCTORS</div>
+    <h2 class="sec-title">講師紹介</h2>
+
+    <div class="inst-list">
+
+        <!-- 講師1: 玉木 -->
+        <div class="inst-card fi">
+            <!-- 【画像差し替え】講師：玉木 / 推奨サイズ: 400x400px / 丸形トリミング -->
+            <div id="instructor-tamaki" class="inst-photo dummy-photo">玉木</div>
+            <div class="inst-tag">元・あいのりメンバー</div>
+            <div class="inst-name">玉木 講師</div>
+            <p class="inst-bio">
+                Instagram・TikTokを駆使して複数の収益化モデルを構築。インフルエンサーとしての発信力と、ビジネスとしてのSNS活用を両立するプロ。
+            </p>
+            <span class="inst-badge">SNS収益化 複数実現</span>
+        </div>
+
+        <!-- 講師2: 鈴木 -->
+        <div class="inst-card fi">
+            <!-- 【画像差し替え】講師：鈴木 / 推奨サイズ: 400x400px / 丸形トリミング -->
+            <div id="instructor-suzuki" class="inst-photo dummy-photo">鈴木</div>
+            <div class="inst-tag">SNSマーケの戦略家</div>
+            <div class="inst-name">鈴木 講師</div>
+            <p class="inst-bio">
+                SNSマーケティングを駆使して某有名フェスの集客に貢献。オンラインサロンの立ち上げ・運営にも精通し、集客から収益化まで一気通貫で設計できる。
+            </p>
+            <span class="inst-badge">有名フェス集客実績あり</span>
+        </div>
+
+        <!-- 講師3: さよ -->
+        <div class="inst-card fi">
+            <!-- 【画像差し替え】講師：さよ / 推奨サイズ: 400x400px / 丸形トリミング -->
+            <div id="instructor-sayo" class="inst-photo dummy-photo">さよ</div>
+            <div class="inst-tag">TikTokショップの申し子</div>
+            <div class="inst-name">さよ 講師</div>
+            <p class="inst-bio">
+                完全一人運営でTikTokショップの月商2,000万円を達成。仕入れ・動画制作・販売まで全工程を自力でこなすノウハウを、このスクールで惜しみなく公開。
+            </p>
+            <span class="inst-badge">月商2,000万円 達成</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S6  PRICING                              -->
+<!-- ======================================== -->
+<section id="pricing">
+    <div class="sec-label">PRICING</div>
+    <h2 class="sec-title">料金プラン</h2>
+
+    <div class="price-grid fi">
+
+        <!-- 入会金 -->
+        <div class="price-card hot">
+            <div class="price-lbl">入会金</div>
+            <div class="price-orig">通常 300,000円</div>
+            <div class="price-num">20万円</div>
+            <div class="price-tax">（税込）</div>
+            <div class="price-dl">8月31日まで限定</div>
+            <ul class="price-feats">
+                <li>全額返金保証付き（条件あり）</li>
+                <li>入会後2ヶ月で回収が目標</li>
+            </ul>
+        </div>
+
+        <!-- 月額 -->
+        <div class="price-card">
+            <div class="price-lbl">月額費用</div>
+            <div class="price-orig">&nbsp;</div>
+            <div class="price-num">9,800</div>
+            <div class="price-tax">円（税込）/ 月</div>
+            <div style="height:28px"></div>
+            <ul class="price-feats">
+                <li>案件紹介</li>
+                <li>個別収益化コンサル</li>
+                <li>動画添削・FB</li>
+                <li>専用コミュニティ</li>
+                <li>縛りなし・いつでも解約可</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="money-back fi">
+        <strong>🛡️ 全額返金保証あり</strong>
+        万が一、入会後30日以内に「思っていたものと違う」と感じた場合は、全額返金いたします。詳細は無料相談にてご確認ください。
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S7  TESTIMONIALS                         -->
+<!-- ======================================== -->
+<section id="testimonials">
+    <div class="sec-label">VOICE</div>
+    <h2 class="sec-title">受講生の声</h2>
+
+    <div class="testi-list">
+
+        <div class="testi-card fi">
+            <p class="testi-text">
+                入会2ヶ月で月収8万円を達成。さよ講師の具体的なアドバイスのおかげで、はじめて自分でお金を生み出せた感覚があります。
+            </p>
+            <div class="testi-author">
+                <!-- 【画像差し替え】受講生Aさんアバター / 推奨サイズ: 60x60px / 丸形 -->
+                <div class="testi-av">😊</div>
+                <div>
+                    <div class="testi-nm">Aさん</div>
+                    <div class="testi-meta">28歳・会社員</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testi-card fi">
+            <p class="testi-text">
+                動画編集もSNSも全くの未経験でしたが、丁寧に教えてもらえて挫折しませんでした。今は副業収入が本業の半分近くになっています。
+            </p>
+            <div class="testi-author">
+                <!-- 【画像差し替え】受講生Bさんアバター / 推奨サイズ: 60x60px / 丸形 -->
+                <div class="testi-av">🙂</div>
+                <div>
+                    <div class="testi-nm">Bさん</div>
+                    <div class="testi-meta">35歳・会社員</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testi-card fi">
+            <p class="testi-text">
+                TikTokショップって難しそうと思っていたけど、スクールの型通りにやったら1ヶ月目から売上が立ちました。もっと早く入れば良かった。
+            </p>
+            <div class="testi-author">
+                <!-- 【画像差し替え】受講生Cさんアバター / 推奨サイズ: 60x60px / 丸形 -->
+                <div class="testi-av">😄</div>
+                <div>
+                    <div class="testi-nm">Cさん</div>
+                    <div class="testi-meta">31歳・会社員</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S8  FAQ                                  -->
+<!-- ======================================== -->
+<section id="faq">
+    <div class="sec-label">FAQ</div>
+    <h2 class="sec-title">よくある質問</h2>
+
+    <div class="faq-wrap fi">
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="faq-ql">Q</span>
+                <span class="faq-qt">SNSも動画編集も未経験ですが大丈夫ですか？</span>
+                <span class="faq-ico">+</span>
+            </div>
+            <div class="faq-a">
+                <div class="faq-ai"><span class="faq-al">A</span>はい、まったく問題ありません。スクールはゼロから丁寧に教える設計になっています。受講生の約6割がSNS未経験からのスタートです。</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="faq-ql">Q</span>
+                <span class="faq-qt">スマホだけで参加・作業できますか？</span>
+                <span class="faq-ico">+</span>
+            </div>
+            <div class="faq-a">
+                <div class="faq-ai"><span class="faq-al">A</span>はい、スマホ1台で完結できます。パソコンがあればより効率的ですが、必須ではありません。</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="faq-ql">Q</span>
+                <span class="faq-qt">どのくらいの期間で稼げるようになりますか？</span>
+                <span class="faq-ico">+</span>
+            </div>
+            <div class="faq-a">
+                <div class="faq-ai"><span class="faq-al">A</span>個人差はありますが、スクールでは「2ヶ月で入会金回収」を目標として設定しています。実際に1〜2ヶ月で初収益を上げた受講生が多数います。</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="faq-ql">Q</span>
+                <span class="faq-qt">TikTokショップのアカウントを持っていませんが大丈夫ですか？</span>
+                <span class="faq-ico">+</span>
+            </div>
+            <div class="faq-a">
+                <div class="faq-ai"><span class="faq-al">A</span>まったく問題ありません。アカウント開設から出品の設定まで、サポートします。</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="faq-ql">Q</span>
+                <span class="faq-qt">返金保証の詳しい条件を教えてください。</span>
+                <span class="faq-ico">+</span>
+            </div>
+            <div class="faq-a">
+                <div class="faq-ai"><span class="faq-al">A</span>入会後30日以内にご申請いただいた場合、条件を確認のうえ全額返金対応いたします。詳細な条件については、無料相談の際にご説明します。</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">
+                <span class="faq-ql">Q</span>
+                <span class="faq-qt">月額9,800円で受けられるサービスの内容は？</span>
+                <span class="faq-ico">+</span>
+            </div>
+            <div class="faq-a">
+                <div class="faq-ai"><span class="faq-al">A</span>案件紹介・個別収益化コンサル・動画添削・専用コミュニティへの参加が含まれます。契約期間の縛りはなく、いつでも解約可能です。</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S9  SCREENING                            -->
+<!-- ======================================== -->
+<section id="screening">
+    <div class="container fi">
+        <div class="sec-label">ADMISSION</div>
+        <h2 class="scr-h">
+            NEW GATEは、全員に<br>ご入会いただけるスクールでは<br>ありません。
+        </h2>
+
+        <div class="scr-body">
+            <p>無料相談では、あなたの現状・目標・ライフスタイルを丁寧にヒアリングします。</p>
+            <p>その上で、NEW GATEとの相性や、今のタイミングで入会すべきかどうかを講師が正直にお伝えします。</p>
+            <p>もし「今はまだ合わない」と判断した場合は、こちらからお断りさせていただくこともあります。</p>
+            <p>それは、あなたに無駄なお金を使わせたくないから。そして、本当に結果を出せる方と一緒に進んでいきたいから。</p>
+        </div>
+
+        <ul class="scr-box">
+            <li>入会を無理に勧めることはしません</li>
+            <li>合わないと判断した場合は正直にお伝えします</li>
+            <li>あなたの状況に合った判断を、一緒に考えます</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S10  FINAL CTA                           -->
+<!-- ======================================== -->
+<section id="final-cta">
+    <div class="container">
+        <div class="sec-label fi">LET'S TALK</div>
+        <h2 class="cta-h fi">
+            まずは、<span class="grad-text">無料で</span><br>話しましょう。
+        </h2>
+        <p class="cta-body fi">
+            しつこい営業は一切しません。あなたの状況をヒアリングして、NEW GATEが本当に合うかどうかを一緒に確認します。合わないと感じたら、正直にお伝えします。
+        </p>
+
+        <div class="cd-wrap fi">
+            <div class="cd-lbl">🔥 キャンペーン終了まで</div>
+            <div class="cd-timer">
+                <div class="cd-unit">
+                    <span class="cd-num" id="cd-days">00</span>
+                    <div class="cd-ulbl">DAYS</div>
+                </div>
+                <span class="cd-sep">:</span>
+                <div class="cd-unit">
+                    <span class="cd-num" id="cd-hours">00</span>
+                    <div class="cd-ulbl">HOURS</div>
+                </div>
+                <span class="cd-sep">:</span>
+                <div class="cd-unit">
+                    <span class="cd-num" id="cd-mins">00</span>
+                    <div class="cd-ulbl">MIN</div>
+                </div>
+                <span class="cd-sep">:</span>
+                <div class="cd-unit">
+                    <span class="cd-num" id="cd-secs">00</span>
+                    <div class="cd-ulbl">SEC</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-bottom:16px;" class="fi">
+            <a href="https://lin.ee/XXXXXXX" class="btn-main" target="_blank" rel="noopener">
+                公式LINEで無料相談を予約する
+            </a>
+        </div>
+        <p class="cta-notes fi">✓ 無料　✓ 勧誘なし　✓ 当日OK</p>
+    </div>
+</section>
+
+<!-- ======================================== -->
+<!-- S11  FOOTER                              -->
+<!-- ======================================== -->
+<footer>
+    <div class="foot-logo">NEW GATE</div>
+    <div class="foot-links">
+        <a href="#">特定商取引法に基づく表記</a>
+        <a href="#">プライバシーポリシー</a>
+    </div>
+    <p class="foot-copy">© 2025 NEW GATE All Rights Reserved.</p>
+</footer>
+
+<!-- ======================================== -->
+<!-- FIXED CTA BAR                            -->
+<!-- ======================================== -->
+<div id="fixed-cta">
+    <a href="https://lin.ee/XXXXXXX" class="fixed-btn" target="_blank" rel="noopener">
+        🔥 無料相談はこちら
+    </a>
+</div>
+
+<!-- ======================================== -->
+<!-- JAVASCRIPT                               -->
+<!-- ======================================== -->
+<script>
+    /* ---- Intersection Observer: fade-in ---- */
+    const fadeEls = document.querySelectorAll('.fi');
+    const fadeObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('on');
+                fadeObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    fadeEls.forEach(el => {
+        // hero fires immediately
+        if (el.closest('#hero')) { el.classList.add('on'); return; }
+        fadeObs.observe(el);
+    });
+
+    /* ---- Count-up ---- */
+    function countUp(el) {
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        const dur = 1800;
+        const t0 = performance.now();
+        (function tick(now) {
+            const p = Math.min((now - t0) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            const val = Math.floor(eased * target);
+            el.textContent = (target >= 1000 ? val.toLocaleString() : val) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+            else el.textContent = (target >= 1000 ? target.toLocaleString() : target) + suffix;
+        })(t0);
+    }
+
+    let statsRan = false;
+    const statsObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting && !statsRan) {
+                statsRan = true;
+                document.querySelectorAll('.count-up').forEach(countUp);
+                statsObs.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+    statsObs.observe(document.getElementById('stats'));
+
+    /* ---- FAQ accordion ---- */
+    document.querySelectorAll('.faq-q').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const ans  = item.querySelector('.faq-a');
+            const open = item.classList.contains('open');
+            // close all
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-a').style.maxHeight = null;
+            });
+            // open clicked if it was closed
+            if (!open) {
+                item.classList.add('open');
+                ans.style.maxHeight = ans.scrollHeight + 'px';
+            }
+        });
+    });
+
+    /* ---- Countdown timer ---- */
+    const CD_TARGET = new Date('2025-08-31T23:59:59+09:00');
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+        const diff = CD_TARGET - Date.now();
+        if (diff <= 0) {
+            ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+                document.getElementById(id).textContent = '00';
+            });
+            return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor(diff % 86400000 / 3600000);
+        const m = Math.floor(diff % 3600000  / 60000);
+        const s = Math.floor(diff % 60000    / 1000);
+        document.getElementById('cd-days').textContent  = pad(d);
+        document.getElementById('cd-hours').textContent = pad(h);
+        document.getElementById('cd-mins').textContent  = pad(m);
+        document.getElementById('cd-secs').textContent  = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    /* ---- Fixed CTA bar (show after 500px scroll) ---- */
+    const fixedCta = document.getElementById('fixed-cta');
+    window.addEventListener('scroll', () => {
+        fixedCta.classList.toggle('on', window.scrollY > 500);
+    }, { passive: true });
+</script>
+
+</body>
+</html>
