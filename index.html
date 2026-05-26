@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEW GATE｜TikTokショップスクール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #050508;
+    --deep: #0a0a14;
+    --surface: #12121f;
+    --card: #1a1a2e;
+    --border: rgba(255,255,255,0.08);
+    --cyan: #00f5ff;
+    --pink: #ff2d78;
+    --purple: #b44fff;
+    --gold: #ffd700;
+    --white: #ffffff;
+    --gray: #8888a0;
+    --text: #e8e8f0;
+    --grad-main: linear-gradient(135deg, #00f5ff 0%, #b44fff 50%, #ff2d78 100%);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Noto Sans JP', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5,5,8,0.88);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 5px;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--grad-main);
+    color: #000;
+    text-decoration: none;
+    transition: opacity .2s, transform .2s;
+    letter-spacing: 0.5px;
+  }
+  .nav-cta:hover { opacity: 0.85; transform: scale(1.04); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 24px 80px;
+  }
+  .hero-aurora {
+    position: absolute;
+    width: 900px; height: 900px;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(0,245,255,0.1) 0%, rgba(180,79,255,0.08) 40%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: pulse 7s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .hero-aurora2 {
+    position: absolute;
+    width: 500px; height: 500px;
+    bottom: -80px; right: -80px;
+    background: radial-gradient(ellipse, rgba(255,45,120,0.12) 0%, transparent 60%);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: pulse 9s ease-in-out infinite reverse;
+    pointer-events: none;
+  }
+  @keyframes pulse {
+    0%,100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+    50% { transform: translateX(-50%) scale(1.12); opacity: 1; }
+  }
+
+  .hero-model {
+    width: min(320px, 80vw);
+    height: min(400px, 78vw);
+    border-radius: 24px;
+    margin-bottom: 36px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background: linear-gradient(160deg, #1a1a2e 0%, #0a0a14 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-model::before {
+    content: '';
+    position: absolute;
+    inset: -1.5px;
+    border-radius: 26px;
+    background: var(--grad-main);
+    z-index: -1;
+    opacity: 0.7;
+  }
+  .hero-model img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+  .model-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+  }
+  .model-placeholder-icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .model-placeholder-icon svg { opacity: 0.3; }
+  .model-placeholder-text { font-size: 12px; color: #444; text-align: center; line-height: 1.6; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    border-radius: 100px;
+    border: 1px solid rgba(0,245,255,0.35);
+    background: rgba(0,245,255,0.04);
+    font-size: 11px;
+    font-family: 'Space Mono', monospace;
+    color: var(--cyan);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.7s ease both;
+  }
+  .badge-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+    animation: blink 1.6s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 13vw, 112px);
+    line-height: 0.88;
+    text-align: center;
+    letter-spacing: 6px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.8s ease 0.1s both;
+  }
+  .hero-title .grad {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+  }
+  .hero-title .white { color: var(--white); display: block; }
+
+  .hero-sub {
+    font-size: clamp(14px, 2.8vw, 19px);
+    color: var(--gray);
+    text-align: center;
+    margin-top: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.9s ease 0.2s both;
+  }
+  .hero-sub span { color: var(--cyan); font-weight: 700; }
+
+  .hero-hooks {
+    display: flex;
+    gap: 14px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease 0.3s both;
+  }
+  .hook {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border-radius: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .hook.primary { border-color: rgba(0,245,255,0.35); background: rgba(0,245,255,0.05); color: var(--cyan); }
+  .hook.secondary { border-color: rgba(255,45,120,0.35); background: rgba(255,45,120,0.05); color: var(--pink); }
+  .hook-line {
+    width: 2px; height: 20px;
+    background: currentColor;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .hero-cta {
+    margin-top: 44px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease 0.4s both;
+    text-align: center;
+  }
+  .btn-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 48px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 900;
+    background: var(--grad-main);
+    color: #000;
+    text-decoration: none;
+    box-shadow: 0 0 40px rgba(0,245,255,0.25), 0 0 80px rgba(180,79,255,0.15);
+    transition: transform .2s, box-shadow .2s;
+    letter-spacing: 1px;
+  }
+  .btn-line:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 60px rgba(0,245,255,0.45), 0 0 100px rgba(180,79,255,0.25);
+  }
+  .hero-note { margin-top: 14px; font-size: 12px; color: #555; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+
+  /* SECTIONS */
+  section { padding: 88px 24px; }
+  .container { max-width: 900px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    border: 1px solid rgba(0,245,255,0.25);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: clamp(28px, 5.5vw, 50px);
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .section-title .accent { color: var(--cyan); }
+  .section-title .pink { color: var(--pink); }
+  .section-desc { color: var(--gray); font-size: 15px; max-width: 560px; line-height: 1.85; }
+
+  /* PROBLEM */
+  .problem { background: var(--deep); }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-top: 44px;
+  }
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .3s, transform .3s;
+  }
+  .problem-card:hover { border-color: rgba(255,45,120,0.35); transform: translateY(-4px); }
+  .problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--grad-main);
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .problem-card:hover::before { opacity: 1; }
+  .problem-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--pink);
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .problem-text { font-size: 14px; font-weight: 500; color: var(--text); line-height: 1.7; }
+
+  /* WHY */
+  .why { background: var(--black); }
+  .why-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 48px;
+  }
+  .why-main {
+    grid-column: 1 / -1;
+    background: var(--card);
+    border: 1px solid rgba(0,245,255,0.25);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .why-main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 15% 50%, rgba(0,245,255,0.06) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .why-main-num {
+    flex-shrink: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    line-height: 1;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+  }
+  .why-main-content h3 { font-size: 20px; font-weight: 900; color: var(--cyan); margin-bottom: 10px; }
+  .why-main-content p { font-size: 14px; color: var(--gray); line-height: 1.85; }
+
+  .why-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    transition: border-color .3s, transform .3s;
+  }
+  .why-card:hover { border-color: rgba(180,79,255,0.35); transform: translateY(-4px); }
+  .why-card-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--purple);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .why-card h3 { font-size: 15px; font-weight: 900; margin-bottom: 10px; }
+  .why-card p { font-size: 13px; color: var(--gray); line-height: 1.75; }
+
+  /* SKILLS */
+  .skills { background: var(--deep); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 44px;
+  }
+  .skill-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: transform .3s, border-color .3s;
+  }
+  .skill-item:hover { transform: translateY(-4px); border-color: rgba(180,79,255,0.35); }
+  .skill-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--purple);
+    background: rgba(180,79,255,0.08);
+    border: 1px solid rgba(180,79,255,0.25);
+    border-radius: 8px;
+    padding: 4px 9px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    letter-spacing: 1px;
+  }
+  .skill-content h4 { font-size: 15px; font-weight: 900; margin-bottom: 7px; }
+  .skill-content p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+
+  /* RESULT */
+  .result { background: var(--black); }
+  .result-highlight {
+    background: var(--card);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 28px;
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 44px 0;
+  }
+  .result-highlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,215,0,0.07) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .result-label-top {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .result-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 20vw, 150px);
+    line-height: 0.85;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+  }
+  .result-unit {
+    font-size: clamp(18px, 3.5vw, 28px);
+    font-weight: 900;
+    color: var(--gold);
+    display: block;
+    margin-top: 10px;
+  }
+  .result-sub {
+    font-size: 14px;
+    color: var(--gray);
+    margin-top: 20px;
+    line-height: 1.8;
+  }
+  .result-sub strong { color: var(--text); }
+
+  /* INSTRUCTORS */
+  .instructors { background: var(--deep); }
+  .instructor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 44px;
+  }
+  .instructor-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 32px 28px;
+    transition: transform .3s, border-color .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .instructor-card:hover { transform: translateY(-6px); border-color: rgba(0,245,255,0.25); }
+  .instructor-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--grad-main);
+  }
+  .instructor-index {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gray);
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .instructor-name { font-size: 26px; font-weight: 900; margin-bottom: 4px; }
+  .instructor-title {
+    font-size: 11px;
+    color: var(--cyan);
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .instructor-desc { font-size: 13px; color: var(--gray); line-height: 1.85; }
+  .instructor-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .tag {
+    font-size: 11px;
+    padding: 4px 11px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    color: #666;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* PLAN */
+  .plan { background: var(--black); }
+  .plan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 44px;
+  }
+  .plan-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s;
+  }
+  .plan-card:hover { transform: translateY(-6px); }
+  .plan-card.featured {
+    border-color: rgba(0,245,255,0.4);
+    background: linear-gradient(160deg, rgba(0,245,255,0.04) 0%, rgba(180,79,255,0.04) 100%);
+  }
+  .plan-campaign-bar {
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--grad-main);
+    color: #000;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 6px 18px;
+    border-bottom-left-radius: 16px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+  }
+  .plan-name {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-family: 'Space Mono', monospace;
+    display: block;
+  }
+  .plan-original {
+    font-size: 15px;
+    color: #444;
+    text-decoration: line-through;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .plan-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+  }
+  .plan-price-note {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 6px;
+    display: block;
+    margin-bottom: 28px;
+  }
+  .plan-features { list-style: none; }
+  .plan-features li {
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.5;
+  }
+  .plan-features li:last-child { border-bottom: none; }
+  .check {
+    color: var(--cyan);
+    font-weight: 900;
+    flex-shrink: 0;
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  .guarantee-box {
+    background: var(--surface);
+    border: 1px solid rgba(255,45,120,0.25);
+    border-radius: 20px;
+    padding: 28px 32px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    margin-top: 24px;
+  }
+  .guarantee-icon-wrap {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,45,120,0.3);
+    background: rgba(255,45,120,0.06);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .guarantee-text h4 { font-size: 16px; font-weight: 900; color: var(--pink); margin-bottom: 7px; }
+  .guarantee-text p { font-size: 13px; color: var(--gray); line-height: 1.8; }
+
+  /* FLOW */
+  .flow { background: var(--deep); }
+  .flow-steps {
+    display: flex;
+    flex-direction: column;
+    margin-top: 44px;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .flow-step { display: flex; gap: 24px; align-items: flex-start; }
+  .flow-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .flow-num {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--grad-main);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0,245,255,0.2);
+    flex-shrink: 0;
+  }
+  .flow-line {
+    width: 1px;
+    flex: 1;
+    min-height: 32px;
+    background: linear-gradient(to bottom, rgba(0,245,255,0.3), rgba(180,79,255,0.3));
+    margin: 8px 0;
+  }
+  .flow-content {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    flex: 1;
+    transition: border-color .3s;
+  }
+  .flow-content:hover { border-color: rgba(0,245,255,0.25); }
+  .flow-step-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .flow-content h4 { font-size: 18px; font-weight: 900; margin-bottom: 7px; }
+  .flow-content p { font-size: 13px; color: var(--gray); line-height: 1.75; }
+
+  /* SAFETY */
+  .safety { background: var(--black); }
+  .safety-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-top: 44px;
+  }
+  .safety-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 28px;
+    transition: transform .3s, border-color .3s;
+  }
+  .safety-card:hover { transform: translateY(-4px); border-color: rgba(0,245,255,0.25); }
+  .safety-card-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--purple);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .safety-card h4 { font-size: 15px; font-weight: 900; margin-bottom: 10px; }
+  .safety-card p { font-size: 13px; color: var(--gray); line-height: 1.75; }
+
+  .interview-notice {
+    background: linear-gradient(135deg, rgba(255,45,120,0.05) 0%, rgba(180,79,255,0.05) 100%);
+    border: 1px solid rgba(255,45,120,0.2);
+    border-radius: 24px;
+    padding: 40px;
+    margin-top: 40px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .interview-icon-wrap {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,45,120,0.3);
+    background: rgba(255,45,120,0.06);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .interview-text h3 { font-size: 17px; font-weight: 900; color: var(--pink); margin-bottom: 10px; }
+  .interview-text p { font-size: 14px; color: var(--gray); line-height: 1.85; }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--deep);
+    text-align: center;
+    padding: 110px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(0,245,255,0.08) 0%, rgba(180,79,255,0.06) 40%, transparent 65%);
+    border-radius: 50%;
+    filter: blur(50px);
+    pointer-events: none;
+  }
+  .final-cta .section-title { max-width: 700px; margin: 0 auto 14px; }
+  .final-cta .section-desc { margin: 0 auto 44px; text-align: center; }
+  .final-cta .btn-line { font-size: 17px; padding: 20px 54px; }
+  .final-note { margin-top: 20px; font-size: 12px; color: #555; line-height: 2.2; }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    padding: 44px 24px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 6px;
+    display: block;
+    margin-bottom: 14px;
+  }
+  footer p { font-size: 12px; color: #444; }
+
+  /* REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .nav { padding: 14px 20px; }
+    .why-cards { grid-template-columns: 1fr; }
+    .why-main { flex-direction: column; gap: 16px; }
+    .plan-card { padding: 28px 22px; }
+    .interview-notice { flex-direction: column; gap: 16px; }
+    section { padding: 64px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">NEW GATE</div>
+  <a href="#line-cta" class="nav-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    無料相談する
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-aurora"></div>
+  <div class="hero-aurora2"></div>
+
+  <!-- 【画像差し替え】ヒーローモデル / 推奨サイズ: 640x800px / 縦長ポートレート -->
+  <div class="hero-model">
+    <!-- <img src="your-model-image.jpg" alt="NEW GATE"> -->
+    <div class="model-placeholder">
+      <div class="model-placeholder-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <div class="model-placeholder-text">モデル画像をここに配置<br><span style="font-size:11px;color:#333">imgタグのコメントを外して差し替え</span></div>
+    </div>
+  </div>
+
+  <div class="hero-badge">
+    <div class="badge-dot"></div>
+    TikTok Shop Specialist School
+  </div>
+
+  <h1 class="hero-title">
+    <span class="grad">NEW GATE</span>
+    <span class="white">で変われ</span>
+  </h1>
+  <p class="hero-sub">
+    <span>TikTokショップ</span>で稼ぐ力を、<span>1on1</span>で身につける
+  </p>
+
+  <div class="hero-hooks">
+    <div class="hook primary">
+      <div class="hook-line"></div>
+      稼げるまで1on1サポート継続
+    </div>
+    <div class="hook secondary">
+      <div class="hook-line"></div>
+      収益化できなければ全額返金
+    </div>
+  </div>
+
+  <div class="hero-cta" id="line-cta">
+    <a href="https://lin.ee/XXXXXXX" class="btn-line">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINEで無料相談する
+    </a>
+    <p class="hero-note">まずはLINEから。面談後に入会を判断できます</p>
+  </div>
+</section>
+
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">こんな悩みありませんか？</div>
+      <h2 class="section-title">SNSで稼ぎたいのに<br><span class="pink">一歩踏み出せない</span>あなたへ</h2>
+    </div>
+    <div class="problem-grid reveal">
+      <div class="problem-card">
+        <span class="problem-num">CASE 01</span>
+        <div class="problem-text">TikTokで稼いでいる人を見かけるのに、自分はどこから始めればいいかわからない</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-num">CASE 02</span>
+        <div class="problem-text">動画を投稿しても再生数が伸びず、商品が全然売れない</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-num">CASE 03</span>
+        <div class="problem-text">ノウハウを学んでも実践できず、結果が出ないまま時間だけ過ぎていく</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-num">CASE 04</span>
+        <div class="problem-text">副業を始めたいが、高額なだけで成果のないスクールが怖くて踏み出せない</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">NEW GATEが選ばれる理由</div>
+      <h2 class="section-title">稼げるまで<span class="accent">絶対に手を離さない</span>スクール</h2>
+      <p class="section-desc">NEW GATEは「教えて終わり」ではありません。受講生一人ひとりの収益化を最優先に、専任講師が伴走し続けます。</p>
+    </div>
+    <div class="why-cards reveal">
+      <div class="why-main">
+        <div class="why-main-num">01</div>
+        <div class="why-main-content">
+          <h3>稼げるまで1on1サポートを継続</h3>
+          <p>これがNEW GATEの最大の強みです。コンテンツを渡すだけの「丸投げスクール」とは一線を画します。あなたの状況に合わせて、収益が出るまで専任講師がマンツーマンで伴走。「一人で悩む時間」をゼロにします。</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <span class="why-card-label">POINT 02</span>
+        <h3>収益化できなければ全額返金</h3>
+        <p>結果にコミットできる自信があるから全額返金保証をお約束。リスクなく始められます。</p>
+      </div>
+      <div class="why-card">
+        <span class="why-card-label">POINT 03</span>
+        <h3>月商2,000万円の実績メソッド</h3>
+        <p>実際にTikTokショップで月商2,000万円を達成した手法を、惜しみなく全公開します。</p>
+      </div>
+      <div class="why-card">
+        <span class="why-card-label">POINT 04</span>
+        <h3>TikTok + Instagram 両方対応</h3>
+        <p>TikTokショップに特化しながら、Instagramでの収益化も同時に学べます。</p>
+      </div>
+      <div class="why-card">
+        <span class="why-card-label">POINT 05</span>
+        <h3>AIを活用した最新スキル</h3>
+        <p>AI動画生成など最新ツールを駆使した、時代の変化に強いスキルが身につきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">カリキュラム</div>
+      <h2 class="section-title">NEW GATEで<span class="accent">学べること</span></h2>
+      <p class="section-desc">TikTokショップで売り上げを最大化するために必要なスキルを、体系的に習得できます。</p>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-item">
+        <div class="skill-num">01</div>
+        <div class="skill-content">
+          <h4>動画編集スキル</h4>
+          <p>バズる動画の構成・編集技法を習得。視聴者を惹きつけるコンテンツを作れるようになります。</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-num">02</div>
+        <div class="skill-content">
+          <h4>商品販売スキル</h4>
+          <p>TikTokショップでの商品選定から出品・販促まで。売れる商品を見極め、収益につなげます。</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-num">03</div>
+        <div class="skill-content">
+          <h4>コンテンツ制作スキル</h4>
+          <p>フォロワーが増え、エンゲージメントが上がる継続的なコンテンツ戦略を構築します。</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-num">04</div>
+        <div class="skill-content">
+          <h4>月商2,000万円メソッド</h4>
+          <p>さよが一人で達成したノウハウを惜しみなく伝授。再現性の高い手法です。</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-num">05</div>
+        <div class="skill-content">
+          <h4>SNSマーケティングスキル</h4>
+          <p>アルゴリズムを理解し、フォロワーを集客に直結させるSNSマーケの本質を学びます。</p>
+        </div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-num">06</div>
+        <div class="skill-content">
+          <h4>儲かるAI動画生成スキル</h4>
+          <p>最新AI技術を活用した動画制作。少ない時間で高品質なコンテンツを量産できます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="result">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">実績</div>
+      <h2 class="section-title">講師の<span class="accent">リアルな数字</span></h2>
+    </div>
+    <div class="result-highlight reveal">
+      <span class="result-label-top">MONTHLY SALES RECORD</span>
+      <span class="result-num">2,000万</span>
+      <span class="result-unit">月商達成 — TikTokショップ / 一人で運用</span>
+      <p class="result-sub">
+        講師・さよが<strong>一人でTikTokショップを運用し、月商2,000万円</strong>を達成。<br>
+        その再現性の高いメソッドをそのままNEW GATEのカリキュラムに落とし込んでいます。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTORS -->
+<section class="instructors">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">講師紹介</div>
+      <h2 class="section-title">圧倒的な実績を持つ<span class="accent">プロ講師陣</span></h2>
+    </div>
+    <div class="instructor-cards reveal">
+      <div class="instructor-card">
+        <span class="instructor-index">INSTRUCTOR 01</span>
+        <div class="instructor-name">玉木</div>
+        <span class="instructor-title">SNS CREATOR / CONTENT STRATEGIST</span>
+        <div class="instructor-desc">元「あいのり」メンバーとして知名度を持ちながら、Instagram・TikTokで多数の収益化を実現。エンタメ性と収益性を両立したコンテンツ制作の第一人者。</div>
+        <div class="instructor-tags">
+          <span class="tag">Instagram</span>
+          <span class="tag">TikTok</span>
+          <span class="tag">コンテンツ制作</span>
+        </div>
+      </div>
+      <div class="instructor-card">
+        <span class="instructor-index">INSTRUCTOR 02</span>
+        <div class="instructor-name">鈴木</div>
+        <span class="instructor-title">SNS MARKETER / GROWTH HACKER</span>
+        <div class="instructor-desc">SNSマーケを駆使して某有名フェスの集客やサロンを展開。Instagramフォロワー70,000人をわずか3週間で達成した、集客の鬼才。</div>
+        <div class="instructor-tags">
+          <span class="tag">SNSマーケ</span>
+          <span class="tag">70,000 フォロワー（3週間）</span>
+          <span class="tag">集客</span>
+        </div>
+      </div>
+      <div class="instructor-card">
+        <span class="instructor-index">INSTRUCTOR 03</span>
+        <div class="instructor-name">さよ</div>
+        <span class="instructor-title">TIKTOK SHOP / REVENUE SPECIALIST</span>
+        <div class="instructor-desc">TikTokショップで一人で月商2,000万円を達成した実力者。その再現性の高いメソッドをNEW GATEで全公開し、受講生の収益化を最前線でサポートする。</div>
+        <div class="instructor-tags">
+          <span class="tag">TikTokショップ</span>
+          <span class="tag">月商 2,000万円</span>
+          <span class="tag">EC販売</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="plan">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">料金プラン</div>
+      <h2 class="section-title">シンプルな<span class="accent">料金体系</span></h2>
+      <p class="section-desc">入会金は2ヶ月での回収を目標に設計。月額は継続する限り、案件紹介から収益化コンサルまでサポートし続けます。</p>
+    </div>
+    <div class="plan-grid reveal">
+      <div class="plan-card featured">
+        <div class="plan-campaign-bar">CAMPAIGN</div>
+        <span class="plan-name">入会金</span>
+        <span class="plan-original">通常 ¥300,000</span>
+        <span class="plan-price">¥200,000</span>
+        <span class="plan-price-note">8月末までのお申し込み限定価格</span>
+        <ul class="plan-features">
+          <li><span class="check">→</span>全カリキュラムへのアクセス</li>
+          <li><span class="check">→</span>月商2,000万円メソッド全公開</li>
+          <li><span class="check">→</span>1on1コンサルティング（収益化まで継続）</li>
+          <li><span class="check">→</span>入会2ヶ月での回収を目標サポート</li>
+          <li><span class="check">→</span><strong style="color:var(--pink)">収益化できなければ全額返金保証</strong></li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <span class="plan-name">月額費用</span>
+        <span class="plan-price" style="font-size:56px">¥9,800</span>
+        <span class="plan-price-note">/ 月　— 契約期間の縛りなし</span>
+        <ul class="plan-features">
+          <li><span class="check">→</span>案件紹介サービス</li>
+          <li><span class="check">→</span>収益化コンサルティング</li>
+          <li><span class="check">→</span>最新情報・ノウハウのアップデート</li>
+          <li><span class="check">→</span>コミュニティ参加（仲間との繋がり）</li>
+          <li><span class="check">→</span>いつでも退会可能（縛りなし）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="guarantee-box reveal">
+      <div class="guarantee-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="guarantee-text">
+        <h4>全額返金保証</h4>
+        <p>NEW GATEで学んで収益化できなかった場合は、入会金を全額返金します。結果にコミットできるからこそ出せる保証です。詳細は無料相談時にご確認ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">入会の流れ</div>
+      <h2 class="section-title">入会まで<span class="accent">3ステップ</span></h2>
+    </div>
+    <div class="flow-steps reveal">
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">1</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-content">
+          <span class="flow-step-label">STEP 01</span>
+          <h4>公式LINEに登録</h4>
+          <p>下のボタンから公式LINEを友達追加。まずはメッセージを送ってください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">2</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-content">
+          <span class="flow-step-label">STEP 02</span>
+          <h4>無料個別面談（オンライン）</h4>
+          <p>必ず入会前に個別面談を実施しています。あなたの状況・目標をヒアリングし、NEW GATEが最適かを一緒に確認します。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">3</div>
+        </div>
+        <div class="flow-content">
+          <span class="flow-step-label">STEP 03</span>
+          <h4>入会・スタート</h4>
+          <p>面談内容を踏まえて、双方の合意の上で入会。即日コンテンツへのアクセスと1on1サポートが始まります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="safety">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">安心の仕組み</div>
+      <h2 class="section-title">安心して<span class="accent">始められる理由</span></h2>
+    </div>
+    <div class="safety-cards reveal">
+      <div class="safety-card">
+        <span class="safety-card-label">SAFETY 01</span>
+        <h4>入会前の個別面談を必須化</h4>
+        <p>誰でも入会できるスクールではありません。必ず面談を実施し、本気で学ぶ意欲がある方のみにご案内しています。</p>
+      </div>
+      <div class="safety-card">
+        <span class="safety-card-label">SAFETY 02</span>
+        <h4>結果にコミットする全額返金保証</h4>
+        <p>収益化できなければ全額返金。私たちが本気でサポートするから出せる約束です。</p>
+      </div>
+      <div class="safety-card">
+        <span class="safety-card-label">SAFETY 03</span>
+        <h4>稼げるまで1on1継続</h4>
+        <p>期間限定の伴走ではありません。あなたが収益化を達成するまで、専任講師が寄り添い続けます。</p>
+      </div>
+    </div>
+
+    <div class="interview-notice reveal">
+      <div class="interview-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="interview-text">
+        <h3>入会をお断りする場合があります</h3>
+        <p>NEW GATEは全員が収益化できることを最優先にしています。そのため、面談の結果によっては入会をお断りする場合があります。これは「本気で稼ぎたい方だけのスクール」であることの証明です。まずはお気軽に無料相談からお申し込みください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container reveal">
+    <div class="section-label">まずは無料相談から</div>
+    <h2 class="section-title">
+      あなたの<span class="accent">収益化</span>を<br>一緒に実現しよう
+    </h2>
+    <p class="section-desc">
+      まずはLINEから無料相談。入会前に講師と直接話せるから、疑問・不安をすべて解消してから決断できます。
+    </p>
+    <a href="https://lin.ee/XXXXXXX" class="btn-line">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINEで無料相談する
+    </a>
+    <p class="final-note">
+      完全無料 / 勧誘なし / 断っても大丈夫<br>
+      面談の内容次第では入会をお断りする場合があります
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">NEW GATE</span>
+  <p>© 2025 NEW GATE. All rights reserved.</p>
+  <p style="margin-top:8px;font-size:11px;color:#333;">TikTokショップスクール / SNS収益化スクール</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
