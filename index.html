@@ -84,12 +84,11 @@
   .hero {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 120px 24px 80px;
+    padding: 100px 24px 60px;
   }
   .hero-aurora {
     position: absolute;
@@ -117,51 +116,57 @@
     50% { transform: translateX(-50%) scale(1.12); opacity: 1; }
   }
 
-  .hero-model {
-    width: min(320px, 80vw);
-    height: min(400px, 78vw);
-    border-radius: 24px;
-    margin-bottom: 36px;
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
     position: relative;
     z-index: 2;
-    overflow: hidden;
-    background: linear-gradient(160deg, #1a1a2e 0%, #0a0a14 100%);
+  }
+  @media(max-width: 768px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  .hero-text {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 10px;
+    align-items: flex-start;
+  }
+  @media(max-width: 768px) {
+    .hero-text { align-items: center; }
+  }
+
+  .hero-model {
+    width: 100%;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,245,255,0.15), 0 0 120px rgba(180,79,255,0.1);
   }
   .hero-model::before {
     content: '';
     position: absolute;
-    inset: -1.5px;
+    inset: -2px;
     border-radius: 26px;
     background: var(--grad-main);
     z-index: -1;
-    opacity: 0.7;
+    opacity: 0.5;
   }
   .hero-model img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    position: absolute;
-    inset: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 22px;
   }
-  .model-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    z-index: 1;
+  @media(max-width: 768px) {
+    .hero-model { max-width: 480px; margin: 0 auto; }
   }
-  .model-placeholder-icon {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .model-placeholder-icon svg { opacity: 0.3; }
-  .model-placeholder-text { font-size: 12px; color: #444; text-align: center; line-height: 1.6; }
 
   .hero-badge {
     display: inline-flex;
@@ -191,9 +196,9 @@
 
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 13vw, 112px);
+    font-size: clamp(52px, 8vw, 100px);
     line-height: 0.88;
-    text-align: center;
+    text-align: left;
     letter-spacing: 6px;
     position: relative;
     z-index: 2;
@@ -206,11 +211,14 @@
     display: block;
   }
   .hero-title .white { color: var(--white); display: block; }
+  @media(max-width: 768px) {
+    .hero-title { text-align: center; }
+  }
 
   .hero-sub {
-    font-size: clamp(14px, 2.8vw, 19px);
+    font-size: clamp(14px, 2.2vw, 18px);
     color: var(--gray);
-    text-align: center;
+    text-align: left;
     margin-top: 18px;
     font-weight: 300;
     letter-spacing: 1px;
@@ -219,16 +227,22 @@
     animation: fadeUp 0.9s ease 0.2s both;
   }
   .hero-sub span { color: var(--cyan); font-weight: 700; }
+  @media(max-width: 768px) {
+    .hero-sub { text-align: center; }
+  }
 
   .hero-hooks {
     display: flex;
     gap: 14px;
     margin-top: 32px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     z-index: 2;
     animation: fadeUp 1s ease 0.3s both;
+  }
+  @media(max-width: 768px) {
+    .hero-hooks { justify-content: center; }
   }
   .hook {
     display: flex;
@@ -845,47 +859,46 @@
   <div class="hero-aurora"></div>
   <div class="hero-aurora2"></div>
 
-  <!-- 【画像差し替え】ヒーローモデル / 推奨サイズ: 640x800px / 縦長ポートレート -->
-  <div class="hero-model">
-    <!-- <img src="your-model-image.jpg" alt="NEW GATE"> -->
-    <div class="model-placeholder">
-      <div class="model-placeholder-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+  <div class="hero-inner">
+    <!-- 左：テキストエリア -->
+    <div class="hero-text">
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        TikTok Shop Specialist School
       </div>
-      <div class="model-placeholder-text">モデル画像をここに配置<br><span style="font-size:11px;color:#333">imgタグのコメントを外して差し替え</span></div>
+
+      <h1 class="hero-title">
+        <span class="grad">NEW GATE</span>
+        <span class="white">で変われ</span>
+      </h1>
+      <p class="hero-sub">
+        <span>TikTokショップ</span>で稼ぐ力を、<span>1on1</span>で身につける
+      </p>
+
+      <div class="hero-hooks">
+        <div class="hook primary">
+          <div class="hook-line"></div>
+          稼げるまで1on1サポート継続
+        </div>
+        <div class="hook secondary">
+          <div class="hook-line"></div>
+          収益化できなければ全額返金
+        </div>
+      </div>
+
+      <div class="hero-cta" id="line-cta">
+        <a href="https://lin.ee/XXXXXXX" class="btn-line">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINEで無料相談する
+        </a>
+        <p class="hero-note">まずはLINEから。面談後に入会を判断できます</p>
+      </div>
     </div>
-  </div>
 
-  <div class="hero-badge">
-    <div class="badge-dot"></div>
-    TikTok Shop Specialist School
-  </div>
-
-  <h1 class="hero-title">
-    <span class="grad">NEW GATE</span>
-    <span class="white">で変われ</span>
-  </h1>
-  <p class="hero-sub">
-    <span>TikTokショップ</span>で稼ぐ力を、<span>1on1</span>で身につける
-  </p>
-
-  <div class="hero-hooks">
-    <div class="hook primary">
-      <div class="hook-line"></div>
-      稼げるまで1on1サポート継続
+    <!-- 右：モデル画像 -->
+    <div class="hero-model">
+      <img src="hero.png" alt="NEW GATEで収益化を目指す女性">
     </div>
-    <div class="hook secondary">
-      <div class="hook-line"></div>
-      収益化できなければ全額返金
-    </div>
-  </div>
-
-  <div class="hero-cta" id="line-cta">
-    <a href="https://lin.ee/XXXXXXX" class="btn-line">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-      LINEで無料相談する
-    </a>
-    <p class="hero-note">まずはLINEから。面談後に入会を判断できます</p>
   </div>
 </section>
 
@@ -955,6 +968,12 @@
         <p>AI動画生成など最新ツールを駆使した、時代の変化に強いスキルが身につきます。</p>
       </div>
     </div>
+
+    <!-- 【画像差し替え】カリキュラム説明イラスト / ファイル名: curriculum.png / 同フォルダに配置 -->
+    <div class="curriculum-visual reveal">
+      <img src="curriculum.png" alt="NEW GATEカリキュラム：動画アイディア→動画制作→動画編集→案件獲得" style="width:100%; max-width:860px; border-radius:16px; display:block; margin:48px auto 0;">
+    </div>
+
   </div>
 </section>
 
