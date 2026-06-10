@@ -123,32 +123,24 @@
   }
 
   .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    max-width: 1100px;
+    gap: 40px;
+    max-width: 1080px;
     width: 100%;
     position: relative;
     z-index: 2;
   }
   @media(max-width: 768px) {
-    .hero-inner {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    /* スマホでは画像を上、テキストを下に */
-    .hero-inner .hero-model { order: 1; }
-    .hero-inner .hero-text { order: 2; }
+    .hero-inner { gap: 28px; }
   }
 
   .hero-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-  }
-  @media(max-width: 768px) {
-    .hero-text { align-items: center; width: 100%; }
+    align-items: center;
+    width: 100%;
   }
 
   .hero-model {
@@ -156,7 +148,7 @@
     border-radius: 24px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 60px rgba(0,245,255,0.15), 0 0 120px rgba(180,79,255,0.1);
+    box-shadow: 0 20px 80px rgba(0,0,0,0.5), 0 0 80px rgba(0,245,255,0.12), 0 0 140px rgba(180,79,255,0.08);
   }
   .hero-model::before {
     content: '';
@@ -173,9 +165,6 @@
     display: block;
     border-radius: 22px;
   }
-  @media(max-width: 768px) {
-    .hero-model { max-width: 480px; margin: 0 auto; }
-  }
 
   .hero-badge {
     display: inline-flex;
@@ -190,10 +179,11 @@
     color: var(--cyan);
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.7s ease both;
+    align-self: center;
   }
   .badge-dot {
     width: 5px; height: 5px;
@@ -205,10 +195,10 @@
 
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px, 7vw, 92px);
+    font-size: clamp(56px, 8vw, 96px);
     line-height: 1;
-    text-align: left;
-    letter-spacing: 6px;
+    text-align: center;
+    letter-spacing: 8px;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.8s ease 0.1s both;
@@ -225,56 +215,53 @@
     color: var(--white);
     display: block;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.45em;
-    font-weight: 900;
-    letter-spacing: 4px;
-    margin-top: 8px;
+    font-size: 0.22em;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin-top: 12px;
+    opacity: 0.7;
   }
   @media(max-width: 768px) {
     .hero-title {
-      text-align: center;
-      font-size: clamp(44px, 13vw, 64px);
-      letter-spacing: 4px;
+      font-size: clamp(48px, 14vw, 72px);
+      letter-spacing: 5px;
     }
     .hero-title .white {
-      font-size: 0.5em;
-      letter-spacing: 3px;
+      font-size: 0.26em;
+      letter-spacing: 4px;
     }
   }
 
   .hero-sub {
-    font-size: clamp(14px, 2.2vw, 18px);
+    font-size: clamp(14px, 2vw, 17px);
     color: var(--gray);
-    text-align: left;
-    margin-top: 18px;
-    font-weight: 300;
+    text-align: center;
+    margin-top: 16px;
+    font-weight: 400;
     letter-spacing: 1px;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.9s ease 0.2s both;
+    max-width: 640px;
   }
   .hero-sub span { color: var(--cyan); font-weight: 700; }
-  @media(max-width: 768px) {
-    .hero-sub { text-align: center; }
-  }
 
   .hero-hooks {
     display: flex;
     gap: 14px;
-    margin-top: 32px;
+    margin-top: 28px;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     position: relative;
     z-index: 2;
     animation: fadeUp 1s ease 0.3s both;
   }
-  @media(max-width: 768px) {
+  @media(max-width: 640px) {
     .hero-hooks {
-      justify-content: center;
       flex-direction: column;
       width: 100%;
       gap: 10px;
-      margin-top: 24px;
+      max-width: 360px;
     }
     .hero-hooks .hook { width: 100%; justify-content: center; padding: 12px 18px; font-size: 13px; }
   }
@@ -300,15 +287,15 @@
   }
 
   .hero-cta {
-    margin-top: 44px;
+    margin-top: 36px;
     position: relative;
     z-index: 2;
     animation: fadeUp 1s ease 0.4s both;
     text-align: center;
     width: 100%;
   }
-  @media(max-width: 768px) {
-    .hero-cta { margin-top: 28px; }
+  @media(max-width: 640px) {
+    .hero-cta { margin-top: 24px; }
     .hero-cta .btn-line { width: 100%; max-width: 360px; padding: 16px 24px; font-size: 15px; justify-content: center; }
   }
   .btn-line {
@@ -583,7 +570,47 @@
     margin-bottom: 14px;
     display: block;
   }
-  .instructor-name { font-size: 26px; font-weight: 900; margin-bottom: 4px; }
+  .instructor-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+  .instructor-avatar {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    position: relative;
+    background: linear-gradient(160deg, #1a1a2e 0%, #0a0a14 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .instructor-avatar::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    background: var(--grad-main);
+    z-index: -1;
+    opacity: 0.7;
+  }
+  .instructor-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+  .instructor-avatar .avatar-placeholder {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.25);
+  }
+  .instructor-head-text { display: flex; flex-direction: column; min-width: 0; }
+  .instructor-name { font-size: 22px; font-weight: 900; margin-bottom: 2px; line-height: 1.2; }
   .instructor-title {
     font-size: 11px;
     color: var(--cyan);
@@ -863,6 +890,67 @@
   }
   footer p { font-size: 12px; color: #444; }
 
+  /* PRACTICE BANNER */
+  .practice-banner {
+    margin: 56px auto 0;
+    max-width: 880px;
+    padding: 44px 36px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(0,245,255,0.06) 0%, rgba(180,79,255,0.06) 50%, rgba(255,45,120,0.06) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .practice-banner::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 24px;
+    padding: 1px;
+    background: var(--grad-main);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .practice-banner-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    padding: 4px 14px;
+    border: 1px solid rgba(0,245,255,0.35);
+    border-radius: 100px;
+    background: rgba(0,245,255,0.06);
+    margin-bottom: 22px;
+  }
+  .practice-banner-title {
+    font-size: clamp(22px, 3.6vw, 32px);
+    font-weight: 900;
+    line-height: 1.5;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+  .practice-banner-title .grad-text {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .practice-banner-desc {
+    font-size: clamp(13px, 2vw, 15px);
+    color: var(--gray);
+    line-height: 1.9;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .practice-banner-desc strong { color: var(--white); font-weight: 700; }
+  @media(max-width: 640px) {
+    .practice-banner { padding: 32px 22px; margin-top: 40px; }
+  }
+
   /* REVEAL */
   .reveal {
     opacity: 0;
@@ -899,7 +987,12 @@
   <div class="hero-aurora2"></div>
 
   <div class="hero-inner">
-    <!-- 左：テキストエリア -->
+    <!-- 上：ワイドなメインビジュアル -->
+    <div class="hero-model">
+      <img src="hero.png?v=3" alt="SNSを仕事にしたいあなたへ — 収益化まで伴走する実践型スクール">
+    </div>
+
+    <!-- 下：ブランディング＋CTA -->
     <div class="hero-text">
       <div class="hero-badge">
         <div class="badge-dot"></div>
@@ -908,10 +1001,10 @@
 
       <h1 class="hero-title">
         <span class="grad">NEW GATE</span>
-        <span class="white">で変われ</span>
+        <span class="white">— NEW SNS SCHOOL —</span>
       </h1>
       <p class="hero-sub">
-        <span>TikTokショップ</span>で稼ぐ力を、<span>1on1</span>で身につける
+        基礎は最小限。<span>実戦形式</span>で、最短で<span>収益化</span>まで講師が伴走します。
       </p>
 
       <div class="hero-hooks">
@@ -932,11 +1025,6 @@
         </a>
         <p class="hero-note">まずはLINEから。面談後に入会を判断できます</p>
       </div>
-    </div>
-
-    <!-- 右：モデル画像 -->
-    <div class="hero-model">
-      <img src="hero.png" alt="NEW GATEで収益化を目指す女性">
     </div>
   </div>
 </section>
@@ -1008,9 +1096,11 @@
       </div>
     </div>
 
-    <!-- 【画像差し替え】カリキュラム説明イラスト / ファイル名: curriculum.png / 同フォルダに配置 -->
-    <div class="curriculum-visual" style="margin:48px auto 0; max-width:860px; padding:24px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:20px;">
-      <img src="curriculum.png?v=2" alt="NEW GATEカリキュラム：動画アイディア→動画制作→動画編集→案件獲得" style="width:100%; height:auto; border-radius:12px; display:block;">
+    <!-- 実戦形式の伴走サポート訴求 -->
+    <div class="practice-banner reveal">
+      <div class="practice-banner-tag">PRACTICE-FIRST</div>
+      <h3 class="practice-banner-title">基礎知識は最小限。<br><span class="grad-text">実戦形式</span>で最短収益化まで伴走。</h3>
+      <p class="practice-banner-desc">「学んで終わり」のスクールとは違います。NEW GATE では、最低限の基礎を身につけたら、<strong>すぐに実案件・実販売をスタート</strong>。専任講師が稼ぐ瞬間まで横で並走します。</p>
     </div>
 
   </div>
@@ -1020,9 +1110,9 @@
 <section class="skills">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">カリキュラム</div>
-      <h2 class="section-title">NEW GATEで<span class="accent">学べること</span></h2>
-      <p class="section-desc">TikTokショップで売り上げを最大化するために必要なスキルを、体系的に習得できます。</p>
+      <div class="section-label">SKILLS</div>
+      <h2 class="section-title">実戦で<span class="accent">身につくスキル</span></h2>
+      <p class="section-desc">座学ではなく、実案件・実販売を通して。最短で収益化に直結するスキルだけを、現場で習得します。</p>
     </div>
     <div class="skills-grid reveal">
       <div class="skill-item">
@@ -1084,7 +1174,7 @@
       <span class="result-unit">月商達成 — TikTokショップ / 一人で運用</span>
       <p class="result-sub">
         講師・さよが<strong>一人でTikTokショップを運用し、月商2,000万円</strong>を達成。<br>
-        その再現性の高いメソッドをそのままNEW GATEのカリキュラムに落とし込んでいます。
+        その再現性の高いメソッドを、NEW GATEの実戦サポートに落とし込んでいます。
       </p>
     </div>
   </div>
@@ -1100,8 +1190,19 @@
     <div class="instructor-cards reveal">
       <div class="instructor-card">
         <span class="instructor-index">INSTRUCTOR 01</span>
-        <div class="instructor-name">玉木</div>
-        <span class="instructor-title">SNS CREATOR / CONTENT STRATEGIST</span>
+        <div class="instructor-head">
+          <!-- 顔写真差し替え: instructor-tamaki.jpg を同フォルダに配置すれば自動で表示 -->
+          <div class="instructor-avatar">
+            <!-- <img src="instructor-tamaki.jpg" alt="玉木"> -->
+            <div class="avatar-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="instructor-head-text">
+            <div class="instructor-name">玉木</div>
+            <span class="instructor-title">SNS CREATOR</span>
+          </div>
+        </div>
         <div class="instructor-desc">元「あいのり」メンバーとして知名度を持ちながら、Instagram・TikTokで多数の収益化を実現。エンタメ性と収益性を両立したコンテンツ制作の第一人者。</div>
         <div class="instructor-tags">
           <span class="tag">Instagram</span>
@@ -1111,8 +1212,19 @@
       </div>
       <div class="instructor-card">
         <span class="instructor-index">INSTRUCTOR 02</span>
-        <div class="instructor-name">鈴木</div>
-        <span class="instructor-title">SNS MARKETER / GROWTH HACKER</span>
+        <div class="instructor-head">
+          <!-- 顔写真差し替え: instructor-suzuki.jpg を同フォルダに配置すれば自動で表示 -->
+          <div class="instructor-avatar">
+            <!-- <img src="instructor-suzuki.jpg" alt="鈴木"> -->
+            <div class="avatar-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="instructor-head-text">
+            <div class="instructor-name">鈴木</div>
+            <span class="instructor-title">SNS MARKETER</span>
+          </div>
+        </div>
         <div class="instructor-desc">SNSマーケを駆使して某有名フェスの集客やサロンを展開。Instagramフォロワー70,000人をわずか3週間で達成した、集客の鬼才。</div>
         <div class="instructor-tags">
           <span class="tag">SNSマーケ</span>
@@ -1122,8 +1234,19 @@
       </div>
       <div class="instructor-card">
         <span class="instructor-index">INSTRUCTOR 03</span>
-        <div class="instructor-name">さよ</div>
-        <span class="instructor-title">TIKTOK SHOP / REVENUE SPECIALIST</span>
+        <div class="instructor-head">
+          <!-- 顔写真差し替え: instructor-sayo.jpg を同フォルダに配置すれば自動で表示 -->
+          <div class="instructor-avatar">
+            <!-- <img src="instructor-sayo.jpg" alt="さよ"> -->
+            <div class="avatar-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="instructor-head-text">
+            <div class="instructor-name">さよ</div>
+            <span class="instructor-title">TIKTOK SHOP SPECIALIST</span>
+          </div>
+        </div>
         <div class="instructor-desc">TikTokショップで一人で月商2,000万円を達成した実力者。その再現性の高いメソッドをNEW GATEで全公開し、受講生の収益化を最前線でサポートする。</div>
         <div class="instructor-tags">
           <span class="tag">TikTokショップ</span>
@@ -1151,7 +1274,7 @@
         <span class="plan-price">¥200,000</span>
         <span class="plan-price-note">8月末までのお申し込み限定価格</span>
         <ul class="plan-features">
-          <li><span class="check">→</span>全カリキュラムへのアクセス</li>
+          <li><span class="check">→</span>実戦サポート全プログラム</li>
           <li><span class="check">→</span>月商2,000万円メソッド全公開</li>
           <li><span class="check">→</span>1on1コンサルティング（収益化まで継続）</li>
           <li><span class="check">→</span>入会2ヶ月での回収を目標サポート</li>
