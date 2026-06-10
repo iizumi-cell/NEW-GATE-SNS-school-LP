@@ -57,12 +57,18 @@
     border-bottom: 1px solid var(--border);
   }
   .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    background: var(--grad-main);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 5px;
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+  }
+  .nav-logo img {
+    height: 100%;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
+  @media(max-width: 640px) {
+    .nav-logo { height: 38px; }
   }
   .nav-cta {
     display: inline-flex;
@@ -194,42 +200,24 @@
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
 
   .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(56px, 8vw, 96px);
-    line-height: 1;
-    text-align: center;
-    letter-spacing: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.8s ease 0.1s both;
-    padding-top: 0.1em;
+    margin: 0;
   }
-  .hero-title .grad {
-    background: var(--grad-main);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .hero-title img {
+    width: auto;
+    height: clamp(180px, 22vw, 280px);
+    max-width: 100%;
+    object-fit: contain;
     display: block;
-    padding-bottom: 0.08em;
+    filter: drop-shadow(0 0 40px rgba(198,146,45,0.18));
   }
-  .hero-title .white {
-    color: var(--white);
-    display: block;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.22em;
-    font-weight: 700;
-    letter-spacing: 6px;
-    margin-top: 12px;
-    opacity: 0.7;
-  }
-  @media(max-width: 768px) {
-    .hero-title {
-      font-size: clamp(48px, 14vw, 72px);
-      letter-spacing: 5px;
-    }
-    .hero-title .white {
-      font-size: 0.26em;
-      letter-spacing: 4px;
-    }
+  @media(max-width: 640px) {
+    .hero-title img { height: 160px; }
   }
 
   .hero-sub {
@@ -879,14 +867,17 @@
     text-align: center;
   }
   .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    background: var(--grad-main);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 6px;
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
     margin-bottom: 14px;
+    opacity: 0.9;
+  }
+  .footer-logo img {
+    height: 100%;
+    width: auto;
+    display: block;
+    object-fit: contain;
   }
   footer p { font-size: 12px; color: #444; }
 
@@ -974,7 +965,7 @@
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo">NEW GATE</div>
+  <div class="nav-logo"><img src="logo-h.svg" alt="NEW GATE"></div>
   <a href="#line-cta" class="nav-cta">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
     無料相談する
@@ -1000,8 +991,7 @@
       </div>
 
       <h1 class="hero-title">
-        <span class="grad">NEW GATE</span>
-        <span class="white">— NEW SNS SCHOOL —</span>
+        <img src="logo-full.svg" alt="NEW GATE — SNS収益化スクール｜新しい扉を開き、未来の収益をつくる。">
       </h1>
       <p class="hero-sub">
         基礎は最小限。<span>実戦形式</span>で、最短で<span>収益化</span>まで講師が伴走します。
@@ -1213,12 +1203,9 @@
       <div class="instructor-card">
         <span class="instructor-index">INSTRUCTOR 02</span>
         <div class="instructor-head">
-          <!-- 顔写真差し替え: instructor-suzuki.jpg を同フォルダに配置すれば自動で表示 -->
+          <!-- 顔写真：instructor-suzuki.png -->
           <div class="instructor-avatar">
-            <!-- <img src="instructor-suzuki.jpg" alt="鈴木"> -->
-            <div class="avatar-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            </div>
+            <img src="instructor-suzuki.png" alt="鈴木">
           </div>
           <div class="instructor-head-text">
             <div class="instructor-name">鈴木</div>
@@ -1410,7 +1397,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">NEW GATE</span>
+  <span class="footer-logo"><img src="logo-h.svg" alt="NEW GATE"></span>
   <p>© 2025 NEW GATE. All rights reserved.</p>
   <p style="margin-top:8px;font-size:11px;color:#333;">TikTokショップスクール / SNS収益化スクール</p>
 </footer>
