@@ -9,10 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --black: #050508;
-    --deep: #0a0a14;
-    --surface: #12121f;
-    --card: #1a1a2e;
+    --black: #000000;
+    --deep: #050505;
+    --surface: #0d0d0d;
+    --card: #141414;
     --border: rgba(255,255,255,0.08);
     --cyan: #00f5ff;
     --pink: #ff2d78;
@@ -151,25 +151,24 @@
 
   .hero-model {
     width: 100%;
-    border-radius: 24px;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 80px rgba(0,0,0,0.5), 0 0 80px rgba(0,245,255,0.12), 0 0 140px rgba(180,79,255,0.08);
-  }
-  .hero-model::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 26px;
-    background: var(--grad-main);
-    z-index: -1;
-    opacity: 0.5;
+    background: var(--black);
   }
   .hero-model img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 22px;
+  }
+  /* 画像左右端を背景色にフェード（境界を消す） */
+  .hero-model::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, var(--black) 0%, transparent 6%, transparent 94%, var(--black) 100%),
+      linear-gradient(180deg, transparent 0%, transparent 88%, var(--black) 100%);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .hero-badge {
