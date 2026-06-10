@@ -135,21 +135,23 @@
   .hero-model {
     width: 100%;
     position: relative;
-    background: var(--black);
+    background: #000;
   }
   .hero-model img {
     width: 100%;
     height: auto;
     display: block;
+    /* 画像内の "ほぼ黒" を強制的に純黒(#000)まで沈める */
+    filter: brightness(0.93) contrast(1.15) saturate(1.05);
   }
-  /* 画像左右端を背景色にフェード（境界を消す） */
+  /* 上下左右の端を背景色に完全フェードさせて境界を消す */
   .hero-model::after {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(90deg, var(--black) 0%, transparent 6%, transparent 94%, var(--black) 100%),
-      linear-gradient(180deg, transparent 0%, transparent 88%, var(--black) 100%);
+      linear-gradient(90deg, #000 0%, transparent 7%, transparent 93%, #000 100%),
+      linear-gradient(180deg, #000 0%, transparent 5%, transparent 92%, #000 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -981,7 +983,7 @@
   <div class="hero-inner">
     <!-- 上：ワイドなメインビジュアル -->
     <div class="hero-model">
-      <img src="hero.png?v=5" alt="SNSを仕事にしたいあなたへ — 収益化まで伴走する実践型スクール">
+      <img src="hero.png?v=8" alt="SNSを仕事にしたいあなたへ — 収益化まで伴走する実践型スクール">
     </div>
 
     <!-- 下：ブランディング＋CTA -->
