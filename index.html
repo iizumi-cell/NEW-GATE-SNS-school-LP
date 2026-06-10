@@ -59,16 +59,17 @@
   .nav-logo {
     display: inline-flex;
     align-items: center;
-    height: 48px;
+    height: 44px;
   }
   .nav-logo img {
     height: 100%;
     width: auto;
     display: block;
     object-fit: contain;
+    mix-blend-mode: screen;
   }
   @media(max-width: 640px) {
-    .nav-logo { height: 38px; }
+    .nav-logo { height: 36px; }
   }
   .nav-cta {
     display: inline-flex;
@@ -95,6 +96,7 @@
     position: relative;
     overflow: hidden;
     padding: 100px 24px 60px;
+    background: #000;
   }
   @media(max-width: 768px) {
     .hero {
@@ -102,27 +104,8 @@
       padding: 90px 18px 50px;
     }
   }
-  .hero-aurora {
-    position: absolute;
-    width: 900px; height: 900px;
-    top: -200px; left: 50%;
-    transform: translateX(-50%);
-    background: radial-gradient(ellipse, rgba(0,245,255,0.1) 0%, rgba(180,79,255,0.08) 40%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(60px);
-    animation: pulse 7s ease-in-out infinite;
-    pointer-events: none;
-  }
-  .hero-aurora2 {
-    position: absolute;
-    width: 500px; height: 500px;
-    bottom: -80px; right: -80px;
-    background: radial-gradient(ellipse, rgba(255,45,120,0.12) 0%, transparent 60%);
-    border-radius: 50%;
-    filter: blur(80px);
-    animation: pulse 9s ease-in-out infinite reverse;
-    pointer-events: none;
-  }
+  /* グラデーション発光（オーロラ）は純黒背景の妨げになるので無効化 */
+  .hero-aurora, .hero-aurora2 { display: none; }
   @keyframes pulse {
     0%,100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
     50% { transform: translateX(-50%) scale(1.12); opacity: 1; }
@@ -199,24 +182,42 @@
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
 
   .hero-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 8vw, 96px);
+    line-height: 1;
+    text-align: center;
+    letter-spacing: 8px;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.8s ease 0.1s both;
     margin: 0;
   }
-  .hero-title img {
-    width: auto;
-    height: clamp(180px, 22vw, 280px);
-    max-width: 100%;
-    object-fit: contain;
+  .hero-title .grad {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     display: block;
-    filter: drop-shadow(0 0 40px rgba(198,146,45,0.18));
+    padding-bottom: 0.08em;
+  }
+  .hero-title .white {
+    color: var(--white);
+    display: block;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.2em;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-top: 14px;
+    opacity: 0.75;
   }
   @media(max-width: 640px) {
-    .hero-title img { height: 160px; }
+    .hero-title {
+      font-size: clamp(48px, 14vw, 72px);
+      letter-spacing: 5px;
+    }
+    .hero-title .white {
+      font-size: 0.24em;
+      letter-spacing: 5px;
+    }
   }
 
   .hero-sub {
@@ -868,15 +869,16 @@
   .footer-logo {
     display: inline-flex;
     align-items: center;
-    height: 44px;
+    height: 40px;
     margin-bottom: 14px;
-    opacity: 0.9;
+    opacity: 0.92;
   }
   .footer-logo img {
     height: 100%;
     width: auto;
     display: block;
     object-fit: contain;
+    mix-blend-mode: screen;
   }
   footer p { font-size: 12px; color: #444; }
 
@@ -964,7 +966,7 @@
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-logo"><img src="logo-h.svg" alt="NEW GATE"></div>
+  <div class="nav-logo"><img src="logo-neon-h.png" alt="NEW GATE"></div>
   <a href="#line-cta" class="nav-cta">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
     無料相談する
@@ -979,7 +981,7 @@
   <div class="hero-inner">
     <!-- 上：ワイドなメインビジュアル -->
     <div class="hero-model">
-      <img src="hero.png?v=3" alt="SNSを仕事にしたいあなたへ — 収益化まで伴走する実践型スクール">
+      <img src="hero.png?v=5" alt="SNSを仕事にしたいあなたへ — 収益化まで伴走する実践型スクール">
     </div>
 
     <!-- 下：ブランディング＋CTA -->
@@ -990,7 +992,8 @@
       </div>
 
       <h1 class="hero-title">
-        <img src="logo-full.svg" alt="NEW GATE — SNS収益化スクール｜新しい扉を開き、未来の収益をつくる。">
+        <span class="grad">NEW GATE</span>
+        <span class="white">SNS収益化スクール</span>
       </h1>
       <p class="hero-sub">
         基礎は最小限。<span>実戦形式</span>で、最短で<span>収益化</span>まで講師が伴走します。
@@ -1396,7 +1399,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo"><img src="logo-h.svg" alt="NEW GATE"></span>
+  <span class="footer-logo"><img src="logo-neon-h.png" alt="NEW GATE"></span>
   <p>© 2025 NEW GATE. All rights reserved.</p>
   <p style="margin-top:8px;font-size:11px;color:#333;">TikTokショップスクール / SNS収益化スクール</p>
 </footer>
