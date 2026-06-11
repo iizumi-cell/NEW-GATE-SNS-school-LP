@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEW GATE｜TikTokショップスクール</title>
+<title>NEW GATE｜TikTokショップ パーソナルコンサル</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -941,8 +941,40 @@
     margin: 0 auto;
   }
   .practice-banner-desc strong { color: var(--white); font-weight: 700; }
+
+  /* レベル別プログラムカード */
+  .level-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+    text-align: left;
+  }
+  .level-card {
+    padding: 22px 22px 24px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .level-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--cyan);
+    background: rgba(0,245,255,0.08);
+    padding: 3px 10px;
+    border-radius: 100px;
+    border: 1px solid rgba(0,245,255,0.3);
+    margin-bottom: 12px;
+  }
+  .level-title { font-size: 15px; font-weight: 900; color: var(--white); margin-bottom: 8px; letter-spacing: 0.5px; }
+  .level-desc { font-size: 12.5px; color: var(--gray); line-height: 1.7; }
   @media(max-width: 640px) {
     .practice-banner { padding: 32px 22px; margin-top: 40px; }
+    .level-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+    .level-card { padding: 18px 18px 20px; }
   }
 
   /* REVEAL */
@@ -983,28 +1015,28 @@
   <div class="hero-inner">
     <!-- 上：ワイドなメインビジュアル -->
     <div class="hero-model">
-      <img src="hero.png?v=8" alt="SNSを仕事にしたいあなたへ — 収益化まで伴走する実践型スクール">
+      <img src="hero.png?v=9" alt="SNSを仕事にしたいあなたへ — 専属トレーナーが伴走するパーソナルコンサル">
     </div>
 
     <!-- 下：ブランディング＋CTA -->
     <div class="hero-text">
       <div class="hero-badge">
         <div class="badge-dot"></div>
-        TikTok Shop Specialist School
+        TikTok Shop Personal Consulting
       </div>
 
       <h1 class="hero-title">
         <span class="grad">NEW GATE</span>
-        <span class="white">SNS収益化スクール</span>
+        <span class="white">SNS収益化 パーソナルコンサル</span>
       </h1>
       <p class="hero-sub">
-        基礎は最小限。<span>実戦形式</span>で、最短で<span>収益化</span>まで講師が伴走します。
+        あなたの稼ぐ力を、<span>専属トレーナー</span>が徹底的に鍛え上げる。最短で<span>収益化</span>まで並走します。
       </p>
 
       <div class="hero-hooks">
         <div class="hook primary">
           <div class="hook-line"></div>
-          稼げるまで1on1サポート継続
+          稼げるまで専属トレーナーが伴走
         </div>
         <div class="hook secondary">
           <div class="hook-line"></div>
@@ -1046,7 +1078,7 @@
       </div>
       <div class="problem-card">
         <span class="problem-num">CASE 04</span>
-        <div class="problem-text">副業を始めたいが、高額なだけで成果のないスクールが怖くて踏み出せない</div>
+        <div class="problem-text">副業を始めたいが、高額なだけで成果のないコンサルが怖くて踏み出せない</div>
       </div>
     </div>
   </div>
@@ -1057,15 +1089,15 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">NEW GATEが選ばれる理由</div>
-      <h2 class="section-title">稼げるまで<span class="accent">絶対に手を離さない</span>スクール</h2>
-      <p class="section-desc">NEW GATEは「教えて終わり」ではありません。受講生一人ひとりの収益化を最優先に、専任講師が伴走し続けます。</p>
+      <h2 class="section-title">稼げるまで<span class="accent">絶対に手を離さない</span>パーソナルコンサル</h2>
+      <p class="section-desc">NEW GATEは「教えて終わり」ではありません。クライアント一人ひとりの収益化を最優先に、専属トレーナーが伴走し続けます。</p>
     </div>
     <div class="why-cards reveal">
       <div class="why-main">
         <div class="why-main-num">01</div>
         <div class="why-main-content">
-          <h3>稼げるまで1on1サポートを継続</h3>
-          <p>これがNEW GATEの最大の強みです。コンテンツを渡すだけの「丸投げスクール」とは一線を画します。あなたの状況に合わせて、収益が出るまで専任講師がマンツーマンで伴走。「一人で悩む時間」をゼロにします。</p>
+          <h3>稼げるまで専属トレーナーが伴走</h3>
+          <p>これがNEW GATEの最大の強みです。コンテンツを渡すだけの「丸投げコンサル」とは一線を画します。あなたの状況に合わせて、収益が出るまで専属トレーナーがパーソナルで伴走。「一人で悩む時間」をゼロにします。</p>
         </div>
       </div>
       <div class="why-card">
@@ -1075,26 +1107,33 @@
       </div>
       <div class="why-card">
         <span class="why-card-label">POINT 03</span>
-        <h3>月商2,000万円の実績メソッド</h3>
-        <p>実際にTikTokショップで月商2,000万円を達成した手法を、惜しみなく全公開します。</p>
-      </div>
-      <div class="why-card">
-        <span class="why-card-label">POINT 04</span>
         <h3>TikTok + Instagram 両方対応</h3>
         <p>TikTokショップに特化しながら、Instagramでの収益化も同時に学べます。</p>
       </div>
       <div class="why-card">
-        <span class="why-card-label">POINT 05</span>
+        <span class="why-card-label">POINT 04</span>
         <h3>AIを活用した最新スキル</h3>
         <p>AI動画生成など最新ツールを駆使した、時代の変化に強いスキルが身につきます。</p>
       </div>
     </div>
 
-    <!-- 実戦形式の伴走サポート訴求 -->
+    <!-- レベル別パーソナルトレーニング訴求 -->
     <div class="practice-banner reveal">
-      <div class="practice-banner-tag">PRACTICE-FIRST</div>
-      <h3 class="practice-banner-title">基礎知識は最小限。<br><span class="grad-text">実戦形式</span>で最短収益化まで伴走。</h3>
-      <p class="practice-banner-desc">「学んで終わり」のスクールとは違います。NEW GATE では、最低限の基礎を身につけたら、<strong>すぐに実案件・実販売をスタート</strong>。専任講師が稼ぐ瞬間まで横で並走します。</p>
+      <div class="practice-banner-tag">PERSONAL TRAINING</div>
+      <h3 class="practice-banner-title">あなたの稼ぐ力を、<br><span class="grad-text">専属トレーナー</span>が徹底的に鍛え上げる。</h3>
+      <p class="practice-banner-desc">レベルに合わせて、専属トレーナーが手取り足取り育て上げます。<strong>最短での収益化</strong>を、パーソナルで目指します。</p>
+      <div class="level-grid">
+        <div class="level-card">
+          <span class="level-tag">LV.01</span>
+          <h4 class="level-title">SNS初心者の方</h4>
+          <p class="level-desc">TikTokの基礎知識 → 動画制作 → 最終的に収益の作り方まで、ゼロから育成。</p>
+        </div>
+        <div class="level-card">
+          <span class="level-tag">LV.02</span>
+          <h4 class="level-title">動画制作の経験者</h4>
+          <p class="level-desc">投稿の仕方、売れる動画、収益化メソッドを徹底的にチューニング。</p>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -1133,8 +1172,8 @@
       <div class="skill-item">
         <div class="skill-num">04</div>
         <div class="skill-content">
-          <h4>月商2,000万円メソッド</h4>
-          <p>さよが一人で達成したノウハウを惜しみなく伝授。再現性の高い手法です。</p>
+          <h4>再現性の高い収益化メソッド</h4>
+          <p>実際にクライアントが結果を出している手法を、惜しみなく伝授。初心者でも実行できる再現性が強みです。</p>
         </div>
       </div>
       <div class="skill-item">
@@ -1159,16 +1198,16 @@
 <section class="result">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">実績</div>
-      <h2 class="section-title">講師の<span class="accent">リアルな数字</span></h2>
+      <div class="section-label">CLIENT RESULTS</div>
+      <h2 class="section-title">クライアントの<span class="accent">リアルな実績</span></h2>
     </div>
     <div class="result-highlight reveal">
-      <span class="result-label-top">MONTHLY SALES RECORD</span>
-      <span class="result-num">2,000万</span>
-      <span class="result-unit">月商達成 — TikTokショップ / 一人で運用</span>
+      <span class="result-label-top">FIRST MONTH ACHIEVEMENT</span>
+      <span class="result-num">150万円</span>
+      <span class="result-unit">初心者でも1ヶ月で売上達成者 — 多数輩出</span>
       <p class="result-sub">
-        講師・さよが<strong>一人でTikTokショップを運用し、月商2,000万円</strong>を達成。<br>
-        その再現性の高いメソッドを、NEW GATEの実戦サポートに落とし込んでいます。
+        再現性の高いメソッドを落とし込むことで、<strong>初心者からスタートしたクライアントが1ヶ月で150万円の売上を達成</strong>。<br>
+        副業未経験でも、専属トレーナーの伴走で着実に結果につながっています。
       </p>
     </div>
   </div>
@@ -1178,12 +1217,12 @@
 <section class="instructors">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">講師紹介</div>
-      <h2 class="section-title">圧倒的な実績を持つ<span class="accent">プロ講師陣</span></h2>
+      <div class="section-label">TRAINERS</div>
+      <h2 class="section-title">圧倒的な実績を持つ<span class="accent">プロトレーナー陣</span></h2>
     </div>
     <div class="instructor-cards reveal">
       <div class="instructor-card">
-        <span class="instructor-index">INSTRUCTOR 01</span>
+        <span class="instructor-index">TRAINER 01</span>
         <div class="instructor-head">
           <!-- 顔写真差し替え: instructor-tamaki.jpg を同フォルダに配置すれば自動で表示 -->
           <div class="instructor-avatar">
@@ -1205,7 +1244,7 @@
         </div>
       </div>
       <div class="instructor-card">
-        <span class="instructor-index">INSTRUCTOR 02</span>
+        <span class="instructor-index">TRAINER 02</span>
         <div class="instructor-head">
           <!-- 顔写真：instructor-suzuki.png -->
           <div class="instructor-avatar">
@@ -1224,7 +1263,7 @@
         </div>
       </div>
       <div class="instructor-card">
-        <span class="instructor-index">INSTRUCTOR 03</span>
+        <span class="instructor-index">TRAINER 03</span>
         <div class="instructor-head">
           <!-- 顔写真差し替え: instructor-sayo.jpg を同フォルダに配置すれば自動で表示 -->
           <div class="instructor-avatar">
@@ -1238,7 +1277,7 @@
             <span class="instructor-title">TIKTOK SHOP SPECIALIST</span>
           </div>
         </div>
-        <div class="instructor-desc">TikTokショップで一人で月商2,000万円を達成した実力者。その再現性の高いメソッドをNEW GATEで全公開し、受講生の収益化を最前線でサポートする。</div>
+        <div class="instructor-desc">TikTokショップで一人で月商2,000万円を達成した実力者。その再現性の高いメソッドをNEW GATEで全公開し、クライアントの収益化を最前線でサポートする。</div>
         <div class="instructor-tags">
           <span class="tag">TikTokショップ</span>
           <span class="tag">月商 2,000万円</span>
@@ -1266,8 +1305,8 @@
         <span class="plan-price-note">8月末までのお申し込み限定価格</span>
         <ul class="plan-features">
           <li><span class="check">→</span>実戦サポート全プログラム</li>
-          <li><span class="check">→</span>月商2,000万円メソッド全公開</li>
-          <li><span class="check">→</span>1on1コンサルティング（収益化まで継続）</li>
+          <li><span class="check">→</span>再現性の高い収益化メソッド全公開</li>
+          <li><span class="check">→</span>専属トレーナーによるパーソナルコンサル（収益化まで継続）</li>
           <li><span class="check">→</span>入会2ヶ月での回収を目標サポート</li>
           <li><span class="check">→</span><strong style="color:var(--pink)">収益化できなければ全額返金保証</strong></li>
         </ul>
@@ -1334,7 +1373,7 @@
         <div class="flow-content">
           <span class="flow-step-label">STEP 03</span>
           <h4>入会・スタート</h4>
-          <p>面談内容を踏まえて、双方の合意の上で入会。即日コンテンツへのアクセスと1on1サポートが始まります。</p>
+          <p>面談内容を踏まえて、双方の合意の上で入会。即日コンテンツへのアクセスと専属トレーナーによる伴走が始まります。</p>
         </div>
       </div>
     </div>
@@ -1352,7 +1391,7 @@
       <div class="safety-card">
         <span class="safety-card-label">SAFETY 01</span>
         <h4>入会前の個別面談を必須化</h4>
-        <p>誰でも入会できるスクールではありません。必ず面談を実施し、本気で学ぶ意欲がある方のみにご案内しています。</p>
+        <p>誰でも入会できるコンサルではありません。必ず面談を実施し、本気で結果を出したい方のみにご案内しています。</p>
       </div>
       <div class="safety-card">
         <span class="safety-card-label">SAFETY 02</span>
@@ -1361,8 +1400,8 @@
       </div>
       <div class="safety-card">
         <span class="safety-card-label">SAFETY 03</span>
-        <h4>稼げるまで1on1継続</h4>
-        <p>期間限定の伴走ではありません。あなたが収益化を達成するまで、専任講師が寄り添い続けます。</p>
+        <h4>稼げるまで専属トレーナーが伴走</h4>
+        <p>期間限定の伴走ではありません。あなたが収益化を達成するまで、専属トレーナーが寄り添い続けます。</p>
       </div>
     </div>
 
@@ -1372,7 +1411,7 @@
       </div>
       <div class="interview-text">
         <h3>入会をお断りする場合があります</h3>
-        <p>NEW GATEは全員が収益化できることを最優先にしています。そのため、面談の結果によっては入会をお断りする場合があります。これは「本気で稼ぎたい方だけのスクール」であることの証明です。まずはお気軽に無料相談からお申し込みください。</p>
+        <p>NEW GATEは全員が収益化できることを最優先にしています。そのため、面談の結果によっては入会をお断りする場合があります。これは「本気で稼ぎたい方だけのコンサル」であることの証明です。まずはお気軽に無料相談からお申し込みください。</p>
       </div>
     </div>
   </div>
@@ -1386,7 +1425,7 @@
       あなたの<span class="accent">収益化</span>を<br>一緒に実現しよう
     </h2>
     <p class="section-desc">
-      まずはLINEから無料相談。入会前に講師と直接話せるから、疑問・不安をすべて解消してから決断できます。
+      まずはLINEから無料相談。入会前にトレーナーと直接話せるから、疑問・不安をすべて解消してから決断できます。
     </p>
     <a href="https://lin.ee/XXXXXXX" class="btn-line">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
@@ -1403,7 +1442,7 @@
 <footer>
   <span class="footer-logo"><img src="logo-neon-h.png" alt="NEW GATE"></span>
   <p>© 2025 NEW GATE. All rights reserved.</p>
-  <p style="margin-top:8px;font-size:11px;color:#333;">TikTokショップスクール / SNS収益化スクール</p>
+  <p style="margin-top:8px;font-size:11px;color:#333;">TikTokショップ パーソナルコンサル / SNS収益化コンサル</p>
 </footer>
 
 <script>
