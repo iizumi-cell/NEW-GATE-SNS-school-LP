@@ -548,15 +548,15 @@
   .benefits { background: var(--black); }
   .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
     margin-top: 44px;
   }
   .benefit-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 28px 26px 30px;
+    border-radius: 18px;
+    padding: 24px 20px 26px;
     position: relative;
     transition: transform .3s, border-color .3s;
   }
@@ -580,20 +580,31 @@
   }
   .benefit-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 44px;
+    font-size: 36px;
     background: var(--grad-main);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     letter-spacing: 2px;
   }
-  .benefit-title { font-size: 17px; font-weight: 900; color: var(--white); margin-bottom: 10px; letter-spacing: 0.3px; }
-  .benefit-desc { font-size: 13px; color: var(--gray); line-height: 1.85; }
+  .benefit-title { font-size: 14px; font-weight: 900; color: var(--white); margin-bottom: 8px; letter-spacing: 0.3px; line-height: 1.5; }
+  .benefit-desc { font-size: 12px; color: var(--gray); line-height: 1.75; }
   .benefit-desc strong { color: var(--white); font-weight: 700; }
+  .benefit-tag {
+    font-size: 9.5px !important;
+    letter-spacing: 1.5px !important;
+    padding: 3px 9px !important;
+    margin-bottom: 10px !important;
+  }
+  @media(max-width: 1024px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  }
   @media(max-width: 640px) {
-    .benefits-grid { grid-template-columns: 1fr; gap: 14px; }
-    .benefit-card { padding: 24px 22px 26px; }
+    .benefits-grid { grid-template-columns: 1fr; gap: 12px; }
+    .benefit-card { padding: 22px 20px 24px; }
+    .benefit-title { font-size: 15px; }
+    .benefit-desc { font-size: 13px; }
   }
 
   /* RESULT */
@@ -1291,8 +1302,11 @@
   }
   .why-points-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media(max-width: 880px) {
+    .why-points-grid { grid-template-columns: repeat(2, 1fr); }
   }
   .why-point-item {
     padding: 22px 22px 24px;
@@ -1511,6 +1525,16 @@
           <h4>AIを活用した最新スキル</h4>
           <p>AI動画生成など最新ツールを駆使した、時代の変化に強いスキル。</p>
         </div>
+        <div class="why-point-item">
+          <span class="why-point-num">05</span>
+          <h4>必要なスキルがすべて学べる</h4>
+          <p>企画 〜 コンテンツ作成 〜 編集まで、収益化に必要なスキルを丸ごと網羅。</p>
+        </div>
+        <div class="why-point-item">
+          <span class="why-point-num">06</span>
+          <h4>圧倒的な実績を持つトレーナーが在籍</h4>
+          <p>SNSマーケ・TikTokショップ・AI動画など各分野のプロが指導します。</p>
+        </div>
       </div>
     </div>
 
@@ -1558,8 +1582,8 @@
           <div class="roadmap-step-num">GOAL</div>
           <div class="roadmap-step-tag">🎯 目標達成</div>
         </div>
-        <h4 class="roadmap-step-title">TikTokで収益化スキル</h4>
-        <p class="roadmap-step-desc">編集 × 販売 × AI効率化が組み合わさり、TikTokで継続的に収益を生み出せる状態に。ここから先は、収益を伸ばし続けるフェーズです。</p>
+        <h4 class="roadmap-step-title">TikTokやInstagramで収益化スキル</h4>
+        <p class="roadmap-step-desc">編集 × 販売 × AI効率化が組み合わさり、TikTokやInstagramで継続的に収益を生み出せる状態に。ここから先は、収益を伸ばし続けるフェーズです。</p>
       </div>
     </div>
   </div>
