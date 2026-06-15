@@ -66,7 +66,6 @@
     width: auto;
     display: block;
     object-fit: contain;
-    mix-blend-mode: screen;
   }
   @media(max-width: 640px) {
     .nav-logo { height: 36px; }
@@ -141,8 +140,6 @@
     width: 100%;
     height: auto;
     display: block;
-    /* 画像内の "ほぼ黒" を強制的に純黒(#000)まで沈める */
-    filter: brightness(0.93) contrast(1.15) saturate(1.05);
   }
   /* 上下左右の端を背景色に完全フェードさせて境界を消す */
   .hero-model::after {
@@ -183,6 +180,25 @@
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
 
+  .hero-pre-catch {
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 900;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 18px;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.7s ease 0.05s both;
+    text-shadow: 0 0 30px rgba(0,245,255,0.4), 0 0 60px rgba(180,79,255,0.25);
+  }
+  .hero-pre-catch::before, .hero-pre-catch::after {
+    content: '＼';
+    color: var(--cyan);
+    margin: 0 14px;
+  }
+  .hero-pre-catch::after { content: '／'; }
+
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(56px, 8vw, 96px);
@@ -205,11 +221,12 @@
     color: var(--white);
     display: block;
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.2em;
+    font-size: 0.18em;
     font-weight: 700;
-    letter-spacing: 8px;
-    margin-top: 14px;
-    opacity: 0.75;
+    letter-spacing: 3px;
+    margin-top: 16px;
+    opacity: 0.82;
+    line-height: 1.5;
   }
   @media(max-width: 640px) {
     .hero-title {
@@ -217,8 +234,8 @@
       letter-spacing: 5px;
     }
     .hero-title .white {
-      font-size: 0.24em;
-      letter-spacing: 5px;
+      font-size: 0.21em;
+      letter-spacing: 2px;
     }
   }
 
@@ -442,37 +459,142 @@
 
   /* SKILLS */
   .skills { background: var(--deep); }
-  .skills-grid {
+  .roadmap {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .roadmap-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 28px 26px;
+    position: relative;
+    transition: transform .3s, border-color .3s;
+  }
+  .roadmap-step:hover { border-color: rgba(180,79,255,0.4); transform: translateX(4px); }
+  .roadmap-step.final {
+    border-color: rgba(180,79,255,0.5);
+    background: linear-gradient(135deg, rgba(0,245,255,0.06), rgba(180,79,255,0.08), rgba(255,45,120,0.06));
+    box-shadow: 0 0 80px rgba(180,79,255,0.15);
+  }
+  .roadmap-step-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .roadmap-step-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: var(--cyan);
+    background: rgba(0,245,255,0.08);
+    border: 1px solid rgba(0,245,255,0.3);
+    border-radius: 8px;
+    padding: 4px 11px;
+  }
+  .roadmap-step.final .roadmap-step-num {
+    color: #fff;
+    background: var(--grad-main);
+    border-color: transparent;
+  }
+  .roadmap-step-tag {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 1px;
+  }
+  .roadmap-step-title {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .roadmap-step.final .roadmap-step-title {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .roadmap-step-desc { font-size: 13.5px; color: var(--gray); line-height: 1.85; }
+  .roadmap-connector {
+    width: 2px;
+    height: 36px;
+    margin-left: 36px;
+    background: linear-gradient(180deg, rgba(0,245,255,0.4), rgba(180,79,255,0.4));
+    position: relative;
+  }
+  .roadmap-connector::after {
+    content: '▼';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--purple);
+    font-size: 11px;
+  }
+  @media(max-width: 640px) {
+    .roadmap-step { padding: 22px 22px 24px; }
+    .roadmap-step-title { font-size: 17px; }
+    .roadmap-connector { height: 28px; margin-left: 30px; }
+  }
+
+  /* BENEFITS */
+  .benefits { background: var(--black); }
+  .benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
+    gap: 18px;
     margin-top: 44px;
   }
-  .skill-item {
+  .benefit-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 28px;
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
+    padding: 28px 26px 30px;
+    position: relative;
     transition: transform .3s, border-color .3s;
   }
-  .skill-item:hover { transform: translateY(-4px); border-color: rgba(180,79,255,0.35); }
-  .skill-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--purple);
-    background: rgba(180,79,255,0.08);
-    border: 1px solid rgba(180,79,255,0.25);
-    border-radius: 8px;
-    padding: 4px 9px;
-    flex-shrink: 0;
-    margin-top: 2px;
-    letter-spacing: 1px;
+  .benefit-card:hover { transform: translateY(-4px); border-color: rgba(0,245,255,0.35); }
+  .benefit-card.highlighted-benefit {
+    border-color: rgba(255,45,120,0.45);
+    background: linear-gradient(160deg, rgba(255,45,120,0.06), rgba(180,79,255,0.04));
+    box-shadow: 0 0 60px rgba(255,45,120,0.12);
   }
-  .skill-content h4 { font-size: 15px; font-weight: 900; margin-bottom: 7px; }
-  .skill-content p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+  .benefit-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--pink), var(--purple));
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .benefit-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+  }
+  .benefit-title { font-size: 17px; font-weight: 900; color: var(--white); margin-bottom: 10px; letter-spacing: 0.3px; }
+  .benefit-desc { font-size: 13px; color: var(--gray); line-height: 1.85; }
+  .benefit-desc strong { color: var(--white); font-weight: 700; }
+  @media(max-width: 640px) {
+    .benefits-grid { grid-template-columns: 1fr; gap: 14px; }
+    .benefit-card { padding: 24px 22px 26px; }
+  }
 
   /* RESULT */
   .result { background: var(--black); }
@@ -625,6 +747,112 @@
     font-family: 'Space Mono', monospace;
   }
 
+  /* STRICT SELECTION */
+  .selection { background: var(--black); padding: 96px 24px; }
+  .selection-box {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 44px;
+    border-radius: 24px;
+    background: linear-gradient(160deg, rgba(255,45,120,0.08) 0%, rgba(180,79,255,0.06) 50%, rgba(0,245,255,0.04) 100%);
+    border: 1px solid rgba(255,45,120,0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .selection-box::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 24px;
+    padding: 1px;
+    background: var(--grad-main);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  .selection-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--pink);
+    padding: 5px 16px;
+    border: 1px solid rgba(255,45,120,0.45);
+    border-radius: 100px;
+    background: rgba(255,45,120,0.08);
+    margin-bottom: 28px;
+    font-weight: 700;
+  }
+  .selection-title {
+    font-size: clamp(24px, 3.8vw, 36px);
+    font-weight: 900;
+    line-height: 1.5;
+    color: var(--white);
+    margin-bottom: 22px;
+  }
+  .selection-title .grad-text {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .selection-lead {
+    font-size: clamp(13px, 2vw, 15px);
+    color: var(--gray);
+    line-height: 1.95;
+    margin-bottom: 36px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .selection-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    text-align: left;
+    margin-bottom: 32px;
+  }
+  .selection-feature {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 20px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+  }
+  .selection-feature-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255,45,120,0.18), rgba(180,79,255,0.18));
+    color: var(--pink);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .selection-feature h4 { font-size: 13.5px; font-weight: 900; color: var(--white); margin-bottom: 5px; letter-spacing: 0.3px; }
+  .selection-feature p { font-size: 12px; color: var(--gray); line-height: 1.7; }
+  .selection-cta-note {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 700;
+    padding-top: 24px;
+    border-top: 1px dashed rgba(255,255,255,0.15);
+    letter-spacing: 0.5px;
+  }
+  .selection-cta-note strong {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+  }
+  @media(max-width: 640px) {
+    .selection { padding: 64px 18px; }
+    .selection-box { padding: 36px 22px; }
+    .selection-features { grid-template-columns: 1fr; gap: 12px; }
+  }
+
   /* PLAN */
   .plan { background: var(--black); }
   .plan-grid {
@@ -730,6 +958,21 @@
   }
   .guarantee-text h4 { font-size: 16px; font-weight: 900; color: var(--pink); margin-bottom: 7px; }
   .guarantee-text p { font-size: 13px; color: var(--gray); line-height: 1.8; }
+  .guarantee-conditions {
+    list-style: none;
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+  }
+  .guarantee-conditions li {
+    font-size: 11.5px;
+    color: var(--gray);
+    line-height: 1.75;
+    padding-left: 0;
+  }
+  .guarantee-conditions li + li { margin-top: 4px; }
 
   /* FLOW */
   .flow { background: var(--deep); }
@@ -787,6 +1030,23 @@
   }
   .flow-content h4 { font-size: 18px; font-weight: 900; margin-bottom: 7px; }
   .flow-content p { font-size: 13px; color: var(--gray); line-height: 1.75; }
+  .flow-content p strong { color: var(--white); font-weight: 700; }
+
+  /* 厳選選考ステップのハイライト */
+  .flow-step-strict .flow-content {
+    background: linear-gradient(160deg, rgba(255,45,120,0.08), rgba(180,79,255,0.06));
+    border-color: rgba(255,45,120,0.4);
+    box-shadow: 0 0 40px rgba(255,45,120,0.12);
+  }
+  .flow-step-label-strict {
+    color: var(--pink) !important;
+    font-weight: 700;
+  }
+  .flow-step-strict .flow-num {
+    background: linear-gradient(135deg, var(--pink), var(--purple)) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+  }
 
   /* SAFETY */
   .safety { background: var(--black); }
@@ -880,7 +1140,6 @@
     width: auto;
     display: block;
     object-fit: contain;
-    mix-blend-mode: screen;
   }
   footer p { font-size: 12px; color: #444; }
 
@@ -950,12 +1209,20 @@
     margin-top: 32px;
     text-align: left;
   }
+  .level-grid-3 { grid-template-columns: repeat(3, 1fr); }
   .level-card {
-    padding: 22px 22px 24px;
+    padding: 24px 22px 26px;
     border-radius: 16px;
     background: rgba(255,255,255,0.025);
     border: 1px solid rgba(255,255,255,0.08);
     position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .level-card.highlighted {
+    border-color: rgba(180,79,255,0.45);
+    background: linear-gradient(160deg, rgba(180,79,255,0.08), rgba(255,45,120,0.04));
+    box-shadow: 0 0 60px rgba(180,79,255,0.15);
   }
   .level-tag {
     display: inline-block;
@@ -968,13 +1235,91 @@
     border-radius: 100px;
     border: 1px solid rgba(0,245,255,0.3);
     margin-bottom: 12px;
+    align-self: flex-start;
   }
-  .level-title { font-size: 15px; font-weight: 900; color: var(--white); margin-bottom: 8px; letter-spacing: 0.5px; }
-  .level-desc { font-size: 12.5px; color: var(--gray); line-height: 1.7; }
+  .level-tag-hot {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 2.5px;
+    color: #fff;
+    background: var(--grad-main);
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    font-weight: 700;
+  }
+  .level-title { font-size: 15px; font-weight: 900; color: var(--white); margin-bottom: 10px; letter-spacing: 0.5px; line-height: 1.5; }
+  .level-desc { font-size: 12.5px; color: var(--gray); line-height: 1.7; flex-grow: 1; }
+  .level-desc strong { color: var(--white); font-weight: 700; }
+  .level-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+    flex-wrap: wrap;
+  }
+  .level-flow-step {
+    font-size: 11px;
+    color: var(--cyan);
+    padding: 3px 9px;
+    background: rgba(0,245,255,0.06);
+    border: 1px solid rgba(0,245,255,0.2);
+    border-radius: 6px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+  .level-flow-arrow { color: var(--gray); font-size: 11px; }
+
+  /* WHY 補足ポイント */
+  .why-points {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+  .why-points-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .why-points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .why-point-item {
+    padding: 22px 22px 24px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+  }
+  .why-point-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .why-point-item h4 { font-size: 14px; font-weight: 900; color: var(--white); margin-bottom: 8px; letter-spacing: 0.3px; line-height: 1.5; }
+  .why-point-item p { font-size: 12px; color: var(--gray); line-height: 1.75; }
+
+  @media(max-width: 880px) {
+    .level-grid-3 { grid-template-columns: 1fr; }
+  }
   @media(max-width: 640px) {
     .practice-banner { padding: 32px 22px; margin-top: 40px; }
     .level-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
     .level-card { padding: 18px 18px 20px; }
+    .why-points { margin-top: 48px; padding-top: 36px; }
+    .why-points-grid { grid-template-columns: 1fr; gap: 12px; }
   }
 
   /* REVEAL */
@@ -1015,28 +1360,31 @@
   <div class="hero-inner">
     <!-- 上：ワイドなメインビジュアル -->
     <div class="hero-model">
-      <img src="hero.png?v=9" alt="SNSを仕事にしたいあなたへ — 専属トレーナーが伴走するパーソナルコンサル">
+      <img src="hero.png?v=10" alt="SNSを仕事にしたいあなたを — 収益化まで徹底伴走">
     </div>
 
     <!-- 下：ブランディング＋CTA -->
     <div class="hero-text">
       <div class="hero-badge">
         <div class="badge-dot"></div>
-        TikTok Shop Personal Consulting
+        超実践型SNS収益化 パーソナルトレーニング
       </div>
+
+      <p class="hero-pre-catch">とにかくSNSで稼ぎたいあなたへ</p>
 
       <h1 class="hero-title">
         <span class="grad">NEW GATE</span>
-        <span class="white">SNS収益化 パーソナルコンサル</span>
+        <span class="white">収益化まで伴走する超実践型育成プログラム</span>
       </h1>
       <p class="hero-sub">
-        あなたの稼ぐ力を、<span>専属トレーナー</span>が徹底的に鍛え上げる。最短で<span>収益化</span>まで並走します。
+        あなたの稼ぐ力を、<span>専属トレーナー</span>が徹底的に鍛え上げます。<br>
+        稼ぐ"<span>力</span>"から稼ぐ"<span>モノ</span>"まで、専属トレーナーが伴走。
       </p>
 
       <div class="hero-hooks">
         <div class="hook primary">
           <div class="hook-line"></div>
-          稼げるまで専属トレーナーが伴走
+          稼ぐ力から稼ぐモノまで専属トレーナーが伴走
         </div>
         <div class="hook secondary">
           <div class="hook-line"></div>
@@ -1089,49 +1437,79 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">NEW GATEが選ばれる理由</div>
-      <h2 class="section-title">稼げるまで<span class="accent">絶対に手を離さない</span>パーソナルコンサル</h2>
-      <p class="section-desc">NEW GATEは「教えて終わり」ではありません。クライアント一人ひとりの収益化を最優先に、専属トレーナーが伴走し続けます。</p>
+      <h2 class="section-title">稼げるまでノウハウを<span class="accent">徹底的に叩き込む</span>パーソナルトレーニング</h2>
+      <p class="section-desc">NEW GATEは「教えて終わり」ではありません。受講生一人ひとりの収益化を最優先に、専属トレーナーが伴走し続けます。</p>
     </div>
-    <div class="why-cards reveal">
-      <div class="why-main">
-        <div class="why-main-num">01</div>
-        <div class="why-main-content">
-          <h3>稼げるまで専属トレーナーが伴走</h3>
-          <p>これがNEW GATEの最大の強みです。コンテンツを渡すだけの「丸投げコンサル」とは一線を画します。あなたの状況に合わせて、収益が出るまで専属トレーナーがパーソナルで伴走。「一人で悩む時間」をゼロにします。</p>
+
+    <!-- 3パターン別パーソナルトレーニング訴求（メイン） -->
+    <div class="practice-banner reveal">
+      <div class="practice-banner-tag">PERSONAL TRAINING</div>
+      <h3 class="practice-banner-title">あなたの<span class="grad-text">レベルに合わせて</span><br>専属トレーナーが手取り足取り育て上げます</h3>
+      <p class="practice-banner-desc">レベルに関係なく、<strong>最短での収益化</strong>をパーソナルで目指します。3つのタイプ別にカスタマイズされたトレーニングをご用意。</p>
+      <div class="level-grid level-grid-3">
+        <div class="level-card">
+          <span class="level-tag">CASE 01</span>
+          <h4 class="level-title">SNS・動画編集の<br>初心者の方</h4>
+          <p class="level-desc">TikTokの基礎知識 → 動画制作 → 最終的に収益の作り方まで、ゼロから一気通貫で育成。</p>
+          <div class="level-flow">
+            <span class="level-flow-step">基礎</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">動画制作</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">収益化</span>
+          </div>
         </div>
-      </div>
-      <div class="why-card">
-        <span class="why-card-label">POINT 02</span>
-        <h3>収益化できなければ全額返金</h3>
-        <p>結果にコミットできる自信があるから全額返金保証をお約束。リスクなく始められます。</p>
-      </div>
-      <div class="why-card">
-        <span class="why-card-label">POINT 03</span>
-        <h3>TikTok + Instagram 両方対応</h3>
-        <p>TikTokショップに特化しながら、Instagramでの収益化も同時に学べます。</p>
-      </div>
-      <div class="why-card">
-        <span class="why-card-label">POINT 04</span>
-        <h3>AIを活用した最新スキル</h3>
-        <p>AI動画生成など最新ツールを駆使した、時代の変化に強いスキルが身につきます。</p>
+        <div class="level-card">
+          <span class="level-tag">CASE 02</span>
+          <h4 class="level-title">動画制作経験はあるが<br>収益化できていない方</h4>
+          <p class="level-desc">投稿の仕方、売れる動画、収益化メソッドを徹底的にチューニング。スキルを"稼ぎ"に変換します。</p>
+          <div class="level-flow">
+            <span class="level-flow-step">投稿戦略</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">売れる動画</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">収益化</span>
+          </div>
+        </div>
+        <div class="level-card highlighted">
+          <span class="level-tag-hot">★ MOST WANTED</span>
+          <span class="level-tag">CASE 03</span>
+          <h4 class="level-title">TikTokフォロワー<br>1〜2万人いるが収益化できていない方</h4>
+          <p class="level-desc"><strong>動画編集スキルはあるのに収益化の方法が分からない</strong>方を最も得意としています。既存資産を最短で売上に変換。</p>
+          <div class="level-flow">
+            <span class="level-flow-step">既存フォロワー資産</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">マネタイズ設計</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">即収益化</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- レベル別パーソナルトレーニング訴求 -->
-    <div class="practice-banner reveal">
-      <div class="practice-banner-tag">PERSONAL TRAINING</div>
-      <h3 class="practice-banner-title">あなたの稼ぐ力を、<br><span class="grad-text">専属トレーナー</span>が徹底的に鍛え上げる。</h3>
-      <p class="practice-banner-desc">レベルに合わせて、専属トレーナーが手取り足取り育て上げます。<strong>最短での収益化</strong>を、パーソナルで目指します。</p>
-      <div class="level-grid">
-        <div class="level-card">
-          <span class="level-tag">LV.01</span>
-          <h4 class="level-title">SNS初心者の方</h4>
-          <p class="level-desc">TikTokの基礎知識 → 動画制作 → 最終的に収益の作り方まで、ゼロから育成。</p>
+    <!-- 補足ポイント -->
+    <div class="why-points reveal">
+      <div class="why-points-label">その他のNEW GATEの強み</div>
+      <div class="why-points-grid">
+        <div class="why-point-item">
+          <span class="why-point-num">01</span>
+          <h4>稼げるまで専属トレーナーが伴走</h4>
+          <p>収益が出るまで、専属トレーナーがパーソナルで並走。「一人で悩む時間」をゼロに。</p>
         </div>
-        <div class="level-card">
-          <span class="level-tag">LV.02</span>
-          <h4 class="level-title">動画制作の経験者</h4>
-          <p class="level-desc">投稿の仕方、売れる動画、収益化メソッドを徹底的にチューニング。</p>
+        <div class="why-point-item">
+          <span class="why-point-num">02</span>
+          <h4>収益化できなければ全額返金</h4>
+          <p>結果にコミットできる自信があるから全額返金保証。リスクなく始められます。</p>
+        </div>
+        <div class="why-point-item">
+          <span class="why-point-num">03</span>
+          <h4>TikTok + Instagram 両方対応</h4>
+          <p>TikTokショップに特化しながら、Instagramでの収益化も同時に習得。</p>
+        </div>
+        <div class="why-point-item">
+          <span class="why-point-num">04</span>
+          <h4>AIを活用した最新スキル</h4>
+          <p>AI動画生成など最新ツールを駆使した、時代の変化に強いスキル。</p>
         </div>
       </div>
     </div>
@@ -1139,56 +1517,83 @@
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- SKILLS ROADMAP -->
 <section class="skills">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">SKILLS</div>
-      <h2 class="section-title">実戦で<span class="accent">身につくスキル</span></h2>
-      <p class="section-desc">座学ではなく、実案件・実販売を通して。最短で収益化に直結するスキルだけを、現場で習得します。</p>
+      <div class="section-label">SKILL ROADMAP</div>
+      <h2 class="section-title">収益化までの<span class="accent">スキル習得ロードマップ</span></h2>
+      <p class="section-desc">座学ではなく、実案件・実販売を通して。1つずつ着実に積み上げ、最終的に「TikTokで収益化」できる状態まで持っていきます。</p>
     </div>
-    <div class="skills-grid reveal">
-      <div class="skill-item">
-        <div class="skill-num">01</div>
-        <div class="skill-content">
-          <h4>動画編集スキル</h4>
-          <p>バズる動画の構成・編集技法を習得。視聴者を惹きつけるコンテンツを作れるようになります。</p>
+    <div class="roadmap reveal">
+      <div class="roadmap-step">
+        <div class="roadmap-step-head">
+          <div class="roadmap-step-num">STEP 01</div>
+          <div class="roadmap-step-tag">入会直後〜</div>
         </div>
+        <h4 class="roadmap-step-title">動画編集スキル</h4>
+        <p class="roadmap-step-desc">TikTokで収益化するために必要な動画編集スキルを習得。テンポ・テロップ・カット割りなど、視聴維持率を上げる実用技術に絞って学びます。</p>
       </div>
-      <div class="skill-item">
-        <div class="skill-num">02</div>
-        <div class="skill-content">
-          <h4>商品販売スキル</h4>
-          <p>TikTokショップでの商品選定から出品・販促まで。売れる商品を見極め、収益につなげます。</p>
+      <div class="roadmap-connector"></div>
+      <div class="roadmap-step">
+        <div class="roadmap-step-head">
+          <div class="roadmap-step-num">STEP 02</div>
+          <div class="roadmap-step-tag">編集が身についたら</div>
         </div>
+        <h4 class="roadmap-step-title">販売スキル</h4>
+        <p class="roadmap-step-desc">商品選定 → 出品 → 販促 → 売れる訴求の作り方まで。TikTokショップで実際に売上を作るための「販売の型」を実戦で身につけます。</p>
       </div>
-      <div class="skill-item">
-        <div class="skill-num">03</div>
-        <div class="skill-content">
-          <h4>コンテンツ制作スキル</h4>
-          <p>フォロワーが増え、エンゲージメントが上がる継続的なコンテンツ戦略を構築します。</p>
+      <div class="roadmap-connector"></div>
+      <div class="roadmap-step">
+        <div class="roadmap-step-head">
+          <div class="roadmap-step-num">STEP 03</div>
+          <div class="roadmap-step-tag">効率化フェーズ</div>
         </div>
+        <h4 class="roadmap-step-title">AI動画生成スキル</h4>
+        <p class="roadmap-step-desc">最新AI技術を活用して動画制作を効率化。少ない時間で高品質なコンテンツを量産し、運用負荷を下げながら投稿頻度を上げます。</p>
       </div>
-      <div class="skill-item">
-        <div class="skill-num">04</div>
-        <div class="skill-content">
-          <h4>再現性の高い収益化メソッド</h4>
-          <p>実際にクライアントが結果を出している手法を、惜しみなく伝授。初心者でも実行できる再現性が強みです。</p>
+      <div class="roadmap-connector"></div>
+      <div class="roadmap-step final">
+        <div class="roadmap-step-head">
+          <div class="roadmap-step-num">GOAL</div>
+          <div class="roadmap-step-tag">🎯 目標達成</div>
         </div>
+        <h4 class="roadmap-step-title">TikTokで収益化スキル</h4>
+        <p class="roadmap-step-desc">編集 × 販売 × AI効率化が組み合わさり、TikTokで継続的に収益を生み出せる状態に。ここから先は、収益を伸ばし続けるフェーズです。</p>
       </div>
-      <div class="skill-item">
-        <div class="skill-num">05</div>
-        <div class="skill-content">
-          <h4>SNSマーケティングスキル</h4>
-          <p>アルゴリズムを理解し、フォロワーを集客に直結させるSNSマーケの本質を学びます。</p>
-        </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">EXCLUSIVE BENEFITS</div>
+      <h2 class="section-title">NEW GATE<span class="accent">入会者だけの特典</span></h2>
+      <p class="section-desc">ノウハウだけでは収益化できません。NEW GATEは「実際に稼げる環境」を提供する独自の特典をご用意しています。</p>
+    </div>
+    <div class="benefits-grid reveal">
+      <div class="benefit-card highlighted-benefit">
+        <span class="benefit-tag">★ 先着10名限定</span>
+        <div class="benefit-num">01</div>
+        <h3 class="benefit-title">練習用TikTokアカウント提供</h3>
+        <p class="benefit-desc">フォロワー<strong>1,000人以上のTikTokアカウント</strong>を練習用として貸し出します。ゼロから始める必要なく、初日から実戦投入が可能です。</p>
       </div>
-      <div class="skill-item">
-        <div class="skill-num">06</div>
-        <div class="skill-content">
-          <h4>儲かるAI動画生成スキル</h4>
-          <p>最新AI技術を活用した動画制作。少ない時間で高品質なコンテンツを量産できます。</p>
-        </div>
+      <div class="benefit-card">
+        <div class="benefit-num">02</div>
+        <h3 class="benefit-title">高単価案件の紹介</h3>
+        <p class="benefit-desc">NEW GATE独自の<strong>高単価案件へのアクセス権</strong>を提供。学んだスキルをすぐ売上に変換できる環境を、入会即日から用意しています。</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">03</div>
+        <h3 class="benefit-title">独自コミュニティへの参加</h3>
+        <p class="benefit-desc">受講生同士が相談・協力できるコミュニティ。さくらコメント戦略など、NEW GATE独自の販売戦略を仲間と一緒に実践できます。</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">04</div>
+        <h3 class="benefit-title">動画編集の仕事提供</h3>
+        <p class="benefit-desc">自社アカウント向けの<strong>動画編集業務を提供</strong>。「学びながら稼げる」環境を整え、入会費の回収を加速させます。</p>
       </div>
     </div>
   </div>
@@ -1198,15 +1603,15 @@
 <section class="result">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">CLIENT RESULTS</div>
-      <h2 class="section-title">クライアントの<span class="accent">リアルな実績</span></h2>
+      <div class="section-label">STUDENT RESULTS</div>
+      <h2 class="section-title">受講生の<span class="accent">リアルな実績</span></h2>
     </div>
     <div class="result-highlight reveal">
       <span class="result-label-top">FIRST MONTH ACHIEVEMENT</span>
       <span class="result-num">150万円</span>
       <span class="result-unit">初心者でも1ヶ月で売上達成者 — 多数輩出</span>
       <p class="result-sub">
-        再現性の高いメソッドを落とし込むことで、<strong>初心者からスタートしたクライアントが1ヶ月で150万円の売上を達成</strong>。<br>
+        再現性の高いノウハウを徹底的に叩き込むことで、<strong>初心者からスタートした受講生が1ヶ月で150万円の売上を達成</strong>。<br>
         副業未経験でも、専属トレーナーの伴走で着実に結果につながっています。
       </p>
     </div>
@@ -1224,28 +1629,6 @@
       <div class="instructor-card">
         <span class="instructor-index">TRAINER 01</span>
         <div class="instructor-head">
-          <!-- 顔写真差し替え: instructor-tamaki.jpg を同フォルダに配置すれば自動で表示 -->
-          <div class="instructor-avatar">
-            <!-- <img src="instructor-tamaki.jpg" alt="玉木"> -->
-            <div class="avatar-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            </div>
-          </div>
-          <div class="instructor-head-text">
-            <div class="instructor-name">玉木</div>
-            <span class="instructor-title">SNS CREATOR</span>
-          </div>
-        </div>
-        <div class="instructor-desc">元「あいのり」メンバーとして知名度を持ちながら、Instagram・TikTokで多数の収益化を実現。エンタメ性と収益性を両立したコンテンツ制作の第一人者。</div>
-        <div class="instructor-tags">
-          <span class="tag">Instagram</span>
-          <span class="tag">TikTok</span>
-          <span class="tag">コンテンツ制作</span>
-        </div>
-      </div>
-      <div class="instructor-card">
-        <span class="instructor-index">TRAINER 02</span>
-        <div class="instructor-head">
           <!-- 顔写真：instructor-suzuki.png -->
           <div class="instructor-avatar">
             <img src="instructor-suzuki.png" alt="鈴木">
@@ -1262,10 +1645,11 @@
           <span class="tag">集客</span>
         </div>
       </div>
+
       <div class="instructor-card">
-        <span class="instructor-index">TRAINER 03</span>
+        <span class="instructor-index">TRAINER 02</span>
         <div class="instructor-head">
-          <!-- 顔写真差し替え: instructor-sayo.jpg を同フォルダに配置すれば自動で表示 -->
+          <!-- 顔写真差し替え: instructor-sayo.jpg を同フォルダに配置 -->
           <div class="instructor-avatar">
             <!-- <img src="instructor-sayo.jpg" alt="さよ"> -->
             <div class="avatar-placeholder">
@@ -1277,13 +1661,152 @@
             <span class="instructor-title">TIKTOK SHOP SPECIALIST</span>
           </div>
         </div>
-        <div class="instructor-desc">TikTokショップで一人で月商2,000万円を達成した実力者。その再現性の高いメソッドをNEW GATEで全公開し、クライアントの収益化を最前線でサポートする。</div>
+        <div class="instructor-desc">TikTokショップで一人で月商2,000万円を達成した実力者。その再現性の高いメソッドをNEW GATEで全公開し、受講生の収益化を最前線でサポートする。</div>
         <div class="instructor-tags">
           <span class="tag">TikTokショップ</span>
           <span class="tag">月商 2,000万円</span>
           <span class="tag">EC販売</span>
         </div>
       </div>
+
+      <div class="instructor-card">
+        <span class="instructor-index">TRAINER 03</span>
+        <div class="instructor-head">
+          <!-- 顔写真差し替え: instructor-ogawa.jpg を同フォルダに配置 -->
+          <div class="instructor-avatar">
+            <!-- <img src="instructor-ogawa.jpg" alt="小川"> -->
+            <div class="avatar-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="instructor-head-text">
+            <div class="instructor-name">小川</div>
+            <span class="instructor-title">CONTENT STRATEGIST</span>
+          </div>
+        </div>
+        <div class="instructor-desc">バズる動画の構成・編集を熟知したコンテンツ戦略家。視聴維持率を上げる「型」を体系化し、初心者でも再現できるノウハウとして指導。</div>
+        <div class="instructor-tags">
+          <span class="tag">動画戦略</span>
+          <span class="tag">編集</span>
+          <span class="tag">バズ設計</span>
+        </div>
+      </div>
+
+      <div class="instructor-card">
+        <span class="instructor-index">TRAINER 04</span>
+        <div class="instructor-head">
+          <!-- 顔写真差し替え: instructor-kaito.jpg を同フォルダに配置 -->
+          <div class="instructor-avatar">
+            <!-- <img src="instructor-kaito.jpg" alt="カイト"> -->
+            <div class="avatar-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="instructor-head-text">
+            <div class="instructor-name">カイト</div>
+            <span class="instructor-title">AI VIDEO SPECIALIST</span>
+          </div>
+        </div>
+        <div class="instructor-desc">AI動画生成ツールを駆使したコンテンツ量産のスペシャリスト。最新ツールを活用し、効率的に高品質な動画を制作する手法を指導。</div>
+        <div class="instructor-tags">
+          <span class="tag">AI動画</span>
+          <span class="tag">効率化</span>
+          <span class="tag">量産</span>
+        </div>
+      </div>
+
+      <div class="instructor-card">
+        <span class="instructor-index">TRAINER 05</span>
+        <div class="instructor-head">
+          <!-- 顔写真差し替え: instructor-tari.jpg を同フォルダに配置 -->
+          <div class="instructor-avatar">
+            <!-- <img src="instructor-tari.jpg" alt="田利"> -->
+            <div class="avatar-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="instructor-head-text">
+            <div class="instructor-name">田利</div>
+            <span class="instructor-title">SALES TRAINER</span>
+          </div>
+        </div>
+        <div class="instructor-desc">商品選定から販促・販売戦略までトータルにサポート。"売れる"訴求のロジックを言語化し、再現性高く受講生に落とし込む。</div>
+        <div class="instructor-tags">
+          <span class="tag">販売戦略</span>
+          <span class="tag">訴求設計</span>
+          <span class="tag">EC</span>
+        </div>
+      </div>
+
+      <div class="instructor-card">
+        <span class="instructor-index">TRAINER 06</span>
+        <div class="instructor-head">
+          <!-- 顔写真差し替え: instructor-yohei.jpg を同フォルダに配置 -->
+          <div class="instructor-avatar">
+            <!-- <img src="instructor-yohei.jpg" alt="ヨウヘイ"> -->
+            <div class="avatar-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <div class="instructor-head-text">
+            <div class="instructor-name">ヨウヘイ</div>
+            <span class="instructor-title">CHIEF TRAINER</span>
+          </div>
+        </div>
+        <div class="instructor-desc">NEW GATE全体の指導設計・トレーナー育成を統括。受講生一人ひとりに最適なトレーニング設計を行い、収益化までの最短ルートを引く。</div>
+        <div class="instructor-tags">
+          <span class="tag">統括</span>
+          <span class="tag">プログラム設計</span>
+          <span class="tag">伴走</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRICT SELECTION -->
+<section class="selection">
+  <div class="container">
+    <div class="selection-box reveal">
+      <div class="selection-tag">100% MONETIZATION COMMITMENT</div>
+      <h2 class="selection-title">
+        絶対に稼がせる。<br>
+        だからこそ、<span class="grad-text">誰でも入会できるわけではない。</span>
+      </h2>
+      <p class="selection-lead">
+        NEW GATE は「100%マネタイズ」を標榜しています。<br>
+        マネタイズできないと判断した応募者は、入会をお断りしています。
+      </p>
+      <div class="selection-features">
+        <div class="selection-feature">
+          <div class="selection-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div>
+            <h4>無料相談ではなく「厳選なる面接・選考」</h4>
+            <p>入会前に必ず選考面接を実施。本気で稼ぐ意志と適性を見極めます。</p>
+          </div>
+        </div>
+        <div class="selection-feature">
+          <div class="selection-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h4>厳選した受講生のみ参加可能</h4>
+            <p>本気で結果を出したい方だけに絞ることで、全員の収益化を実現します。</p>
+          </div>
+        </div>
+        <div class="selection-feature">
+          <div class="selection-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <div>
+            <h4>入会者は100%マネタイズ達成</h4>
+            <p>入会のハードルは高い。けれど、入会さえすれば確実に稼がせます。</p>
+          </div>
+        </div>
+      </div>
+      <p class="selection-cta-note">入会のハードルは高い。けれど、入会さえすれば <strong>確実な結果をお約束</strong>します。</p>
     </div>
   </div>
 </section>
@@ -1308,7 +1831,7 @@
           <li><span class="check">→</span>再現性の高い収益化メソッド全公開</li>
           <li><span class="check">→</span>専属トレーナーによるパーソナルコンサル（収益化まで継続）</li>
           <li><span class="check">→</span>入会2ヶ月での回収を目標サポート</li>
-          <li><span class="check">→</span><strong style="color:var(--pink)">収益化できなければ全額返金保証</strong></li>
+          <li><span class="check">→</span><strong style="color:var(--pink)">収益化できなければ全額返金保証<sup style="font-size:10px;font-weight:400;">※</sup></strong></li>
         </ul>
       </div>
       <div class="plan-card">
@@ -1330,7 +1853,12 @@
       </div>
       <div class="guarantee-text">
         <h4>全額返金保証</h4>
-        <p>NEW GATEで学んで収益化できなかった場合は、入会金を全額返金します。結果にコミットできるからこそ出せる保証です。詳細は無料相談時にご確認ください。</p>
+        <p>NEW GATEで学んで収益化できなかった場合は、入会金を全額返金します。結果にコミットできるからこそ出せる保証です。</p>
+        <ul class="guarantee-conditions">
+          <li>※ 入会後に定められたチェックシート（投稿本数などの行動基準）を満たしていること</li>
+          <li>※ 入会後6ヶ月以内に収益化できなかった場合に適用</li>
+          <li>※ 詳細は面談時にお伝えします</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -1341,7 +1869,7 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">入会の流れ</div>
-      <h2 class="section-title">入会まで<span class="accent">3ステップ</span></h2>
+      <h2 class="section-title">入会まで<span class="accent">4ステップ</span></h2>
     </div>
     <div class="flow-steps reveal">
       <div class="flow-step">
@@ -1362,18 +1890,29 @@
         </div>
         <div class="flow-content">
           <span class="flow-step-label">STEP 02</span>
-          <h4>無料個別面談（オンライン）</h4>
-          <p>必ず入会前に個別面談を実施しています。あなたの状況・目標をヒアリングし、NEW GATEが最適かを一緒に確認します。</p>
+          <h4>個別面談（オンライン）</h4>
+          <p>あなたの現状・目標をヒアリング。NEW GATEのトレーニング内容と適性をすり合わせます。</p>
+        </div>
+      </div>
+      <div class="flow-step flow-step-strict">
+        <div class="flow-left">
+          <div class="flow-num">3</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-content">
+          <span class="flow-step-label flow-step-label-strict">STEP 03 — 厳選選考</span>
+          <h4>厳選なる面接・選考</h4>
+          <p>本気で稼ぐ意志と適性を見極める選考プロセス。<strong>マネタイズできないと判断した場合は、入会をお断りします。</strong>これがNEW GATEの「100%マネタイズ」を支える仕組みです。</p>
         </div>
       </div>
       <div class="flow-step">
         <div class="flow-left">
-          <div class="flow-num">3</div>
+          <div class="flow-num">4</div>
         </div>
         <div class="flow-content">
-          <span class="flow-step-label">STEP 03</span>
-          <h4>入会・スタート</h4>
-          <p>面談内容を踏まえて、双方の合意の上で入会。即日コンテンツへのアクセスと専属トレーナーによる伴走が始まります。</p>
+          <span class="flow-step-label">STEP 04</span>
+          <h4>入会・100%マネタイズ達成へ</h4>
+          <p>選考を通過した方のみ入会。即日コンテンツへのアクセスと専属トレーナーによる伴走が始まります。<strong>入会者は100%マネタイズ達成</strong>を、私たちが本気でお約束します。</p>
         </div>
       </div>
     </div>
