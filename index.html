@@ -639,18 +639,28 @@
   .result-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(80px, 20vw, 150px);
-    line-height: 0.85;
-    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    line-height: 0.95;
+    background: var(--grad-main);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: block;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    letter-spacing: 2px;
+  }
+  .result-num-unit {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.42em;
+    font-weight: 900;
+    letter-spacing: 2px;
   }
   .result-unit {
-    font-size: clamp(18px, 3.5vw, 28px);
-    font-weight: 900;
-    color: var(--gold);
+    font-size: clamp(15px, 2.4vw, 19px);
+    font-weight: 700;
+    color: var(--cyan);
     display: block;
-    margin-top: 10px;
+    margin-top: 14px;
+    letter-spacing: 0.5px;
   }
   .result-sub {
     font-size: 14px;
@@ -1740,7 +1750,7 @@
     </div>
     <div class="result-highlight reveal">
       <span class="result-label-top">FIRST MONTH ACHIEVEMENT</span>
-      <span class="result-num">150万円</span>
+      <span class="result-num">150<span class="result-num-unit">万円</span></span>
       <span class="result-unit">初心者でも1ヶ月で売上達成者 — 多数輩出</span>
       <p class="result-sub">
         再現性の高いノウハウを徹底的に叩き込むことで、<strong>初心者からスタートした受講生が1ヶ月で150万円の売上を達成</strong>。<br>
@@ -1804,12 +1814,9 @@
       <div class="instructor-card">
         <span class="instructor-index">TRAINER 03</span>
         <div class="instructor-head">
-          <!-- 顔写真差し替え: instructor-ogawa.jpg を同フォルダに配置 -->
+          <!-- 顔写真：instructor-ogawa.jpg -->
           <div class="instructor-avatar">
-            <!-- <img src="instructor-ogawa.jpg" alt="小川"> -->
-            <div class="avatar-placeholder">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            </div>
+            <img src="instructor-ogawa.jpg" alt="小川">
           </div>
           <div class="instructor-head-text">
             <div class="instructor-name">小川</div>
