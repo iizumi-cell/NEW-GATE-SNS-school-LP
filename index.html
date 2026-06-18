@@ -59,7 +59,7 @@
   .nav-logo {
     display: inline-flex;
     align-items: center;
-    height: 44px;
+    height: 60px;
   }
   .nav-logo img {
     height: 100%;
@@ -68,7 +68,7 @@
     object-fit: contain;
   }
   @media(max-width: 640px) {
-    .nav-logo { height: 36px; }
+    .nav-logo { height: 48px; }
   }
   .nav-cta {
     display: inline-flex;
@@ -1164,6 +1164,67 @@
   }
   footer p { font-size: 12px; color: #444; }
 
+  /* TRUST BANNER (運営会社訴求) */
+  .trust-banner {
+    margin: 44px auto 0;
+    max-width: 880px;
+    padding: 28px 32px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(0,245,255,0.05), rgba(180,79,255,0.05));
+    border: 1px solid rgba(0,245,255,0.25);
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+  }
+  .trust-icon {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(0,245,255,0.18), rgba(180,79,255,0.18));
+    color: var(--cyan);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .trust-content { flex: 1; }
+  .trust-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--cyan);
+    padding: 3px 11px;
+    border: 1px solid rgba(0,245,255,0.35);
+    border-radius: 100px;
+    background: rgba(0,245,255,0.06);
+    margin-bottom: 10px;
+  }
+  .trust-title {
+    font-size: clamp(17px, 2.6vw, 22px);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+  }
+  .trust-title .grad-text {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .trust-desc {
+    font-size: 13.5px;
+    color: var(--gray);
+    line-height: 1.95;
+  }
+  .trust-desc strong { color: var(--white); font-weight: 700; }
+  @media(max-width: 640px) {
+    .trust-banner { flex-direction: column; gap: 14px; padding: 24px 22px; margin-top: 32px; }
+    .trust-icon { width: 44px; height: 44px; }
+    .trust-title { font-size: 16px; }
+    .trust-desc { font-size: 12.5px; line-height: 1.9; }
+  }
+
   /* PRACTICE BANNER */
   .practice-banner {
     margin: 56px auto 0;
@@ -1573,6 +1634,18 @@
       <p class="section-desc">NEW GATEは「教えて終わり」ではありません。受講生一人ひとりの収益化を最優先に、専属トレーナーが伴走し続けます。</p>
     </div>
 
+    <!-- 運営会社の信頼性訴求 -->
+    <div class="trust-banner reveal">
+      <div class="trust-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <div class="trust-content">
+        <div class="trust-tag">LIVE OPERATING COMPANY</div>
+        <h3 class="trust-title">SNSで<span class="grad-text">収益を出し続けている会社</span>が運営</h3>
+        <p class="trust-desc">トレンドは <strong>わずか2週間</strong> で変わることもあります。だからこそ、現役で結果を出し続けているプレイヤーが指導する意味があります。NEW GATE では <strong>最新トレンドのキャッチアップ</strong> はもちろん、<strong>トレンドの "作り方"</strong> まで実戦で学べます。</p>
+      </div>
+    </div>
+
     <!-- 3パターン別パーソナルトレーニング訴求（メイン） -->
     <div class="practice-banner reveal">
       <div class="practice-banner-tag">PERSONAL TRAINING</div>
@@ -1730,7 +1803,7 @@
       <div class="benefit-card">
         <div class="benefit-num">03</div>
         <h3 class="benefit-title">独自コミュニティへの参加</h3>
-        <p class="benefit-desc">受講生同士が相談・協力できるコミュニティ。さくらコメント戦略など、NEW GATE独自の販売戦略を仲間と一緒に実践できます。</p>
+        <p class="benefit-desc">受講生同士が相談・協力できるコミュニティ。NEW GATE独自の販売ノウハウを仲間と一緒に実践し、孤独に悩まず収益化を進められます。</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-num">04</div>
@@ -1800,7 +1873,7 @@
           </div>
           <div class="instructor-head-text">
             <div class="instructor-name">さよ</div>
-            <span class="instructor-title">TIKTOK SHOP SPECIALIST</span>
+            <span class="instructor-title">TIKTOKショップ SPECIALIST</span>
           </div>
         </div>
         <div class="instructor-desc">TikTokショップで一人で月商2,000万円を達成した実力者。その再現性の高いメソッドをNEW GATEで全公開し、受講生の収益化を最前線でサポートする。</div>
