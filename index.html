@@ -201,14 +201,14 @@
 
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(56px, 8vw, 96px);
+    font-size: clamp(80px, 13vw, 160px);
     line-height: 1;
     text-align: center;
-    letter-spacing: 8px;
+    letter-spacing: 10px;
     position: relative;
     z-index: 2;
     animation: fadeUp 0.8s ease 0.1s both;
-    margin: 0;
+    margin: 8px 0 22px;
   }
   .hero-title .grad {
     background: var(--grad-main);
@@ -216,27 +216,36 @@
     -webkit-text-fill-color: transparent;
     display: block;
     padding-bottom: 0.08em;
-  }
-  .hero-title .white {
-    color: var(--white);
-    display: block;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.18em;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-top: 16px;
-    opacity: 0.82;
-    line-height: 1.5;
+    filter: drop-shadow(0 0 60px rgba(0,245,255,0.25)) drop-shadow(0 0 100px rgba(180,79,255,0.18));
   }
   @media(max-width: 640px) {
     .hero-title {
-      font-size: clamp(48px, 14vw, 72px);
-      letter-spacing: 5px;
+      font-size: clamp(64px, 18vw, 96px);
+      letter-spacing: 6px;
+      margin: 4px 0 16px;
     }
-    .hero-title .white {
-      font-size: 0.21em;
-      letter-spacing: 2px;
-    }
+  }
+
+  .hero-lead {
+    font-size: clamp(18px, 2.8vw, 26px);
+    font-weight: 900;
+    text-align: center;
+    color: var(--white);
+    line-height: 1.65;
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.85s ease 0.15s both;
+    letter-spacing: 0.5px;
+  }
+  .hero-lead .grad-text {
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+  }
+  @media(max-width: 640px) {
+    .hero-lead { font-size: 17px; margin-bottom: 20px; line-height: 1.7; }
   }
 
   .hero-sub {
@@ -358,6 +367,49 @@
   .section-title .accent { color: var(--cyan); }
   .section-title .pink { color: var(--pink); }
   .section-desc { color: var(--gray); font-size: 15px; max-width: 560px; line-height: 1.85; }
+
+  /* WELCOME */
+  .welcome { background: var(--black); }
+  .welcome-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 44px;
+  }
+  .welcome-card {
+    padding: 32px 28px 34px;
+    border-radius: 20px;
+    background: linear-gradient(160deg, rgba(0,245,255,0.04), rgba(180,79,255,0.05));
+    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    transition: transform .3s, border-color .3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .welcome-card:hover { transform: translateY(-4px); border-color: rgba(0,245,255,0.35); }
+  .welcome-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: 3px;
+  }
+  .welcome-title {
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+  @media(max-width: 880px) {
+    .welcome-grid { grid-template-columns: 1fr; gap: 14px; }
+    .welcome-card { padding: 26px 22px 28px; }
+    .welcome-num { font-size: 44px; }
+    .welcome-title { font-size: 15px; }
+  }
 
   /* PROBLEM */
   .problem { background: var(--deep); }
@@ -916,6 +968,13 @@
     margin-bottom: 14px;
     font-family: 'Space Mono', monospace;
     display: block;
+  }
+  .plan-name-sub {
+    text-transform: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--cyan);
+    margin-left: 4px;
   }
   .plan-original {
     font-size: 15px;
@@ -1558,26 +1617,31 @@
 
     <!-- 下：ブランディング＋CTA -->
     <div class="hero-text">
-      <div class="hero-badge">
-        <div class="badge-dot"></div>
-        超実践型SNS収益化 パーソナルトレーニング
-      </div>
-
       <p class="hero-pre-catch">とにかくSNSで稼ぎたいあなたへ</p>
 
       <h1 class="hero-title">
         <span class="grad">NEW GATE</span>
-        <span class="white">収益化まで伴走する超実践型育成プログラム</span>
       </h1>
+
+      <p class="hero-lead">
+        SNSを<span class="grad-text">"仕事"</span>にする力へ。<br>
+        収益化まで、徹底的にプロが伴走。
+      </p>
+
+      <div class="hero-badge">
+        <div class="badge-dot"></div>
+        ≪超実践型≫SNS収益化 パーソナルトレーニング
+      </div>
+
       <p class="hero-sub">
-        あなたの稼ぐ力を、<span>専属トレーナー</span>が徹底的に鍛え上げます。<br>
-        稼ぐ"<span>力</span>"から稼ぐ"<span>モノ</span>"まで、専属トレーナーが伴走。
+        稼ぐ"<span>力</span>"を身につけ、稼げる"<span>モノ</span>"を選び抜く。<br>
+        収益化に必要な実践スキルを、専属で徹底指導。
       </p>
 
       <div class="hero-hooks">
         <div class="hook primary">
           <div class="hook-line"></div>
-          稼ぐ力から稼ぐモノまで専属トレーナーが伴走
+          1on1によるトレーニング
         </div>
         <div class="hook secondary">
           <div class="hook-line"></div>
@@ -1590,7 +1654,32 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
           LINEで無料相談する
         </a>
-        <p class="hero-note">まずはLINEから。面談後に入会を判断できます</p>
+        <p class="hero-note">まずはお気軽にLINEから。相談後に面談を希望するか判断できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WELCOME -->
+<section class="welcome">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">WHO WE WELCOME</div>
+      <h2 class="section-title">私たちは、<span class="accent">こんな人を歓迎</span>します！</h2>
+    </div>
+    <div class="welcome-grid reveal">
+      <div class="welcome-card">
+        <div class="welcome-num">01</div>
+        <h3 class="welcome-title">SNSで稼ぐ力を、<br>本気で身につけたい人</h3>
+      </div>
+      <div class="welcome-card">
+        <div class="welcome-num">02</div>
+        <h3 class="welcome-title">家にいながら、<br>自分の力で収入をつくりたい人</h3>
+      </div>
+      <div class="welcome-card">
+        <div class="welcome-num">03</div>
+        <h3 class="welcome-title">スキルゼロでも、<br>人生を変える覚悟がある人</h3>
       </div>
     </div>
   </div>
@@ -1601,25 +1690,25 @@
 <section class="problem">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">こんな悩みありませんか？</div>
-      <h2 class="section-title">SNSで稼ぎたいのに<br><span class="pink">一歩踏み出せない</span>あなたへ</h2>
+      <div class="section-label">こんなお悩み、ありませんか？</div>
+      <h2 class="section-title">SNSで稼ぎたいのに、<br><span class="pink">何から始めればいいか</span>わからないあなたへ。</h2>
     </div>
     <div class="problem-grid reveal">
       <div class="problem-card">
         <span class="problem-num">CASE 01</span>
-        <div class="problem-text">TikTokで稼いでいる人を見かけるのに、自分はどこから始めればいいかわからない</div>
+        <div class="problem-text">TikTokショップで稼ぐ人を見て、自分も始めたいけど何からやればいいかわからない</div>
       </div>
       <div class="problem-card">
         <span class="problem-num">CASE 02</span>
-        <div class="problem-text">動画を投稿しても再生数が伸びず、商品が全然売れない</div>
+        <div class="problem-text">動画を投稿しても再生数が伸びず、商品販売につながらない</div>
       </div>
       <div class="problem-card">
         <span class="problem-num">CASE 03</span>
-        <div class="problem-text">ノウハウを学んでも実践できず、結果が出ないまま時間だけ過ぎていく</div>
+        <div class="problem-text">動画スキルを学んでも実践に移せず、成果が出ないまま時間だけが過ぎている</div>
       </div>
       <div class="problem-card">
         <span class="problem-num">CASE 04</span>
-        <div class="problem-text">副業を始めたいが、高額なだけで成果のないコンサルが怖くて踏み出せない</div>
+        <div class="problem-text">副業を始めたいけれど、高額コンサルで失敗するのが怖くて踏み出せない</div>
       </div>
     </div>
   </div>
@@ -1630,8 +1719,8 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">NEW GATEが選ばれる理由</div>
-      <h2 class="section-title">稼げるまでノウハウを<span class="accent">徹底的に叩き込む</span>パーソナルトレーニング</h2>
-      <p class="section-desc">NEW GATEは「教えて終わり」ではありません。受講生一人ひとりの収益化を最優先に、専属トレーナーが伴走し続けます。</p>
+      <h2 class="section-title">教えて終わりではなく、<span class="accent">稼げる力に変わる</span>まで。</h2>
+      <p class="section-desc">NEW GATEは、受講生一人ひとりの収益化を最優先に考える、SNS収益化パーソナルトレーニングです。専属トレーナーが、実践・改善・収益化まで徹底的に伴走します。</p>
     </div>
 
     <!-- 運営会社の信頼性訴求 -->
@@ -1642,20 +1731,20 @@
       <div class="trust-content">
         <div class="trust-tag">LIVE OPERATING COMPANY</div>
         <h3 class="trust-title">SNSで<span class="grad-text">収益を出し続けている会社</span>が運営</h3>
-        <p class="trust-desc">トレンドは <strong>わずか2週間</strong> で変わることもあります。だからこそ、現役で結果を出し続けているプレイヤーが指導する意味があります。NEW GATE では <strong>最新トレンドのキャッチアップ</strong> はもちろん、<strong>トレンドの "作り方"</strong> まで実戦で学べます。</p>
+        <p class="trust-desc">SNSのトレンドは、<strong>わずか数週間</strong>で変わることもあります。だからこそ、今も最前線で結果を出し続けているプレイヤーから学ぶことに価値があります。NEW GATE では、<strong>最新トレンドのキャッチアップ</strong>はもちろん、"流行を追う側"ではなく、<strong>トレンドを生み出す側</strong>になるための実践力まで身につけていきます。</p>
       </div>
     </div>
 
     <!-- 3パターン別パーソナルトレーニング訴求（メイン） -->
     <div class="practice-banner reveal">
       <div class="practice-banner-tag">PERSONAL TRAINING</div>
-      <h3 class="practice-banner-title">あなたの<span class="grad-text">レベルに合わせて</span><br>専属トレーナーが手取り足取り育て上げます</h3>
-      <p class="practice-banner-desc">レベルに関係なく、<strong>最短での収益化</strong>をパーソナルで目指します。3つのタイプ別にカスタマイズされたトレーニングをご用意。</p>
+      <h3 class="practice-banner-title">初心者でも、経験者でも。<br><span class="grad-text">あなた専用の戦略</span>で、収益化まで育て上げる。</h3>
+      <p class="practice-banner-desc">NEW GATEでは、スキルや経験に関係なく、一人ひとりのレベルに合わせたパーソナルトレーニングを実施。<strong>専属トレーナーが課題を見極め、タイプ別プログラム</strong>から最適なステップで収益化を目指します。</p>
       <div class="level-grid level-grid-3">
         <div class="level-card">
           <span class="level-tag">CASE 01</span>
-          <h4 class="level-title">SNS・動画編集の<br>初心者の方</h4>
-          <p class="level-desc">TikTokの基礎知識 → 動画制作 → 最終的に収益の作り方まで、ゼロから一気通貫で育成。</p>
+          <h4 class="level-title">SNS・動画編集が<br>初めての方</h4>
+          <p class="level-desc">TikTokの基礎から動画制作、収益化まで。未経験からでも、SNSで稼ぐ流れをゼロから実践的に身につけます。</p>
           <div class="level-flow">
             <span class="level-flow-step">基礎</span>
             <span class="level-flow-arrow">→</span>
@@ -1666,8 +1755,8 @@
         </div>
         <div class="level-card">
           <span class="level-tag">CASE 02</span>
-          <h4 class="level-title">動画制作経験はあるが<br>収益化できていない方</h4>
-          <p class="level-desc">投稿の仕方、売れる動画、収益化メソッドを徹底的にチューニング。スキルを"稼ぎ"に変換します。</p>
+          <h4 class="level-title">動画は作れるが、<br>収益につながっていない方</h4>
+          <p class="level-desc">投稿戦略・売れる動画設計・収益化メソッドを徹底改善。動画制作スキルを、稼ぐ力へ変えていきます。</p>
           <div class="level-flow">
             <span class="level-flow-step">投稿戦略</span>
             <span class="level-flow-arrow">→</span>
@@ -1679,52 +1768,52 @@
         <div class="level-card highlighted">
           <span class="level-tag-hot">★ MOST WANTED</span>
           <span class="level-tag">CASE 03</span>
-          <h4 class="level-title">TikTokフォロワー<br>1〜2万人いるが収益化できていない方</h4>
-          <p class="level-desc"><strong>動画編集スキルはあるのに収益化の方法が分からない</strong>方を最も得意としています。既存資産を最短で売上に変換。</p>
+          <h4 class="level-title">TikTokフォロワー1〜2万人以上いるが、<br>収益化できていない方</h4>
+          <p class="level-desc">NEW GATEが得意とするのが、<strong>すでに影響力がある方のマネタイズ設計</strong>。フォロワー資産を活かし、最短で売上につながる導線を構築します。</p>
           <div class="level-flow">
-            <span class="level-flow-step">既存フォロワー資産</span>
+            <span class="level-flow-step">フォロワー資産</span>
             <span class="level-flow-arrow">→</span>
             <span class="level-flow-step">マネタイズ設計</span>
             <span class="level-flow-arrow">→</span>
-            <span class="level-flow-step">即収益化</span>
+            <span class="level-flow-step">収益化</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 補足ポイント -->
+    <!-- NEW GATEの強み -->
     <div class="why-points reveal">
-      <div class="why-points-label">その他のNEW GATEの強み</div>
+      <div class="why-points-label">NEW GATEの強み</div>
       <div class="why-points-grid">
         <div class="why-point-item">
           <span class="why-point-num">01</span>
-          <h4>稼げるまで専属トレーナーが伴走</h4>
-          <p>収益が出るまで、専属トレーナーがパーソナルで並走。「一人で悩む時間」をゼロに。</p>
+          <h4>稼げるまで、専属トレーナーが伴走</h4>
+          <p>一人で悩む時間をなくし、収益化までパーソナルでサポート。</p>
         </div>
         <div class="why-point-item">
           <span class="why-point-num">02</span>
-          <h4>収益化できなければ全額返金</h4>
-          <p>結果にコミットできる自信があるから全額返金保証。リスクなく始められます。</p>
+          <h4>収益化できなければ、全額返金保証</h4>
+          <p>結果にコミットする自信があるから、リスクを抑えて始められる。</p>
         </div>
         <div class="why-point-item">
           <span class="why-point-num">03</span>
-          <h4>TikTok + Instagram 両方対応</h4>
-          <p>TikTokショップに特化しながら、Instagramでの収益化も同時に習得。</p>
+          <h4>TikTok × Instagramの両方に対応</h4>
+          <p>TikTokショップを軸に、Instagramでの収益化も同時に習得。</p>
         </div>
         <div class="why-point-item">
           <span class="why-point-num">04</span>
           <h4>AIを活用した最新スキル</h4>
-          <p>AI動画生成など最新ツールを駆使した、時代の変化に強いスキル。</p>
+          <p>AI動画生成など、これからのSNS運用に必要なスキルを学べる。</p>
         </div>
         <div class="why-point-item">
           <span class="why-point-num">05</span>
-          <h4>必要なスキルがすべて学べる</h4>
-          <p>企画 〜 コンテンツ作成 〜 編集まで、収益化に必要なスキルを丸ごと網羅。</p>
+          <h4>必要なスキルをすべて網羅</h4>
+          <p>企画・作成・編集・投稿設計まで、収益化に必要な流れを一気通貫で習得。</p>
         </div>
         <div class="why-point-item">
           <span class="why-point-num">06</span>
-          <h4>圧倒的な実績を持つトレーナーが在籍</h4>
-          <p>SNSマーケ・TikTokショップ・AI動画など各分野のプロが指導します。</p>
+          <h4>圧倒的実績を持つトレーナーが指導</h4>
+          <p>SNSマーケ、TikTokショップ、AI動画など各分野のプロが徹底サポート。</p>
         </div>
       </div>
     </div>
@@ -1738,7 +1827,7 @@
     <div class="reveal">
       <div class="section-label">SKILL ROADMAP</div>
       <h2 class="section-title">収益化までの<span class="accent">スキル習得ロードマップ</span></h2>
-      <p class="section-desc">座学ではなく、実案件・実販売を通して。1つずつ着実に積み上げ、最終的に「TikTokで収益化」できる状態まで持っていきます。</p>
+      <p class="section-desc">座学ではなく、実案件・実販売で学ぶ。実践を重ねながら、TikTokで収益を生み出せる状態まで引き上げます。</p>
     </div>
     <div class="roadmap reveal">
       <div class="roadmap-step">
@@ -1747,7 +1836,7 @@
           <div class="roadmap-step-tag">入会直後〜</div>
         </div>
         <h4 class="roadmap-step-title">動画編集スキル</h4>
-        <p class="roadmap-step-desc">TikTokで収益化するために必要な動画編集スキルを習得。テンポ・テロップ・カット割りなど、視聴維持率を上げる実用技術に絞って学びます。</p>
+        <p class="roadmap-step-desc">テンポ・テロップ・カット割りなど、TikTokで伸びる動画に必要な編集スキルを習得。</p>
       </div>
       <div class="roadmap-connector"></div>
       <div class="roadmap-step">
@@ -1756,7 +1845,7 @@
           <div class="roadmap-step-tag">編集が身についたら</div>
         </div>
         <h4 class="roadmap-step-title">販売スキル</h4>
-        <p class="roadmap-step-desc">商品選定 → 出品 → 販促 → 売れる訴求の作り方まで。TikTokショップで実際に売上を作るための「販売の型」を実戦で身につけます。</p>
+        <p class="roadmap-step-desc">商品選定・出品・販促・訴求設計まで、売上につながる販売の型を実践で習得。</p>
       </div>
       <div class="roadmap-connector"></div>
       <div class="roadmap-step">
@@ -1765,7 +1854,7 @@
           <div class="roadmap-step-tag">効率化フェーズ</div>
         </div>
         <h4 class="roadmap-step-title">AI動画生成スキル</h4>
-        <p class="roadmap-step-desc">最新AI技術を活用して動画制作を効率化。少ない時間で高品質なコンテンツを量産し、運用負荷を下げながら投稿頻度を上げます。</p>
+        <p class="roadmap-step-desc">最新AI技術を活用して動画制作を効率化。動画を継続的に投稿できる体制を構築。</p>
       </div>
       <div class="roadmap-connector"></div>
       <div class="roadmap-step final">
@@ -1773,8 +1862,8 @@
           <div class="roadmap-step-num">GOAL</div>
           <div class="roadmap-step-tag">🎯 目標達成</div>
         </div>
-        <h4 class="roadmap-step-title">TikTokやInstagramで収益化スキル</h4>
-        <p class="roadmap-step-desc">編集 × 販売 × AI効率化が組み合わさり、TikTokやInstagramで継続的に収益を生み出せる状態に。ここから先は、収益を伸ばし続けるフェーズです。</p>
+        <h4 class="roadmap-step-title">TikTok・Instagramで収益化へ</h4>
+        <p class="roadmap-step-desc">編集 × 販売 × AI効率化を掛け合わせ、継続的に収益を生み出せる状態を目指します。ここから先は、収益を伸ばし続けるフェーズです。</p>
       </div>
     </div>
   </div>
@@ -1785,30 +1874,30 @@
   <div class="container">
     <div class="reveal">
       <div class="section-label">EXCLUSIVE BENEFITS</div>
-      <h2 class="section-title">NEW GATE<span class="accent">入会者だけの特典</span></h2>
-      <p class="section-desc">ノウハウだけでは収益化できません。NEW GATEは「実際に稼げる環境」を提供する独自の特典をご用意しています。</p>
+      <h2 class="section-title">NEW GATE<span class="accent">入会者限定特典</span></h2>
+      <p class="section-desc">ノウハウだけでは、収益化はできない。NEW GATEでは、学んだスキルをすぐに実践し、収益につなげるための特別な環境をご用意しています。</p>
     </div>
     <div class="benefits-grid reveal">
       <div class="benefit-card highlighted-benefit">
         <span class="benefit-tag">★ 先着10名限定</span>
         <div class="benefit-num">01</div>
         <h3 class="benefit-title">練習用TikTokアカウント提供</h3>
-        <p class="benefit-desc">フォロワー<strong>1,000人以上のTikTokアカウント</strong>を練習用として貸し出します。ゼロから始める必要なく、初日から実戦投入が可能です。</p>
+        <p class="benefit-desc">フォロワー<strong>1,000人以上のアカウント</strong>を貸し出し。初日から実践経験を積む環境を用意。</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-num">02</div>
         <h3 class="benefit-title">高単価案件の紹介</h3>
-        <p class="benefit-desc">NEW GATE独自の<strong>高単価案件へのアクセス権</strong>を提供。学んだスキルをすぐ売上に変換できる環境を、入会即日から用意しています。</p>
+        <p class="benefit-desc">NEW GATE独自の<strong>高単価案件</strong>をご紹介。学んだスキルをすぐに売上へ変えられるよう、実案件に挑戦できる環境を用意しています。</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-num">03</div>
         <h3 class="benefit-title">独自コミュニティへの参加</h3>
-        <p class="benefit-desc">受講生同士が相談・協力できるコミュニティ。NEW GATE独自の販売ノウハウを仲間と一緒に実践し、孤独に悩まず収益化を進められます。</p>
+        <p class="benefit-desc">仲間とつながるだけではなく、お互いの収益を伸ばすために<strong>協力し合える環境</strong>をご用意。</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-num">04</div>
         <h3 class="benefit-title">動画編集の仕事提供</h3>
-        <p class="benefit-desc">自社アカウント向けの<strong>動画編集業務を提供</strong>。「学びながら稼げる」環境を整え、入会費の回収を加速させます。</p>
+        <p class="benefit-desc">自社アカウント向けの<strong>動画編集業務</strong>を提供。学びながら稼げる環境を整えます。</p>
       </div>
     </div>
   </div>
@@ -1822,12 +1911,12 @@
       <h2 class="section-title">受講生の<span class="accent">リアルな実績</span></h2>
     </div>
     <div class="result-highlight reveal">
-      <span class="result-label-top">FIRST MONTH ACHIEVEMENT</span>
-      <span class="result-num">150<span class="result-num-unit">万円</span></span>
-      <span class="result-unit">初心者でも1ヶ月で売上達成者 — 多数輩出</span>
+      <span class="result-label-top">MONTHLY ACHIEVEMENT</span>
+      <span class="result-num">150<span class="result-num-unit">万円 / 月</span></span>
+      <span class="result-unit">副業未経験からスタートして売上達成 — 多数輩出</span>
       <p class="result-sub">
-        再現性の高いノウハウを徹底的に叩き込むことで、<strong>初心者からスタートした受講生が1ヶ月で150万円の売上を達成</strong>。<br>
-        副業未経験でも、専属トレーナーの伴走で着実に結果につながっています。
+        NEW GATEでは、<strong>再現性の高いノウハウと専属トレーナーによる徹底伴走</strong>により、副業未経験からスタートした受講生でも、短期間で売上につながるケースが生まれています。<br>
+        実践・改善・販売までを一気通貫でサポートすることで、<strong>初心者でも着実に収益化</strong>を目指せる環境を整えています。
       </p>
     </div>
   </div>
@@ -1995,8 +2084,8 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </div>
           <div>
-            <h4>無料相談ではなく「厳選なる面接・選考」</h4>
-            <p>入会前に必ず選考面接を実施。本気で稼ぐ意志と適性を見極めます。</p>
+            <h4>応募＝入会ではなく、選考面談</h4>
+            <p>本気で稼ぐ意志と適性を見極め、NEW GATEが伴走できる方のみをご案内します。</p>
           </div>
         </div>
         <div class="selection-feature">
@@ -2005,7 +2094,7 @@
           </div>
           <div>
             <h4>厳選した受講生のみ参加可能</h4>
-            <p>本気で結果を出したい方だけに絞ることで、全員の収益化を実現します。</p>
+            <p>本気で結果を出したい人だけが集まる環境だから、収益化に向けて濃く深いサポートが可能です。</p>
           </div>
         </div>
         <div class="selection-feature">
@@ -2013,7 +2102,7 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           </div>
           <div>
-            <h4>入会者は100%マネタイズ達成</h4>
+            <h4>入会者は100%マネタイズ</h4>
             <p>入会のハードルは高い。けれど、入会さえすれば確実に稼がせます。</p>
           </div>
         </div>
@@ -2029,7 +2118,7 @@
     <div class="reveal">
       <div class="section-label">料金プラン</div>
       <h2 class="section-title">シンプルな<span class="accent">料金体系</span></h2>
-      <p class="section-desc">入会金は2ヶ月での回収を目標に設計。月額は継続する限り、案件紹介から収益化コンサルまでサポートし続けます。</p>
+      <p class="section-desc">入会金で6か月間のパーソナルトレーニングをご提供。6か月後は月額でサポートを継続できる仕組みです。</p>
     </div>
     <div class="plan-grid reveal">
       <div class="plan-card featured">
@@ -2039,15 +2128,15 @@
         <span class="plan-price">¥200,000</span>
         <span class="plan-price-note">8月末までのお申し込み限定価格</span>
         <ul class="plan-features">
-          <li><span class="check">→</span>実戦サポート全プログラム</li>
+          <li><span class="check">→</span><strong>6か月間のパーソナルトレーニング</strong></li>
+          <li><span class="check">→</span>専属トレーナーによる徹底伴走</li>
           <li><span class="check">→</span>再現性の高い収益化メソッド全公開</li>
-          <li><span class="check">→</span>専属トレーナーによるパーソナルコンサル（収益化まで継続）</li>
-          <li><span class="check">→</span>入会2ヶ月での回収を目標サポート</li>
+          <li><span class="check">→</span>入会者限定特典すべて利用可</li>
           <li><span class="check">→</span><strong style="color:var(--pink)">収益化できなければ全額返金保証<sup style="font-size:10px;font-weight:400;">※</sup></strong></li>
         </ul>
       </div>
       <div class="plan-card">
-        <span class="plan-name">月額費用</span>
+        <span class="plan-name">月額費用 <span class="plan-name-sub">（6か月後〜）</span></span>
         <span class="plan-price" style="font-size:56px">¥9,800</span>
         <span class="plan-price-note">/ 月　— 契約期間の縛りなし</span>
         <ul class="plan-features">
@@ -2124,45 +2213,8 @@
         <div class="flow-content">
           <span class="flow-step-label">STEP 04</span>
           <h4>入会・100%マネタイズ達成へ</h4>
-          <p>選考を通過した方のみ入会。即日コンテンツへのアクセスと専属トレーナーによる伴走が始まります。<strong>入会者は100%マネタイズ達成</strong>を、私たちが本気でお約束します。</p>
+          <p>選考を通過した方のみ入会。即日コンテンツへのアクセスと専属トレーナーによる伴走が始まります。<strong>入会者は100%マネタイズ達成</strong>まで、私たちが本気で伴走します！</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SAFETY -->
-<section class="safety">
-  <div class="container">
-    <div class="reveal">
-      <div class="section-label">安心の仕組み</div>
-      <h2 class="section-title">安心して<span class="accent">始められる理由</span></h2>
-    </div>
-    <div class="safety-cards reveal">
-      <div class="safety-card">
-        <span class="safety-card-label">SAFETY 01</span>
-        <h4>入会前の個別面談を必須化</h4>
-        <p>誰でも入会できるコンサルではありません。必ず面談を実施し、本気で結果を出したい方のみにご案内しています。</p>
-      </div>
-      <div class="safety-card">
-        <span class="safety-card-label">SAFETY 02</span>
-        <h4>結果にコミットする全額返金保証</h4>
-        <p>収益化できなければ全額返金。私たちが本気でサポートするから出せる約束です。</p>
-      </div>
-      <div class="safety-card">
-        <span class="safety-card-label">SAFETY 03</span>
-        <h4>稼げるまで専属トレーナーが伴走</h4>
-        <p>期間限定の伴走ではありません。あなたが収益化を達成するまで、専属トレーナーが寄り添い続けます。</p>
-      </div>
-    </div>
-
-    <div class="interview-notice reveal">
-      <div class="interview-icon-wrap">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      </div>
-      <div class="interview-text">
-        <h3>入会をお断りする場合があります</h3>
-        <p>NEW GATEは全員が収益化できることを最優先にしています。そのため、面談の結果によっては入会をお断りする場合があります。これは「本気で稼ぎたい方だけのコンサル」であることの証明です。まずはお気軽に無料相談からお申し込みください。</p>
       </div>
     </div>
   </div>
