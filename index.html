@@ -405,10 +405,15 @@
     letter-spacing: 0.3px;
   }
   @media(max-width: 880px) {
-    .welcome-grid { grid-template-columns: 1fr; gap: 14px; }
-    .welcome-card { padding: 26px 22px 28px; }
-    .welcome-num { font-size: 44px; }
-    .welcome-title { font-size: 15px; }
+    .welcome-grid { gap: 10px; }
+    .welcome-card { padding: 22px 14px 24px; }
+    .welcome-num { font-size: 38px; margin-bottom: 10px; }
+    .welcome-title { font-size: 12.5px; line-height: 1.55; }
+  }
+  @media(max-width: 480px) {
+    .welcome-card { padding: 18px 10px 20px; }
+    .welcome-num { font-size: 30px; }
+    .welcome-title { font-size: 11px; }
   }
 
   /* PROBLEM */
@@ -1489,28 +1494,57 @@
     .section-title { font-size: 26px; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 14px; }
     .section-desc { font-size: 13.5px; line-height: 1.85; }
 
-    /* PROBLEM */
-    .problem-grid { grid-template-columns: 1fr; gap: 12px; }
-    .problem-card { padding: 22px 20px; }
-    .problem-text { font-size: 13.5px; line-height: 1.75; }
+    /* PROBLEM — 2列に圧縮 */
+    .problem-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .problem-card { padding: 18px 14px; }
+    .problem-num { font-size: 9.5px; letter-spacing: 1.5px; margin-bottom: 8px; }
+    .problem-text { font-size: 11.5px; line-height: 1.65; }
 
-    /* WHY 補足ポイント (6項目) */
+    /* WHY 補足ポイント (6項目) — 2列に圧縮 */
     .why-points { margin-top: 40px; padding-top: 32px; }
-    .why-points-grid { grid-template-columns: 1fr; gap: 12px; }
+    .why-points-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .why-points-label { font-size: 10px; letter-spacing: 2.5px; margin-bottom: 20px; }
-    .why-point-item { padding: 20px 20px 22px; }
-    .why-point-item h4 { font-size: 14px; }
-    .why-point-item p { font-size: 12.5px; line-height: 1.8; }
+    .why-point-item { padding: 16px 14px 18px; }
+    .why-point-num { font-size: 10px; letter-spacing: 1.5px; margin-bottom: 6px; }
+    .why-point-item h4 { font-size: 12.5px; line-height: 1.5; margin-bottom: 6px; }
+    .why-point-item p { font-size: 11px; line-height: 1.65; }
 
-    /* PRACTICE BANNER (CASE カード) */
-    .practice-banner { padding: 28px 20px; margin-top: 36px; }
+    /* PRACTICE BANNER (CASE カード) — 横スクロールカルーセル */
+    .practice-banner { padding: 28px 16px; margin-top: 36px; }
     .practice-banner-title { font-size: 19px; line-height: 1.55; margin-bottom: 14px; }
     .practice-banner-desc { font-size: 12.5px; line-height: 1.8; }
-    .level-card { padding: 20px 18px 22px; }
-    .level-title { font-size: 14.5px; }
+    .level-grid.level-grid-3 {
+      display: flex;
+      grid-template-columns: none;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 4px 4px 16px;
+      margin-left: -6px;
+      margin-right: -6px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .level-grid.level-grid-3 .level-card {
+      flex: 0 0 78%;
+      max-width: 78%;
+      scroll-snap-align: center;
+      padding: 20px 18px 22px;
+    }
+    .level-title { font-size: 14px; }
     .level-desc { font-size: 12.5px; }
     .level-flow { gap: 5px; margin-top: 14px; padding-top: 12px; }
     .level-flow-step { font-size: 10.5px; padding: 3px 7px; }
+    .practice-banner::after {
+      content: '← 横にスワイプ →';
+      display: block;
+      text-align: center;
+      font-size: 10px;
+      color: var(--gray);
+      letter-spacing: 2px;
+      margin-top: 4px;
+      opacity: 0.6;
+    }
 
     /* SKILL ROADMAP */
     .roadmap { margin-top: 36px; }
@@ -1520,12 +1554,13 @@
     .roadmap-step-title { font-size: 17px; margin-bottom: 8px; }
     .roadmap-step-desc { font-size: 12.5px; line-height: 1.8; }
 
-    /* BENEFITS */
-    .benefits-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
-    .benefit-card { padding: 22px 20px 24px; }
-    .benefit-num { font-size: 34px; }
-    .benefit-title { font-size: 15px; }
-    .benefit-desc { font-size: 12.5px; line-height: 1.8; }
+    /* BENEFITS — 2列に圧縮 */
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 32px; }
+    .benefit-card { padding: 18px 14px 20px; }
+    .benefit-num { font-size: 28px; margin-bottom: 6px; }
+    .benefit-title { font-size: 12.5px; line-height: 1.5; margin-bottom: 6px; }
+    .benefit-desc { font-size: 11px; line-height: 1.65; }
+    .benefit-tag { font-size: 8.5px !important; padding: 2px 7px !important; margin-bottom: 8px !important; letter-spacing: 1px !important; }
 
     /* RESULT */
     .result-highlight { padding: 36px 24px; margin-top: 32px; }
@@ -1534,13 +1569,18 @@
     .result-unit { font-size: 13px; margin: 6px 0 18px; }
     .result-sub { font-size: 12.5px; line-height: 1.85; }
 
-    /* TRAINERS */
-    .instructor-cards { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
-    .instructor-card { padding: 24px 22px 26px; }
-    .instructor-avatar { width: 60px; height: 60px; }
-    .instructor-name { font-size: 19px; }
-    .instructor-title { font-size: 10px; }
-    .instructor-desc { font-size: 12.5px; line-height: 1.85; }
+    /* TRAINERS — 2列コンパクト */
+    .instructor-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 32px; }
+    .instructor-card { padding: 16px 14px 18px; }
+    .instructor-index { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 8px; }
+    .instructor-head { gap: 10px; margin-bottom: 12px; flex-direction: column; align-items: center; text-align: center; }
+    .instructor-avatar { width: 56px; height: 56px; }
+    .instructor-head-text { align-items: center; }
+    .instructor-name { font-size: 15px; }
+    .instructor-title { font-size: 8.5px; letter-spacing: 0.5px; text-align: center; }
+    .instructor-desc { font-size: 11px; line-height: 1.65; }
+    .instructor-tags { gap: 4px; margin-top: 12px; justify-content: center; }
+    .instructor-tags .tag { font-size: 9.5px; padding: 3px 7px; }
 
     /* SELECTION */
     .selection { padding: 56px 18px; }
