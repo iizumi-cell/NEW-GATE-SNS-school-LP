@@ -531,6 +531,18 @@
 
   /* SKILLS */
   .skills { background: var(--deep); }
+  .roadmap-visual {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .roadmap-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
   .roadmap {
     margin-top: 48px;
     display: flex;
@@ -1890,47 +1902,8 @@
 <!-- SKILLS ROADMAP -->
 <section class="skills">
   <div class="container">
-    <div class="reveal">
-      <div class="section-label">SKILL ROADMAP</div>
-      <h2 class="section-title">収益化までの<span class="accent">スキル習得ロードマップ</span></h2>
-      <p class="section-desc">座学ではなく、実案件・実販売で学ぶ。実践を重ねながら、TikTokで収益を生み出せる状態まで引き上げます。</p>
-    </div>
-    <div class="roadmap reveal">
-      <div class="roadmap-step">
-        <div class="roadmap-step-head">
-          <div class="roadmap-step-num">STEP 01</div>
-          <div class="roadmap-step-tag">入会直後〜</div>
-        </div>
-        <h4 class="roadmap-step-title">動画編集スキル</h4>
-        <p class="roadmap-step-desc">テンポ・テロップ・カット割りなど、TikTokで伸びる動画に必要な編集スキルを習得。</p>
-      </div>
-      <div class="roadmap-connector"></div>
-      <div class="roadmap-step">
-        <div class="roadmap-step-head">
-          <div class="roadmap-step-num">STEP 02</div>
-          <div class="roadmap-step-tag">編集が身についたら</div>
-        </div>
-        <h4 class="roadmap-step-title">販売スキル</h4>
-        <p class="roadmap-step-desc">商品選定・出品・販促・訴求設計まで、売上につながる販売の型を実践で習得。</p>
-      </div>
-      <div class="roadmap-connector"></div>
-      <div class="roadmap-step">
-        <div class="roadmap-step-head">
-          <div class="roadmap-step-num">STEP 03</div>
-          <div class="roadmap-step-tag">効率化フェーズ</div>
-        </div>
-        <h4 class="roadmap-step-title">AI動画生成スキル</h4>
-        <p class="roadmap-step-desc">最新AI技術を活用して動画制作を効率化。動画を継続的に投稿できる体制を構築。</p>
-      </div>
-      <div class="roadmap-connector"></div>
-      <div class="roadmap-step final">
-        <div class="roadmap-step-head">
-          <div class="roadmap-step-num">GOAL</div>
-          <div class="roadmap-step-tag">🎯 目標達成</div>
-        </div>
-        <h4 class="roadmap-step-title">TikTok・Instagramで収益化へ</h4>
-        <p class="roadmap-step-desc">編集 × 販売 × AI効率化を掛け合わせ、継続的に収益を生み出せる状態を目指します。ここから先は、収益を伸ばし続けるフェーズです。</p>
-      </div>
+    <div class="roadmap-visual reveal">
+      <img src="roadmap.png" alt="収益化までのスキル習得ロードマップ：動画編集スキル→販売スキル→AI動画生成スキル→TikTok・Instagramで収益化">
     </div>
   </div>
 </section>
