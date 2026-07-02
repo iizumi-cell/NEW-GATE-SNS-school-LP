@@ -900,9 +900,9 @@
   }
   .selection-tag {
     display: inline-block;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
     color: var(--pink);
     padding: 5px 16px;
     border: 1px solid rgba(255,45,120,0.45);
@@ -1393,11 +1393,12 @@
   }
   .practice-banner-tag {
     display: inline-block;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 1px;
     color: var(--cyan);
-    padding: 4px 14px;
+    padding: 4px 15px;
     border: 1px solid rgba(0,245,255,0.35);
     border-radius: 100px;
     background: rgba(0,245,255,0.06);
@@ -1449,12 +1450,13 @@
   }
   .level-tag {
     display: inline-block;
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2.5px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 1px;
     color: var(--cyan);
     background: rgba(0,245,255,0.08);
-    padding: 3px 10px;
+    padding: 3px 11px;
     border-radius: 100px;
     border: 1px solid rgba(0,245,255,0.3);
     margin-bottom: 12px;
@@ -1462,9 +1464,9 @@
   }
   .level-tag-hot {
     display: inline-block;
-    font-family: 'Space Mono', monospace;
-    font-size: 9.5px;
-    letter-spacing: 2.5px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.5px;
     color: #fff;
     background: var(--grad-main);
     padding: 4px 12px;
@@ -1695,7 +1697,7 @@
     /* SELECTION */
     .selection { padding: 56px 18px; }
     .selection-box { padding: 32px 22px; }
-    .selection-tag { font-size: 10px; letter-spacing: 2px; padding: 4px 12px; margin-bottom: 20px; }
+    .selection-tag { font-size: 11px; letter-spacing: 1px; padding: 4px 12px; margin-bottom: 20px; }
     .selection-title { font-size: 21px; line-height: 1.6; margin-bottom: 16px; }
     .selection-lead { font-size: 12.5px; line-height: 1.9; margin-bottom: 24px; }
     .selection-features { grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
@@ -1886,8 +1888,49 @@
     </div>
 
     <!-- 3パターン別パーソナルトレーニング訴求（メイン） -->
-    <div class="case-visual reveal">
-      <img src="case-types.png" alt="初心者でも、経験者でも。あなた専用の戦略で、収益化まで育て上げる。CASE01 SNS・動画編集が初めての方 / CASE02 動画は作れるが収益につながっていない方 / CASE03 TikTokフォロワー1〜2万人以上いるが収益化できていない方">
+    <div class="practice-banner reveal">
+      <div class="practice-banner-tag">パーソナルトレーニング</div>
+      <h3 class="practice-banner-title">初心者でも、経験者でも。<br><span class="grad-text">あなた専用の戦略</span>で、収益化まで育て上げる。</h3>
+      <p class="practice-banner-desc">スキルや経験に関係なく、レベルに合わせたトレーニングを実施。<strong>タイプ別プログラム</strong>で最短の収益化を目指します。</p>
+      <div class="level-grid level-grid-3">
+        <div class="level-card">
+          <span class="level-tag">タイプ 01</span>
+          <h4 class="level-title">SNS・動画編集が<br>初めての方</h4>
+          <p class="level-desc">TikTokの基礎から収益化まで、稼ぐ流れをゼロから実践的に習得。</p>
+          <div class="level-flow">
+            <span class="level-flow-step">基礎</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">動画制作</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">収益化</span>
+          </div>
+        </div>
+        <div class="level-card">
+          <span class="level-tag">タイプ 02</span>
+          <h4 class="level-title">動画は作れるが、<br>収益につながっていない方</h4>
+          <p class="level-desc">投稿戦略と売れる動画設計を徹底改善。制作スキルを稼ぐ力へ。</p>
+          <div class="level-flow">
+            <span class="level-flow-step">投稿戦略</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">売れる動画</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">収益化</span>
+          </div>
+        </div>
+        <div class="level-card highlighted">
+          <span class="level-tag-hot">★ いちばん得意な領域</span>
+          <span class="level-tag">タイプ 03</span>
+          <h4 class="level-title">TikTokフォロワー1〜2万人以上いるが、<br>収益化できていない方</h4>
+          <p class="level-desc"><strong>影響力がある方のマネタイズ設計</strong>が得意分野。フォロワー資産を最短で売上へ。</p>
+          <div class="level-flow">
+            <span class="level-flow-step">フォロワー資産</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">マネタイズ設計</span>
+            <span class="level-flow-arrow">→</span>
+            <span class="level-flow-step">収益化</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- NEW GATEの強み -->
@@ -1934,8 +1977,47 @@
 <!-- SKILLS ROADMAP -->
 <section class="skills">
   <div class="container">
-    <div class="roadmap-visual reveal">
-      <img src="roadmap.png" alt="収益化までのスキル習得ロードマップ：動画編集スキル→販売スキル→AI動画生成スキル→TikTok・Instagramで収益化">
+    <div class="reveal">
+      <div class="section-label">スキル習得ロードマップ</div>
+      <h2 class="section-title">収益化までの<span class="accent">スキル習得ロードマップ</span></h2>
+      <p class="section-desc">座学ではなく、実案件・実販売で学ぶ。実践を重ねながら、TikTokで収益を生み出せる状態まで引き上げます。</p>
+    </div>
+    <div class="roadmap reveal">
+      <div class="roadmap-step">
+        <div class="roadmap-step-head">
+          <div class="roadmap-step-num">STEP 01</div>
+          <div class="roadmap-step-tag">入会直後〜</div>
+        </div>
+        <h4 class="roadmap-step-title">動画編集スキル</h4>
+        <p class="roadmap-step-desc">テンポ・テロップ・カット割りなど、TikTokで伸びる動画に必要な編集スキルを習得。</p>
+      </div>
+      <div class="roadmap-connector"></div>
+      <div class="roadmap-step">
+        <div class="roadmap-step-head">
+          <div class="roadmap-step-num">STEP 02</div>
+          <div class="roadmap-step-tag">編集が身についたら</div>
+        </div>
+        <h4 class="roadmap-step-title">販売スキル</h4>
+        <p class="roadmap-step-desc">商品選定・出品・販促・訴求設計まで、売上につながる販売の型を実践で習得。</p>
+      </div>
+      <div class="roadmap-connector"></div>
+      <div class="roadmap-step">
+        <div class="roadmap-step-head">
+          <div class="roadmap-step-num">STEP 03</div>
+          <div class="roadmap-step-tag">効率化フェーズ</div>
+        </div>
+        <h4 class="roadmap-step-title">AI動画生成スキル</h4>
+        <p class="roadmap-step-desc">最新AI技術を活用して動画制作を効率化。動画を継続的に投稿できる体制を構築。</p>
+      </div>
+      <div class="roadmap-connector"></div>
+      <div class="roadmap-step final">
+        <div class="roadmap-step-head">
+          <div class="roadmap-step-num">GOAL</div>
+          <div class="roadmap-step-tag">目標達成</div>
+        </div>
+        <h4 class="roadmap-step-title">TikTok・Instagramで収益化へ</h4>
+        <p class="roadmap-step-desc">編集 × 販売 × AI効率化を掛け合わせ、継続的に収益を生み出せる状態を目指します。ここから先は、収益を伸ばし続けるフェーズです。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -2139,8 +2221,46 @@
 <!-- STRICT SELECTION -->
 <section class="selection">
   <div class="container">
-    <div class="selection-visual reveal">
-      <img src="selection.png" alt="絶対に稼がせる。だからこそ、誰でも入会できるわけではない。NEW GATEは100%マネタイズを標榜しています。">
+    <div class="selection-box reveal">
+      <div class="selection-tag">100%マネタイズ宣言</div>
+      <h2 class="selection-title">
+        絶対に稼がせる。<br>
+        だからこそ、<span class="grad-text">誰でも入会できるわけではない。</span>
+      </h2>
+      <p class="selection-lead">
+        NEW GATE は「100%マネタイズ」を標榜しています。<br>
+        マネタイズできないと判断した応募者は、入会をお断りしています。
+      </p>
+      <div class="selection-features">
+        <div class="selection-feature">
+          <div class="selection-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div>
+            <h4>応募＝入会ではなく、選考面談</h4>
+            <p>本気で稼ぐ意志と適性を見極めてご案内します。</p>
+          </div>
+        </div>
+        <div class="selection-feature">
+          <div class="selection-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h4>厳選した受講生のみ参加可能</h4>
+            <p>本気の人だけが集まるから、濃く深いサポートが可能。</p>
+          </div>
+        </div>
+        <div class="selection-feature">
+          <div class="selection-feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <div>
+            <h4>入会者は100%マネタイズ</h4>
+            <p>入会のハードルは高い。けれど、入会さえすれば確実に稼がせます。</p>
+          </div>
+        </div>
+      </div>
+      <p class="selection-cta-note">入会のハードルは高い。けれど、入会さえすれば <strong>確実な結果をお約束</strong>します。</p>
     </div>
   </div>
 </section>
@@ -2201,8 +2321,54 @@
 <!-- FLOW -->
 <section class="flow">
   <div class="container">
-    <div class="flow-visual reveal">
-      <img src="flow.png" alt="入会までの4ステップ：公式LINEに登録→個別面談→厳選なる面接・選考→入会・100%マネタイズ達成へ">
+    <div class="reveal">
+      <div class="section-label">入会の流れ</div>
+      <h2 class="section-title">入会まで<span class="accent">4ステップ</span></h2>
+    </div>
+    <div class="flow-steps reveal">
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">1</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-content">
+          <span class="flow-step-label">STEP 01</span>
+          <h4>公式LINEに登録</h4>
+          <p>下のボタンから公式LINEを友達追加。まずはメッセージを送ってください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">2</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-content">
+          <span class="flow-step-label">STEP 02</span>
+          <h4>個別面談（オンライン）</h4>
+          <p>あなたの現状・目標をヒアリングし、適性をすり合わせます。</p>
+        </div>
+      </div>
+      <div class="flow-step flow-step-strict">
+        <div class="flow-left">
+          <div class="flow-num">3</div>
+          <div class="flow-line"></div>
+        </div>
+        <div class="flow-content">
+          <span class="flow-step-label flow-step-label-strict">STEP 03 — 厳選選考</span>
+          <h4>厳選なる面接・選考</h4>
+          <p><strong>マネタイズできないと判断した場合は、入会をお断りします。</strong>「100%マネタイズ」を支える仕組みです。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-num">4</div>
+        </div>
+        <div class="flow-content">
+          <span class="flow-step-label">STEP 04</span>
+          <h4>入会・100%マネタイズ達成へ</h4>
+          <p>選考通過者のみ入会。即日、専属トレーナーの伴走がスタート。<strong>100%マネタイズ達成</strong>まで本気で伴走します！</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
