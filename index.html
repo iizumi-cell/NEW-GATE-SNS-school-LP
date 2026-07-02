@@ -1101,6 +1101,18 @@
 
   /* FLOW */
   .flow { background: var(--deep); }
+  .flow-visual {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .flow-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
   .flow-steps {
     display: flex;
     flex-direction: column;
@@ -1327,6 +1339,23 @@
     .trust-icon { width: 44px; height: 44px; }
     .trust-title { font-size: 16px; }
     .trust-desc { font-size: 12.5px; line-height: 1.9; }
+  }
+
+  /* CASE VISUAL */
+  .case-visual {
+    margin: 56px auto 0;
+    max-width: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .case-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media(max-width: 640px) {
+    .case-visual { margin-top: 36px; }
   }
 
   /* PRACTICE BANNER */
@@ -1827,49 +1856,8 @@
     </div>
 
     <!-- 3パターン別パーソナルトレーニング訴求（メイン） -->
-    <div class="practice-banner reveal">
-      <div class="practice-banner-tag">PERSONAL TRAINING</div>
-      <h3 class="practice-banner-title">初心者でも、経験者でも。<br><span class="grad-text">あなた専用の戦略</span>で、収益化まで育て上げる。</h3>
-      <p class="practice-banner-desc">スキルや経験に関係なく、レベルに合わせたトレーニングを実施。<strong>タイプ別プログラム</strong>で最短の収益化を目指します。</p>
-      <div class="level-grid level-grid-3">
-        <div class="level-card">
-          <span class="level-tag">CASE 01</span>
-          <h4 class="level-title">SNS・動画編集が<br>初めての方</h4>
-          <p class="level-desc">TikTokの基礎から収益化まで、稼ぐ流れをゼロから実践的に習得。</p>
-          <div class="level-flow">
-            <span class="level-flow-step">基礎</span>
-            <span class="level-flow-arrow">→</span>
-            <span class="level-flow-step">動画制作</span>
-            <span class="level-flow-arrow">→</span>
-            <span class="level-flow-step">収益化</span>
-          </div>
-        </div>
-        <div class="level-card">
-          <span class="level-tag">CASE 02</span>
-          <h4 class="level-title">動画は作れるが、<br>収益につながっていない方</h4>
-          <p class="level-desc">投稿戦略と売れる動画設計を徹底改善。制作スキルを稼ぐ力へ。</p>
-          <div class="level-flow">
-            <span class="level-flow-step">投稿戦略</span>
-            <span class="level-flow-arrow">→</span>
-            <span class="level-flow-step">売れる動画</span>
-            <span class="level-flow-arrow">→</span>
-            <span class="level-flow-step">収益化</span>
-          </div>
-        </div>
-        <div class="level-card highlighted">
-          <span class="level-tag-hot">★ MOST WANTED</span>
-          <span class="level-tag">CASE 03</span>
-          <h4 class="level-title">TikTokフォロワー1〜2万人以上いるが、<br>収益化できていない方</h4>
-          <p class="level-desc"><strong>影響力がある方のマネタイズ設計</strong>が得意分野。フォロワー資産を最短で売上へ。</p>
-          <div class="level-flow">
-            <span class="level-flow-step">フォロワー資産</span>
-            <span class="level-flow-arrow">→</span>
-            <span class="level-flow-step">マネタイズ設計</span>
-            <span class="level-flow-arrow">→</span>
-            <span class="level-flow-step">収益化</span>
-          </div>
-        </div>
-      </div>
+    <div class="case-visual reveal">
+      <img src="case-types.png" alt="初心者でも、経験者でも。あなた専用の戦略で、収益化まで育て上げる。CASE01 SNS・動画編集が初めての方 / CASE02 動画は作れるが収益につながっていない方 / CASE03 TikTokフォロワー1〜2万人以上いるが収益化できていない方">
     </div>
 
     <!-- NEW GATEの強み -->
@@ -2182,54 +2170,8 @@
 <!-- FLOW -->
 <section class="flow">
   <div class="container">
-    <div class="reveal">
-      <div class="section-label">入会の流れ</div>
-      <h2 class="section-title">入会まで<span class="accent">4ステップ</span></h2>
-    </div>
-    <div class="flow-steps reveal">
-      <div class="flow-step">
-        <div class="flow-left">
-          <div class="flow-num">1</div>
-          <div class="flow-line"></div>
-        </div>
-        <div class="flow-content">
-          <span class="flow-step-label">STEP 01</span>
-          <h4>公式LINEに登録</h4>
-          <p>下のボタンから公式LINEを友達追加。まずはメッセージを送ってください。</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-left">
-          <div class="flow-num">2</div>
-          <div class="flow-line"></div>
-        </div>
-        <div class="flow-content">
-          <span class="flow-step-label">STEP 02</span>
-          <h4>個別面談（オンライン）</h4>
-          <p>あなたの現状・目標をヒアリングし、適性をすり合わせます。</p>
-        </div>
-      </div>
-      <div class="flow-step flow-step-strict">
-        <div class="flow-left">
-          <div class="flow-num">3</div>
-          <div class="flow-line"></div>
-        </div>
-        <div class="flow-content">
-          <span class="flow-step-label flow-step-label-strict">STEP 03 — 厳選選考</span>
-          <h4>厳選なる面接・選考</h4>
-          <p><strong>マネタイズできないと判断した場合は、入会をお断りします。</strong>「100%マネタイズ」を支える仕組みです。</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-left">
-          <div class="flow-num">4</div>
-        </div>
-        <div class="flow-content">
-          <span class="flow-step-label">STEP 04</span>
-          <h4>入会・100%マネタイズ達成へ</h4>
-          <p>選考通過者のみ入会。即日、専属トレーナーの伴走がスタート。<strong>100%マネタイズ達成</strong>まで本気で伴走します！</p>
-        </div>
-      </div>
+    <div class="flow-visual reveal">
+      <img src="flow.png" alt="入会までの4ステップ：公式LINEに登録→個別面談→厳選なる面接・選考→入会・100%マネタイズ達成へ">
     </div>
   </div>
 </section>
