@@ -6,7 +6,7 @@
 <title>NEW GATE｜TikTokショップ パーソナルコンサル</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --black: #000000;
@@ -32,6 +32,10 @@
     font-family: 'Noto Sans JP', sans-serif;
     overflow-x: hidden;
     line-height: 1.7;
+  }
+  /* 日本語見出しは Zen Kaku Gothic New（Bebas Neue指定のクラスはそのまま優先される） */
+  h1, h2, h3, h4 {
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
   }
   body::before {
     content: '';
@@ -174,11 +178,11 @@
     border-radius: 100px;
     border: 1px solid rgba(0,245,255,0.35);
     background: rgba(0,245,255,0.04);
-    font-size: 11px;
-    font-family: 'Space Mono', monospace;
+    font-size: 12.5px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
     color: var(--cyan);
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
+    letter-spacing: 1px;
     margin-bottom: 18px;
     position: relative;
     z-index: 2;
@@ -360,13 +364,13 @@
 
   .section-label {
     display: inline-block;
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 11.5px;
+    letter-spacing: 1.5px;
     color: var(--cyan);
     border: 1px solid rgba(0,245,255,0.25);
-    padding: 5px 14px;
+    padding: 5px 15px;
     border-radius: 100px;
     margin-bottom: 20px;
   }
@@ -670,8 +674,8 @@
     margin-bottom: 8px;
     letter-spacing: 2px;
   }
-  .benefit-title { font-size: 14px; font-weight: 900; color: var(--white); margin-bottom: 8px; letter-spacing: 0.3px; line-height: 1.5; }
-  .benefit-desc { font-size: 12px; color: var(--gray); line-height: 1.75; }
+  .benefit-title { font-size: 15px; font-weight: 900; color: var(--white); margin-bottom: 8px; letter-spacing: 0.3px; line-height: 1.5; }
+  .benefit-desc { font-size: 13px; color: var(--gray); line-height: 1.8; }
   .benefit-desc strong { color: var(--white); font-weight: 700; }
   .benefit-tag {
     font-size: 9.5px !important;
@@ -1491,18 +1495,24 @@
 
   /* WHY 補足ポイント */
   .why-points {
-    margin-top: 64px;
-    padding-top: 48px;
+    margin-top: 72px;
+    padding-top: 56px;
     border-top: 1px solid var(--border);
   }
-  .why-points-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--gray);
-    text-transform: uppercase;
+  .why-points-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 900;
+    color: var(--white);
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .why-points-title .accent { color: var(--cyan); }
+  .why-points-sub {
+    text-align: center;
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 40px;
   }
   .why-points-grid {
     display: grid;
@@ -1513,21 +1523,36 @@
     .why-points-grid { grid-template-columns: repeat(2, 1fr); }
   }
   .why-point-item {
-    padding: 22px 22px 24px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.02);
+    padding: 30px 26px 32px;
+    border-radius: 18px;
+    background: var(--surface);
     border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s;
+  }
+  .why-point-item:hover { transform: translateY(-4px); border-color: rgba(0,245,255,0.35); }
+  .why-point-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad-main);
+    opacity: 0.75;
   }
   .why-point-num {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--cyan);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    background: var(--grad-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
     letter-spacing: 2px;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
-  .why-point-item h4 { font-size: 14px; font-weight: 900; color: var(--white); margin-bottom: 8px; letter-spacing: 0.3px; line-height: 1.5; }
-  .why-point-item p { font-size: 12px; color: var(--gray); line-height: 1.75; }
+  .why-point-item h4 { font-size: 16.5px; font-weight: 900; color: var(--white); margin-bottom: 10px; line-height: 1.55; }
+  .why-point-item p { font-size: 13.5px; color: var(--gray); line-height: 1.8; }
 
   @media(max-width: 880px) {
     .level-grid-3 { grid-template-columns: 1fr; }
@@ -1570,7 +1595,7 @@
     }
 
     /* セクションタイトル類の最適化 */
-    .section-label { font-size: 9.5px; letter-spacing: 3px; padding: 4px 11px; margin-bottom: 16px; }
+    .section-label { font-size: 10.5px; letter-spacing: 1px; padding: 4px 12px; margin-bottom: 16px; }
     .section-title { font-size: 26px; line-height: 1.35; letter-spacing: -0.3px; margin-bottom: 14px; }
     .section-desc { font-size: 13.5px; line-height: 1.85; }
 
@@ -1581,13 +1606,14 @@
     .problem-text { font-size: 11.5px; line-height: 1.65; }
 
     /* WHY 補足ポイント (6項目) — 2列に圧縮 */
-    .why-points { margin-top: 40px; padding-top: 32px; }
+    .why-points { margin-top: 44px; padding-top: 36px; }
+    .why-points-title { font-size: 21px; margin-bottom: 8px; }
+    .why-points-sub { font-size: 12px; margin-bottom: 24px; }
     .why-points-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .why-points-label { font-size: 10px; letter-spacing: 2.5px; margin-bottom: 20px; }
-    .why-point-item { padding: 16px 14px 18px; }
-    .why-point-num { font-size: 10px; letter-spacing: 1.5px; margin-bottom: 6px; }
-    .why-point-item h4 { font-size: 12.5px; line-height: 1.5; margin-bottom: 6px; }
-    .why-point-item p { font-size: 11px; line-height: 1.65; }
+    .why-point-item { padding: 18px 15px 20px; }
+    .why-point-num { font-size: 26px; margin-bottom: 8px; }
+    .why-point-item h4 { font-size: 13.5px; line-height: 1.5; margin-bottom: 6px; }
+    .why-point-item p { font-size: 12px; line-height: 1.7; }
 
     /* PRACTICE BANNER (CASE カード) — 横スクロールカルーセル */
     .practice-banner { padding: 28px 16px; margin-top: 36px; }
@@ -1862,7 +1888,8 @@
 
     <!-- NEW GATEの強み -->
     <div class="why-points reveal">
-      <div class="why-points-label">NEW GATEの強み</div>
+      <h3 class="why-points-title">NEW GATEが選ばれる<span class="accent">6つの強み</span></h3>
+      <p class="why-points-sub">収益化に本気だから、仕組みも本気。</p>
       <div class="why-points-grid">
         <div class="why-point-item">
           <span class="why-point-num">01</span>
