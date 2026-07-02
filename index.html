@@ -152,19 +152,17 @@
     pointer-events: none;
     z-index: 1;
   }
-  /* スマホ: バナー内の文字が読めないサイズになるため、写真部分をクロップして表示
-     （キャッチコピーは直下のHTMLテキストで伝わる） */
+  /* スマホ: クロップすると文字が中途半端に見切れるため、画像全体を表示する
+     （キャッチコピーは直下のHTMLテキストでも伝わる） */
   @media(max-width: 640px) {
     .hero-model {
-      height: 230px;
-      overflow: hidden;
       border-radius: 16px;
+      overflow: hidden;
     }
     .hero-model img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 72% center;
+      height: auto;
+      object-fit: contain;
     }
   }
 
@@ -854,6 +852,21 @@
 
   /* STRICT SELECTION */
   .selection { background: var(--black); padding: 96px 24px; }
+  .selection-visual {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .selection-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media(max-width: 640px) {
+    .selection { padding: 56px 18px; }
+  }
   .selection-box {
     max-width: 920px;
     margin: 0 auto;
@@ -1690,7 +1703,7 @@
   <div class="hero-inner">
     <!-- 上：ワイドなメインビジュアル -->
     <div class="hero-model">
-      <img src="hero.png?v=10" alt="SNSを仕事にしたいあなたを — 収益化まで徹底伴走">
+      <img src="hero.png?v=11" alt="SNSで稼ぎたい20〜30代へ — 収益化まで、最短ルートで伴走">
     </div>
 
     <!-- 下：ブランディング＋CTA -->
@@ -2107,46 +2120,8 @@
 <!-- STRICT SELECTION -->
 <section class="selection">
   <div class="container">
-    <div class="selection-box reveal">
-      <div class="selection-tag">100% MONETIZATION COMMITMENT</div>
-      <h2 class="selection-title">
-        絶対に稼がせる。<br>
-        だからこそ、<span class="grad-text">誰でも入会できるわけではない。</span>
-      </h2>
-      <p class="selection-lead">
-        NEW GATE は「100%マネタイズ」を標榜しています。<br>
-        マネタイズできないと判断した応募者は、入会をお断りしています。
-      </p>
-      <div class="selection-features">
-        <div class="selection-feature">
-          <div class="selection-feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          </div>
-          <div>
-            <h4>応募＝入会ではなく、選考面談</h4>
-            <p>本気で稼ぐ意志と適性を見極めてご案内します。</p>
-          </div>
-        </div>
-        <div class="selection-feature">
-          <div class="selection-feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          </div>
-          <div>
-            <h4>厳選した受講生のみ参加可能</h4>
-            <p>本気の人だけが集まるから、濃く深いサポートが可能。</p>
-          </div>
-        </div>
-        <div class="selection-feature">
-          <div class="selection-feature-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </div>
-          <div>
-            <h4>入会者は100%マネタイズ</h4>
-            <p>入会のハードルは高い。けれど、入会さえすれば確実に稼がせます。</p>
-          </div>
-        </div>
-      </div>
-      <p class="selection-cta-note">入会のハードルは高い。けれど、入会さえすれば <strong>確実な結果をお約束</strong>します。</p>
+    <div class="selection-visual reveal">
+      <img src="selection.png" alt="絶対に稼がせる。だからこそ、誰でも入会できるわけではない。NEW GATEは100%マネタイズを標榜しています。">
     </div>
   </div>
 </section>
