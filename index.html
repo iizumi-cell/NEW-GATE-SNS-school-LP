@@ -152,6 +152,21 @@
     pointer-events: none;
     z-index: 1;
   }
+  /* スマホ: バナー内の文字が読めないサイズになるため、写真部分をクロップして表示
+     （キャッチコピーは直下のHTMLテキストで伝わる） */
+  @media(max-width: 640px) {
+    .hero-model {
+      height: 230px;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    .hero-model img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 72% center;
+    }
+  }
 
   .hero-badge {
     display: inline-flex;
@@ -1486,8 +1501,19 @@
     .why-main { flex-direction: column; gap: 16px; }
     .plan-card { padding: 28px 22px; }
     .interview-notice { flex-direction: column; gap: 16px; }
-    section { padding: 56px 18px; }
+    section { padding: 48px 16px; }
     .container { padding: 0; }
+
+    /* HERO をコンパクトに */
+    .hero { padding: 78px 16px 40px; }
+    .hero-inner { gap: 20px; }
+    .hero-badge {
+      font-size: 9px;
+      letter-spacing: 1.2px;
+      padding: 5px 12px;
+      white-space: nowrap;
+      margin-bottom: 14px;
+    }
 
     /* セクションタイトル類の最適化 */
     .section-label { font-size: 9.5px; letter-spacing: 3px; padding: 4px 11px; margin-bottom: 16px; }
@@ -1760,7 +1786,7 @@
     <div class="reveal">
       <div class="section-label">NEW GATEが選ばれる理由</div>
       <h2 class="section-title">教えて終わりではなく、<span class="accent">稼げる力に変わる</span>まで。</h2>
-      <p class="section-desc">NEW GATEは、受講生一人ひとりの収益化を最優先に考える、SNS収益化パーソナルトレーニングです。専属トレーナーが、実践・改善・収益化まで徹底的に伴走します。</p>
+      <p class="section-desc">受講生一人ひとりの収益化を最優先。専属トレーナーが、実践・改善・収益化まで徹底的に伴走します。</p>
     </div>
 
     <!-- 運営会社の信頼性訴求 -->
@@ -1771,7 +1797,7 @@
       <div class="trust-content">
         <div class="trust-tag">LIVE OPERATING COMPANY</div>
         <h3 class="trust-title">SNSで<span class="grad-text">収益を出し続けている会社</span>が運営</h3>
-        <p class="trust-desc">SNSのトレンドは、<strong>わずか数週間</strong>で変わることもあります。だからこそ、今も最前線で結果を出し続けているプレイヤーから学ぶことに価値があります。NEW GATE では、<strong>最新トレンドのキャッチアップ</strong>はもちろん、"流行を追う側"ではなく、<strong>トレンドを生み出す側</strong>になるための実践力まで身につけていきます。</p>
+        <p class="trust-desc">SNSのトレンドは<strong>わずか数週間</strong>で変わることも。最前線で結果を出し続けるプレイヤーから、"流行を追う側"ではなく<strong>トレンドを生み出す側</strong>になる実践力を学べます。</p>
       </div>
     </div>
 
@@ -1779,12 +1805,12 @@
     <div class="practice-banner reveal">
       <div class="practice-banner-tag">PERSONAL TRAINING</div>
       <h3 class="practice-banner-title">初心者でも、経験者でも。<br><span class="grad-text">あなた専用の戦略</span>で、収益化まで育て上げる。</h3>
-      <p class="practice-banner-desc">NEW GATEでは、スキルや経験に関係なく、一人ひとりのレベルに合わせたパーソナルトレーニングを実施。<strong>専属トレーナーが課題を見極め、タイプ別プログラム</strong>から最適なステップで収益化を目指します。</p>
+      <p class="practice-banner-desc">スキルや経験に関係なく、レベルに合わせたトレーニングを実施。<strong>タイプ別プログラム</strong>で最短の収益化を目指します。</p>
       <div class="level-grid level-grid-3">
         <div class="level-card">
           <span class="level-tag">CASE 01</span>
           <h4 class="level-title">SNS・動画編集が<br>初めての方</h4>
-          <p class="level-desc">TikTokの基礎から動画制作、収益化まで。未経験からでも、SNSで稼ぐ流れをゼロから実践的に身につけます。</p>
+          <p class="level-desc">TikTokの基礎から収益化まで、稼ぐ流れをゼロから実践的に習得。</p>
           <div class="level-flow">
             <span class="level-flow-step">基礎</span>
             <span class="level-flow-arrow">→</span>
@@ -1796,7 +1822,7 @@
         <div class="level-card">
           <span class="level-tag">CASE 02</span>
           <h4 class="level-title">動画は作れるが、<br>収益につながっていない方</h4>
-          <p class="level-desc">投稿戦略・売れる動画設計・収益化メソッドを徹底改善。動画制作スキルを、稼ぐ力へ変えていきます。</p>
+          <p class="level-desc">投稿戦略と売れる動画設計を徹底改善。制作スキルを稼ぐ力へ。</p>
           <div class="level-flow">
             <span class="level-flow-step">投稿戦略</span>
             <span class="level-flow-arrow">→</span>
@@ -1809,7 +1835,7 @@
           <span class="level-tag-hot">★ MOST WANTED</span>
           <span class="level-tag">CASE 03</span>
           <h4 class="level-title">TikTokフォロワー1〜2万人以上いるが、<br>収益化できていない方</h4>
-          <p class="level-desc">NEW GATEが得意とするのが、<strong>すでに影響力がある方のマネタイズ設計</strong>。フォロワー資産を活かし、最短で売上につながる導線を構築します。</p>
+          <p class="level-desc"><strong>影響力がある方のマネタイズ設計</strong>が得意分野。フォロワー資産を最短で売上へ。</p>
           <div class="level-flow">
             <span class="level-flow-step">フォロワー資産</span>
             <span class="level-flow-arrow">→</span>
@@ -1915,7 +1941,7 @@
     <div class="reveal">
       <div class="section-label">EXCLUSIVE BENEFITS</div>
       <h2 class="section-title">NEW GATE<span class="accent">入会者限定特典</span></h2>
-      <p class="section-desc">ノウハウだけでは、収益化はできない。NEW GATEでは、学んだスキルをすぐに実践し、収益につなげるための特別な環境をご用意しています。</p>
+      <p class="section-desc">学んだスキルをすぐに実践し、収益につなげる特別な環境をご用意しています。</p>
     </div>
     <div class="benefits-grid reveal">
       <div class="benefit-card highlighted-benefit">
@@ -1927,17 +1953,17 @@
       <div class="benefit-card">
         <div class="benefit-num">02</div>
         <h3 class="benefit-title">高単価案件の紹介</h3>
-        <p class="benefit-desc">NEW GATE独自の<strong>高単価案件</strong>をご紹介。学んだスキルをすぐに売上へ変えられるよう、実案件に挑戦できる環境を用意しています。</p>
+        <p class="benefit-desc">独自の<strong>高単価案件</strong>を紹介。スキルをすぐ売上に変えられます。</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-num">03</div>
         <h3 class="benefit-title">独自コミュニティへの参加</h3>
-        <p class="benefit-desc">仲間とつながるだけではなく、お互いの収益を伸ばすために<strong>協力し合える環境</strong>をご用意。</p>
+        <p class="benefit-desc">受講生同士で<strong>協力し合い</strong>、お互いの収益を伸ばせる環境。</p>
       </div>
       <div class="benefit-card">
         <div class="benefit-num">04</div>
         <h3 class="benefit-title">動画編集の仕事提供</h3>
-        <p class="benefit-desc">自社アカウント向けの<strong>動画編集業務</strong>を提供。学びながら稼げる環境を整えます。</p>
+        <p class="benefit-desc">自社アカウントの<strong>編集業務</strong>を提供。学びながら稼げます。</p>
       </div>
     </div>
   </div>
@@ -1955,8 +1981,8 @@
       <span class="result-num">150<span class="result-num-unit">万円 / 月</span></span>
       <span class="result-unit">副業未経験からスタートして売上達成 — 多数輩出</span>
       <p class="result-sub">
-        NEW GATEでは、<strong>再現性の高いノウハウと専属トレーナーによる徹底伴走</strong>により、副業未経験からスタートした受講生でも、短期間で売上につながるケースが生まれています。<br>
-        実践・改善・販売までを一気通貫でサポートすることで、<strong>初心者でも着実に収益化</strong>を目指せる環境を整えています。
+        <strong>再現性の高いノウハウと徹底伴走</strong>により、副業未経験の受講生でも短期間で売上を達成。<br>
+        <strong>初心者でも着実に収益化</strong>を目指せる環境です。
       </p>
     </div>
   </div>
@@ -1982,7 +2008,7 @@
             <span class="instructor-title">SNS MARKETER</span>
           </div>
         </div>
-        <div class="instructor-desc">SNSマーケを駆使して某有名フェスの集客やサロンを展開。Instagramフォロワー70,000人をわずか3週間で達成した、集客の鬼才。</div>
+        <div class="instructor-desc">某有名フェスの集客やサロンを展開。Instagramフォロワー7万人を3週間で達成した集客の鬼才。</div>
         <div class="instructor-tags">
           <span class="tag">SNSマーケ</span>
           <span class="tag">70,000 フォロワー（3週間）</span>
@@ -2005,7 +2031,7 @@
             <span class="instructor-title">TIKTOKショップ SPECIALIST</span>
           </div>
         </div>
-        <div class="instructor-desc">TikTokショップで一人で月商2,000万円を達成した実力者。その再現性の高いメソッドをNEW GATEで全公開し、受講生の収益化を最前線でサポートする。</div>
+        <div class="instructor-desc">TikTokショップで月商2,000万円を一人で達成。そのメソッドを全公開し、受講生を最前線でサポート。</div>
         <div class="instructor-tags">
           <span class="tag">TikTokショップ</span>
           <span class="tag">月商 2,000万円</span>
@@ -2025,7 +2051,7 @@
             <span class="instructor-title">CONTENT STRATEGIST</span>
           </div>
         </div>
-        <div class="instructor-desc">バズる動画の構成・編集を熟知したコンテンツ戦略家。視聴維持率を上げる「型」を体系化し、初心者でも再現できるノウハウとして指導。</div>
+        <div class="instructor-desc">バズる動画の構成・編集を熟知。視聴維持率を上げる「型」を初心者でも再現できる形で指導。</div>
         <div class="instructor-tags">
           <span class="tag">動画戦略</span>
           <span class="tag">編集</span>
@@ -2048,7 +2074,7 @@
             <span class="instructor-title">AI VIDEO SPECIALIST</span>
           </div>
         </div>
-        <div class="instructor-desc">AI動画生成ツールを駆使したコンテンツ量産のスペシャリスト。最新ツールを活用し、効率的に高品質な動画を制作する手法を指導。</div>
+        <div class="instructor-desc">AI動画生成のスペシャリスト。高品質な動画を効率的に量産する手法を指導。</div>
         <div class="instructor-tags">
           <span class="tag">AI動画</span>
           <span class="tag">効率化</span>
@@ -2071,7 +2097,7 @@
             <span class="instructor-title">SALES TRAINER</span>
           </div>
         </div>
-        <div class="instructor-desc">商品選定から販促・販売戦略までトータルにサポート。"売れる"訴求のロジックを言語化し、再現性高く受講生に落とし込む。</div>
+        <div class="instructor-desc">商品選定から販売戦略までトータルサポート。"売れる"訴求のロジックを再現性高く指導。</div>
         <div class="instructor-tags">
           <span class="tag">販売戦略</span>
           <span class="tag">訴求設計</span>
@@ -2094,7 +2120,7 @@
             <span class="instructor-title">CHIEF TRAINER</span>
           </div>
         </div>
-        <div class="instructor-desc">NEW GATE全体の指導設計・トレーナー育成を統括。受講生一人ひとりに最適なトレーニング設計を行い、収益化までの最短ルートを引く。</div>
+        <div class="instructor-desc">指導設計・トレーナー育成を統括。一人ひとりに最適な収益化への最短ルートを設計。</div>
         <div class="instructor-tags">
           <span class="tag">統括</span>
           <span class="tag">プログラム設計</span>
@@ -2125,7 +2151,7 @@
           </div>
           <div>
             <h4>応募＝入会ではなく、選考面談</h4>
-            <p>本気で稼ぐ意志と適性を見極め、NEW GATEが伴走できる方のみをご案内します。</p>
+            <p>本気で稼ぐ意志と適性を見極めてご案内します。</p>
           </div>
         </div>
         <div class="selection-feature">
@@ -2134,7 +2160,7 @@
           </div>
           <div>
             <h4>厳選した受講生のみ参加可能</h4>
-            <p>本気で結果を出したい人だけが集まる環境だから、収益化に向けて濃く深いサポートが可能です。</p>
+            <p>本気の人だけが集まるから、濃く深いサポートが可能。</p>
           </div>
         </div>
         <div class="selection-feature">
@@ -2232,7 +2258,7 @@
         <div class="flow-content">
           <span class="flow-step-label">STEP 02</span>
           <h4>個別面談（オンライン）</h4>
-          <p>あなたの現状・目標をヒアリング。NEW GATEのトレーニング内容と適性をすり合わせます。</p>
+          <p>あなたの現状・目標をヒアリングし、適性をすり合わせます。</p>
         </div>
       </div>
       <div class="flow-step flow-step-strict">
@@ -2243,7 +2269,7 @@
         <div class="flow-content">
           <span class="flow-step-label flow-step-label-strict">STEP 03 — 厳選選考</span>
           <h4>厳選なる面接・選考</h4>
-          <p>本気で稼ぐ意志と適性を見極める選考プロセス。<strong>マネタイズできないと判断した場合は、入会をお断りします。</strong>これがNEW GATEの「100%マネタイズ」を支える仕組みです。</p>
+          <p><strong>マネタイズできないと判断した場合は、入会をお断りします。</strong>「100%マネタイズ」を支える仕組みです。</p>
         </div>
       </div>
       <div class="flow-step">
@@ -2253,7 +2279,7 @@
         <div class="flow-content">
           <span class="flow-step-label">STEP 04</span>
           <h4>入会・100%マネタイズ達成へ</h4>
-          <p>選考を通過した方のみ入会。即日コンテンツへのアクセスと専属トレーナーによる伴走が始まります。<strong>入会者は100%マネタイズ達成</strong>まで、私たちが本気で伴走します！</p>
+          <p>選考通過者のみ入会。即日、専属トレーナーの伴走がスタート。<strong>100%マネタイズ達成</strong>まで本気で伴走します！</p>
         </div>
       </div>
     </div>
